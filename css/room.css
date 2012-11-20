@@ -1,0 +1,10 @@
+@import "reset.css";
+@import "common.css";
+
+h2 {
+	margin-bottom: 10px;
+}
+
+p {
+	margin-bottom: 40px;
+}

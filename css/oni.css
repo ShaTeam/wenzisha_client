@@ -1,0 +1,15 @@
+@import "reset.css";
+@import "common.css";
+
+h1 {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+h4 {
+	padding: 10px 0;
+}
+
+a.again {
+	margin-top: 50px;
+}
