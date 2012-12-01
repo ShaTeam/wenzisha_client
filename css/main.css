@@ -1,0 +1,17 @@
+#tips{width:300px !important;}#tips header{display:block;background-color:red;height:80px;width:100%;}
+#tips .box{height:100px;display:block;background-color:#adff2f;width:100%;}
+#tips .fire{display:block;background-color:#deb887;height:100px;width:100%;}
+#tips footer{height:100px;width:100%;}#tips footer .help{width:30px;height:100%;}
+#tips footer .slider .slider-outer{width:300px;height:200px;overflow:hidden;position:relative;}#tips footer .slider .slider-outer .slider-wrap{position:absolute;width:auto;padding:0;list-style:none;margin:0px 0px;}#tips footer .slider .slider-outer .slider-wrap li{display:inline-block;height:200px;width:300px;}#tips footer .slider .slider-outer .slider-wrap li img{width:300px;}
+#tips .sprite-bg{background-position:0 0;width:52px;height:46px;}
+#tips .sprite-broadcast{background-position:0 -96px;width:37px;height:43px;}
+#tips .sprite-cloud{background-position:0 -189px;width:50px;height:32px;}
+#tips .sprite-grid{background-position:0 -271px;width:12px;height:12px;}
+#tips .sprite-moon{background-position:0 -333px;width:49px;height:48px;}
+#tips .sprite-pencil{background-position:0 -431px;width:78px;height:77px;}
+#tips .sprite-q_man{background-position:0 -558px;width:64px;height:88px;}
+#tips .sprite-qm{background-position:0 -696px;width:78px;height:91px;}
+#tips .sprite-set{background-position:0 -837px;width:52px;height:52px;}
+#tips .sprite-shake{background-position:0 -939px;width:79px;height:68px;}
+#tips .sprite-sun{background-position:0 -1057px;width:45px;height:45px;}
+#tips .sprite-unlock{background-position:0 -1152px;width:24px;height:33px;}
