@@ -226,6 +226,7 @@
 				return null;
 			}
 			wul.css('width',allWidth);
+            console.log(allWidth);
 			//复制收尾元素，以便循环
 			if(op.isLoop){
 				$(childs[0].cloneNode(true)).appendTo(wul);
