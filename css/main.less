@@ -83,7 +83,9 @@ body {
 		display: none;
 	}
 
-	header {
+
+	header.h-comm,header.h-tall {
+        position: relative;
 		display: block;
 		height: 50px;
 		width: 100%;
@@ -93,12 +95,22 @@ body {
 			font-size: 30px;
 			font-weight: bold;
 		}
+        div{
+            position: absolute;
+            right: 10px;
+            top: 0px;
+            width: 40px;
+            height: 40px;
+            background: url("../image/set.png") no-repeat;
+            background-size: contain;
+        }
 		background: url("../image/cloud.png") no-repeat 10% 0%,
-					url("../image/sun.png") no-repeat top right,
+					url("../image/sun.png") no-repeat 80% 0%,
 					url("../image/cloud.png") no-repeat bottom left
 					;
 		background-size: 10%;
 	}
+
 
 	section.box {
 		height: 180px;
@@ -163,6 +175,59 @@ body {
 			}
 		}
 	}
+
+    section.s-box{
+        position: relative;
+        height: 330px;
+        display: block;
+        width: 100%;
+
+        background: url("../image/maintext.png") no-repeat 60% 0%;
+        background-size: 60%;
+
+        .btn{
+            width: 240px;
+            height: 100px;
+            left: 40px;
+            bottom: 0px;
+            position: absolute;
+            background: url("../image/setup.png") no-repeat;
+            background-size: contain;
+
+            &:after{
+                content: " ";
+                position: absolute;
+                width: 100px;
+                height: 50px;
+                top: -38px;
+                left: 70px;
+                background: url("../image/start_box.png") no-repeat;
+                background-size: contain;
+            }
+
+            &:before{
+                content: " ";
+                position: absolute;
+                width: 50px;
+                height: 150px;
+                top: -68px;
+                left: 15px;
+                background: url("../image/hand.png") no-repeat;
+                background-size: contain;
+            }
+        }
+
+        .pen{
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            left: 10px;
+            bottom: 180px;
+            background: url("../image/word.png") no-repeat;
+            background-size: contain;
+        }
+
+    }
 
 	div.box {
 		text-align: center;
