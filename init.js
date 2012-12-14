@@ -1,34 +1,54 @@
-(function($,window,Hammer){
+(function($,window){
+    var $content = $('#content')
+        ;
 
     localStorage.clear();
 
     $('.slider').slider({ margin: 5, isPlay: false, lazy : 'data-img'});
 
-    $('.face').on('touchstart',function(e){
+    $content.on('touchstart','.face',function(e){
         e.preventDefault();
         e.stopPropagation();
         $('.card').removeClass('hide');
     });
 
-    $('.face').on('touchend',function(e){
+    $content.on('touchend','.face',function(e){
         e.preventDefault();
         e.stopPropagation();
         $('.card').addClass('hide');
     });
 
-    //出题.
-    $('.pen').on('tap',function(e){
-
-
-        $('header').removeClass('.h-tall').addClass('h-comm')
+    //法官出题.
+    $content.on('tap','.pen',function(e){
+        $('#content').html(JST['view/setTopic']());
     });
 
-    $('#set').on('tap',function(e){
+
+    //设置.
+    $content.on('tap','#set',function(e){
         alert('set');
     });
 
-    $('.btn').on('tap',function(e){
-        alert('btn');
+
+    //出题按钮.
+    $content.on('tap','#setTopic',function(e){
+        $('#content').html(JST['view/startGame']());
     });
 
-})(Zepto,window,Hammer);
+    $content.on('tap','#startGame',function(e){
+        this.style.display = 'none';
+        $('.h-comm figure').text('游戏中');
+    });
+
+    //进入玩家页面.
+    $content.on('tap','.btn',function(e){
+        $('#content').html(JST['view/userGet']());
+    });
+
+    //玩家确认口令.
+    $content.on('tap','#confirm',function(e){
+        $('#content').html(JST['view/userWait']());
+    });
+
+
+})(Zepto,window);

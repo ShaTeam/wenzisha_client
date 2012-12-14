@@ -3,79 +3,6 @@ body {
 	padding: 0;
 }
 
-//sprite
-.sprite-bg {
-	background-position: 0 0;
-	width: 52px;
-	height: 46px;
-}
-
-.sprite-broadcast {
-	background-position: 0 -96px;
-	width: 37px;
-	height: 43px;
-}
-
-.sprite-cloud {
-	background-position: 0 -189px;
-	width: 50px;
-	height: 32px;
-}
-
-.sprite-grid {
-	background-position: 0 -271px;
-	width: 12px;
-	height: 12px;
-}
-
-.sprite-moon {
-	background-position: 0 -333px;
-	width: 49px;
-	height: 48px;
-}
-
-.sprite-pencil {
-	background-position: 0 -431px;
-	width: 78px;
-	height: 77px;
-}
-
-.sprite-q_man {
-	background-position: 0 -558px;
-	width: 64px;
-	height: 88px;
-}
-
-.sprite-qm {
-	background-position: 0 -696px;
-	width: 78px;
-	height: 91px;
-}
-
-.sprite-set {
-	background-position: 0 -837px;
-	width: 52px;
-	height: 52px;
-}
-
-.sprite-shake {
-	background-position: 0 -939px;
-	width: 79px;
-	height: 68px;
-}
-
-.sprite-sun {
-	background-position: 0 -1057px;
-	width: 45px;
-	height: 45px;
-}
-
-.sprite-unlock {
-	background-position: 0 -1152px;
-	width: 24px;
-	height: 33px;
-}
-
 #tips {
 	width: 300px !important;
 
@@ -83,10 +10,10 @@ body {
 		display: none;
 	}
 
-
 	header.h-comm,header.h-tall {
         position: relative;
 		display: block;
+        margin-top: 20px;
 		height: 50px;
 		width: 100%;
 		figure {
@@ -98,7 +25,7 @@ body {
         div{
             position: absolute;
             right: 10px;
-            top: 0px;
+            top: -20px;
             width: 40px;
             height: 40px;
             background: url("../image/set.png") no-repeat;
@@ -113,7 +40,7 @@ body {
 
 
 	section.box {
-		height: 180px;
+		min-height: 100px;
 		display: block;
 		width: 100%;
 		.word {
@@ -128,16 +55,45 @@ body {
 				-webkit-box-shadow: 1px 3px 7px rgba(0, 0, 0, 0.3) inset;
 				figure {
 					display: inline-block;
+                    position: relative;
 					width: 120px;
 					height: 30px;
 					line-height: 30px;
 					margin: 0;
 					vertical-align: middle;
+
+                    input{
+                        width: 110px;
+                        height: 28px;
+                        border: 0px;
+                        background: transparent;
+                        text-align: center;
+                        line-height: 28px;
+                        font-size: 20px;
+
+                        &::-webkit-input-placeholder{
+                            font-size: 14px;
+                        }
+                    }
+
+                    i{
+                        display: inline-block;
+                        position: absolute;
+                        background: #f0f0f0;
+                        width: 30px;
+                        height: 30px;
+                        line-height: 30px;
+                        top: -2px;
+                        -webkit-border-radius: 15px;
+                        border-left: 1px solid white;
+                        border-right: 1px solid #CFCFCF;
+                        border-bottom: 1px solid #CFCFCF;
+                    }
 				}
 				em {
 					display: inline-block;
-					height: 30px;
-					width: 30px;
+					height: 20px;
+					width: 20px;
 					background: url("../image/broadcast.png");
 					background-size: contain;
 					vertical-align: middle;
@@ -233,6 +189,7 @@ body {
 		text-align: center;
 		position: relative;
 		.card {
+            z-index: 2;
 			position: absolute;
 			width: 120px;
 			height: 120px;
@@ -258,13 +215,36 @@ body {
 				-webkit-border-top-left-radius: 5px;
 				-webkit-border-top-right-radius: 5px;
 			}
+
+            figure{
+                width: 100%;
+                height: 40px;
+                background: url("../image/pencil.png") no-repeat 90% 0%;
+                background-size: contain;
+                margin-left: 0px;
+            }
 		}
 		.face {
+            position: relative;
+            z-index: 1;
 			width: 160px;
 			height: 160px;
 			display: inline-block;
 			background: url("../image/box.png") no-repeat;
 			background-size: contain;
+            span{
+                position: absolute;
+                display: inline-block;
+                width: 80px;
+                height: 80px;
+                background: -webkit-radial-gradient(center,#EB6E6F,#E74242);
+                top: 45px;
+                left: 40px;
+                -webkit-border-radius: 40px;
+                line-height: 80px;
+                font-size: 40px;
+                color: #746868;
+            }
 		}
 		span {
 			display: block;
@@ -275,7 +255,7 @@ body {
 
 	.fire {
 		display: block;
-		height: 150px;
+		//height: 150px;
 		width: 100%;
 		.txt {
 			text-align: center;
