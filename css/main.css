@@ -3,7 +3,7 @@ body {
   padding: 0;
 }
 #tips {
-  width: 300px !important;
+  width: 100%;
 }
 #tips .hide {
   display: none;
@@ -16,7 +16,7 @@ body {
   height: 50px;
   width: 100%;
   background: url("../image/cloud.png") no-repeat 10% 0%, url("../image/sun.png") no-repeat 80% 0%, url("../image/cloud.png") no-repeat bottom left;
-  background-size: 10%;
+  background-size: 2em 2em;
 }
 #tips header.h-comm figure,
 #tips header.h-tall figure {
@@ -129,13 +129,14 @@ body {
   height: 330px;
   display: block;
   width: 100%;
-  background: url("../image/maintext.png") no-repeat 60% 0%;
-  background-size: 60%;
+  background: url("../image/maintext.png") no-repeat 50% 0%;
+  background-size: 10em 10em;
 }
 #tips section.s-box .btn {
   width: 240px;
   height: 100px;
-  left: 40px;
+  left: 50%;
+  -webkit-transform: translatex(-50%);
   bottom: 0px;
   position: absolute;
   background: url("../image/setup.png") no-repeat;
@@ -165,7 +166,8 @@ body {
   position: absolute;
   width: 70px;
   height: 70px;
-  left: 10px;
+  left: 30%;
+  -webkit-transform: translatex(-50%);
   bottom: 180px;
   background: url("../image/word.png") no-repeat;
   background-size: contain;
@@ -282,6 +284,7 @@ body {
   height: 200px;
   overflow: hidden;
   position: relative;
+  margin: 0px auto;
 }
 #tips .slider .slider-outer .slider-wrap {
   position: absolute;
