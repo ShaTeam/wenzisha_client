@@ -166,8 +166,8 @@ body {
   position: absolute;
   width: 70px;
   height: 70px;
-  left: 30%;
-  -webkit-transform: translatex(-50%);
+  left: 50%;
+  -webkit-transform: translatex(-200%);
   bottom: 180px;
   background: url("../image/word.png") no-repeat;
   background-size: contain;
@@ -182,7 +182,8 @@ body {
   width: 120px;
   height: 120px;
   background-color: red;
-  left: 90px;
+  left: 50%;
+  -webkit-transform: translatex(-50%);
   top: -100px;
   -webkit-border-top-left-radius: 5px;
   -webkit-border-top-right-radius: 5px;
