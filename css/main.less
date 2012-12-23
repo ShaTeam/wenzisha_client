@@ -1,334 +1,377 @@
+//base Style
 body {
 	margin: 0;
 	padding: 0;
 }
 
-#tips {
+@maxSlideWidth : 20em;
+
+//layout Style
+#wrapper {
 	width: 100%;
 
 	.hide {
 		display: none;
 	}
+}
 
-	header.h-comm,header.h-tall {
-        position: relative;
-		display: block;
-        margin-top: 20px;
-		height: 50px;
-		width: 100%;
-		figure {
-			text-align: center;
-			color: black;
-			font-size: 30px;
-			font-weight: bold;
-		}
-        div{
-            position: absolute;
-            right: 10px;
-            top: -20px;
-            width: 40px;
-            height: 40px;
-            background: url("../image/set.png") no-repeat;
-            background-size: contain;
-        }
-		background: url("../image/cloud.png") no-repeat 10% 0%,
-					url("../image/sun.png") no-repeat 80% 0%,
-					url("../image/cloud.png") no-repeat bottom left
-					;
-		background-size: 2em 2em;
+header{
+	position: relative;
+	display: block;
+	height: 4em;
+	width: 100%;
+	background: url("../image/cloud.png") no-repeat 20% 0%,
+				url("../image/sun.png") no-repeat 80% 0%,
+				url("../image/cloud.png") no-repeat 40% 100%,
+				url("../image/cloud.png") no-repeat 10% 100%;
+	background-size: 1.5em 1.5em;
+}
+
+.box{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 20em;
+}
+
+
+//module style
+header{
+	.set{
+		position: absolute;
+		right: 1em;
+		top: 0.3em;
+		width: 3em;
+		height: 3em;
+		background: url("../image/set.png") no-repeat;
+		background-size: contain;
 	}
 
+	.caption{
+		text-align: center;
+		color: black;
+		font-size: 30px;
+		font-weight: bold;
+		margin: 5px auto;
+	}
+}
 
-	section.box {
-		min-height: 100px;
-		display: block;
-		width: 100%;
-		.word {
-			text-align: center;
-			span {
+//modules
+
+.box-ready{
+	.word {
+		text-align: center;
+		span {
+			display: inline-block;
+			height: 3em;
+			width: 13em;
+			line-height: 3em;
+			background-image: url("../image/grid.png");
+			-webkit-border-radius: 2em;
+			-webkit-box-shadow: 1px 3px 7px rgba(0, 0, 0, 0.3) inset;
+			figure {
 				display: inline-block;
-				height: 50px;
-				width: 200px;
-				line-height: 50px;
-				background-image: url("../image/grid.png");
-				-webkit-border-radius: 40px;
-				-webkit-box-shadow: 1px 3px 7px rgba(0, 0, 0, 0.3) inset;
-				figure {
+				position: relative;
+				width: 8em;
+				height: 2.5em;
+				line-height: 2.5em;
+				margin: 0;
+				vertical-align: middle;
+
+				input {
+					width: 7.1em;
+					height: 1.6em;
+					border: 0px;
+					background: transparent;
+					text-align: center;
+					line-height: 1em;
+					font-size: 1.4em;
+
+					&::-webkit-input-placeholder {
+						font-size: 0.7em;
+					}
+				}
+
+				i {
 					display: inline-block;
-                    position: relative;
-					width: 120px;
+					position: absolute;
+					background: #f0f0f0;
+					width: 30px;
 					height: 30px;
 					line-height: 30px;
-					margin: 0;
-					vertical-align: middle;
-
-                    input{
-                        width: 110px;
-                        height: 28px;
-                        border: 0px;
-                        background: transparent;
-                        text-align: center;
-                        line-height: 28px;
-                        font-size: 20px;
-
-                        &::-webkit-input-placeholder{
-                            font-size: 14px;
-                        }
-                    }
-
-                    i{
-                        display: inline-block;
-                        position: absolute;
-                        background: #f0f0f0;
-                        width: 30px;
-                        height: 30px;
-                        line-height: 30px;
-                        top: -2px;
-                        -webkit-border-radius: 15px;
-                        border-left: 1px solid white;
-                        border-right: 1px solid #CFCFCF;
-                        border-bottom: 1px solid #CFCFCF;
-                    }
-				}
-				em {
-					display: inline-block;
-					height: 20px;
-					width: 20px;
-					background: url("../image/broadcast.png");
-					background-size: contain;
-					vertical-align: middle;
+					top: -2px;
+					-webkit-border-radius: 15px;
+					border-left: 1px solid white;
+					border-right: 1px solid #CFCFCF;
+					border-bottom: 1px solid #CFCFCF;
 				}
 			}
+			em {
+				display: inline-block;
+				height: 1.3em;
+				width: 1.3em;
+				margin-left: -1em;
+				background: url("../image/broadcast.png");
+				background-size: contain;
+				vertical-align: middle;
+			}
 		}
+	}
+
+	.putin {
+		padding: 0;
+		text-align: center;
+		li {
+			display: inline-block;
+			height: 6.1em;
+			width: 6.1em;
+			margin: 0 0;
+			text-align: center;
+			input {
+				width: 4em;
+				height: 1em;
+				border: 0px;
+				background-color: transparent;
+				text-align: center;
+				font-size: 1.3em;
+				margin-top: 5px;
+			}
+			background-position: bottom;
+			background-size: contain;
+			background-color: #e4e8eb;
+		}
+		li:nth-child(1) {
+			margin-left: 10px;
+			background-image: url("../image/ghost.png");
+		}
+		li:nth-child(2) {
+			background-image: url("../image/common.png");
+		}
+		li:nth-child(3) {
+			background-image: url("../image/fool.png");
+		}
+	}
+}
+
+//module
+.box-start{
+	background: url("../image/maintext.png") no-repeat 50% 0%;
+	background-size: 12em 12em;
+
+	.btn {
+		width: 15em;
+		height: 5em;
+		left: 50%;
+		-webkit-transform: translateX(-50%);
+		bottom: 0px;
+		position: absolute;
+		background: url("../image/setup.png") no-repeat;
+		background-size: contain;
+
+		&:after {
+			content: " ";
+			position: absolute;
+			width: 8em;
+			height: 4em;
+			top: -3.4em;
+			left: 45%;
+			-webkit-transform: translateX(-50%);
+			background: url("../image/start_box.png") no-repeat;
+			background-size: contain;
+		}
+
+		&:before {
+			content: " ";
+			position: absolute;
+			width: 4em;
+			height: 10em;
+			top: -6em;
+			left: -12%;
+			background: url("../image/hand.png") no-repeat;
+			background-size: contain;
+		}
+	}
+
+	.pen {
+		position: absolute;
+		width: 5em;
+		height: 5em;
+		left: 50%;
+		-webkit-transform: translateX(-220%);
+		bottom: 60%;
+		background: url("../image/word.png") no-repeat;
+		background-size: contain;
+	}
+}
+
+
+.box-game {
+	text-align: center;
+	position: relative;
+	padding-top: 2em;
+	.card {
+		z-index: 2;
+		position: absolute;
+		width: 7.2em;
+		height: 7.2em;
+		background-color: red;
+		left: 50%;
+		-webkit-transform: translateX(-50%);
+		top: -4em;
+		-webkit-border-top-left-radius: 5px;
+		-webkit-border-top-right-radius: 5px;
+		background: url("../image/ghost.png") no-repeat 90% 0%, url("../image/common.png") no-repeat 45% 50%, url("../image/fool.png") no-repeat 10% 100%;
+		background-size: 90%;
+
+		span {
+			width: 5em;
+			height: 1.6em;
+			line-height: 1.6em;
+			font-size: 1.5em;
+			font-weight: bolder;
+			color: #9A9A9A;
+			margin-top: 1em;
+			display: inline-block;
+			-webkit-border-top-left-radius: 5px;
+			-webkit-border-top-right-radius: 5px;
+		}
+
+		figure {
+			width: 100%;
+			height: 40px;
+			background: url("../image/pencil.png") no-repeat 90% 0%;
+			background-size: contain;
+			margin-left: 0px;
+		}
+	}
+	.face {
+		position: relative;
+		z-index: 1;
+		width: 10em;
+		height: 10em;
+		display: inline-block;
+		background: url("../image/box.png") no-repeat;
+		background-size: contain;
+		span {
+			position: absolute;
+			display: inline-block;
+			width: 2em;
+			height: 2em;
+			background: -webkit-radial-gradient(center, #EB6E6F, #E74242);
+			top: 0.9em;
+			left: 50%;
+			-webkit-transform: translateX(-50%);
+			-webkit-border-radius: 2em;
+			line-height: 2em;
+			font-size: 3em;//注意相对字体的em*em效果
+			color: #746868;
+		}
+	}
+	span {
+		display: block;
+		font-size: 3em;
+		color: #9a9a9a;
+	}
+}
+
+.fire {
+	display: block; //height: 150px;
+	width: 100%;
+	.btn {
+		margin-top: 5px;
+		text-align: center;
+		span {
+			height: 2.5em;
+			width: 8em;
+			color: white;
+			font-size: 1.3em;
+			letter-spacing: 0.2em;
+			line-height: 2.5em;
+			display: inline-block;
+			-webkit-border-radius: 1.25em;
+			background-color: #E43C3C;
+			text-align: center;
+		}
+	}
+	.hyph {
+		text-align: center;
 		ul {
 			padding: 0;
 			li {
 				display: inline-block;
-				height: 90px;
-				width: 90px;
-				margin: 0 0;
-				text-align: center;
-				input {
-					width: 80px;
-					height: 40px;
-					border: 0px;
-					background-color: transparent;
-					text-align: center;
-				}
-				background-position: bottom;
-				background-size: contain;
-				background-color: #e4e8eb;
-			}
-			li:nth-child(1) {
-				margin-left: 10px;
-				background-image: url("../image/ghost.png");
-			}
-			li:nth-child(2) {
-				background-image: url("../image/common.png");
-			}
-			li:nth-child(3) {
-				background-image: url("../image/fool.png");
+				width: 6px;
+				height: 6px;
+				margin-left: 9px;
+				-webkit-border-radius: 3px;
+				background-color: grey;
 			}
 		}
 	}
+}
 
-    section.s-box{
-        position: relative;
-        height: 330px;
-        display: block;
-        width: 100%;
-
-        background: url("../image/maintext.png") no-repeat 50% 0%;
-        background-size: 10em 10em;
-
-        .btn{
-            width: 240px;
-            height: 100px;
-            left: 50%;
-            -webkit-transform: translateX(-50%);
-            bottom: 0px;
-            position: absolute;
-            background: url("../image/setup.png") no-repeat;
-            background-size: contain;
-
-            &:after{
-                content: " ";
-                position: absolute;
-                width: 100px;
-                height: 50px;
-                top: -38px;
-                left: 70px;
-                background: url("../image/start_box.png") no-repeat;
-                background-size: contain;
-            }
-
-            &:before{
-                content: " ";
-                position: absolute;
-                width: 50px;
-                height: 150px;
-                top: -68px;
-                left: 15px;
-                background: url("../image/hand.png") no-repeat;
-                background-size: contain;
-            }
-        }
-
-        .pen{
-            position: absolute;
-            width: 70px;
-            height: 70px;
-            left: 50%;
-            -webkit-transform: translateX(-200%);
-            bottom: 180px;
-            background: url("../image/word.png") no-repeat;
-            background-size: contain;
-        }
-
-    }
-
-	div.box {
-		text-align: center;
+footer {
+	height: 100px;
+	width: 100%;
+	margin-top: 5px;
+	.slider-outer {
+		width: @maxSlideWidth;
+		height: 15em;
+		overflow: hidden;
 		position: relative;
-		.card {
-            z-index: 2;
+		margin: 0px auto;
+		.slider-wrap {
 			position: absolute;
-			width: 120px;
-			height: 120px;
-			background-color: red;
-			left: 50%;
-            -webkit-transform: translateX(-50%);
-			top: -100px;
-			-webkit-border-top-left-radius: 5px;
-			-webkit-border-top-right-radius: 5px;
-			background: url("../image/ghost.png") no-repeat 90% 0%,
-						url("../image/common.png") no-repeat 45% 50%,
-						url("../image/fool.png") no-repeat 10% 100%
-						;
-			background-size: 90%;
-
-			span {
-				width: 110px;
-				height: 40px;
-				font-size: 24px; //        text-align: center;
-				font-weight: bolder;
-				color: #9a9a9a;
-				margin-top: 10px;
+			width: auto;
+			padding: 0;
+			list-style: none;
+			margin: 0px 0px;
+			li {
 				display: inline-block;
-				-webkit-border-top-left-radius: 5px;
-				-webkit-border-top-right-radius: 5px;
-			}
-
-            figure{
-                width: 100%;
-                height: 40px;
-                background: url("../image/pencil.png") no-repeat 90% 0%;
-                background-size: contain;
-                margin-left: 0px;
-            }
-		}
-		.face {
-            position: relative;
-            z-index: 1;
-			width: 160px;
-			height: 160px;
-			display: inline-block;
-			background: url("../image/box.png") no-repeat;
-			background-size: contain;
-            span{
-                position: absolute;
-                display: inline-block;
-                width: 80px;
-                height: 80px;
-                background: -webkit-radial-gradient(center,#EB6E6F,#E74242);
-                top: 45px;
-                left: 40px;
-                -webkit-border-radius: 40px;
-                line-height: 80px;
-                font-size: 40px;
-                color: #746868;
-            }
-		}
-		span {
-			display: block;
-			font-size: 30px; //        text-align: center;
-			color: #9a9a9a;
-		}
-	}
-
-	.fire {
-		display: block;
-		//height: 150px;
-		width: 100%;
-		.txt {
-			text-align: center;
-			line-height: 25px;
-			min-height: 50px;
-			color: #9a9a9a;
-			font-size: 14px;
-		}
-		.btn {
-			margin-top: 5px;
-			text-align: center;
-			span {
-				height: 50px;
-				width: 150px;
-				color: white;
-				font-size: 18px;
-				letter-spacing: 7px;
-				line-height: 50px;
-				display: inline-block;
-				-webkit-border-radius: 40px;
-				background-color: #e43c3c;
-				text-align: center;
-			}
-		}
-		.hyph {
-			text-align: center;
-			ul {
-				padding: 0;
-				li {
-					display: inline-block;
-					width: 6px;
-					height: 6px;
-					margin-left: 9px;
-					-webkit-border-radius: 3px;
-					background-color: grey;
+				height: 15em;
+				width: @maxSlideWidth;
+				img {
+					width: @maxSlideWidth;
+				}
+				figure {
+					text-align: center;
+					margin: 0.3em 1em;
+					color: #9a9a9a;
+					font-size: 1.2em;
 				}
 			}
 		}
 	}
+}
 
-	.slider {
-		height: 100px;
-		width: 100%;
-		.slider-outer {
-			width: 300px;
-			height: 200px;
-			overflow: hidden;
-			position: relative;
-            margin: 0px auto;
-			.slider-wrap {
-				position: absolute;
-				width: auto;
-				padding: 0;
-				list-style: none;
-				margin: 0px 0px;
-				li {
-					display: inline-block;
-					height: 200px;
-					width: 300px;
-					img {
-						width: 300px;
-					}
-					figure {
-						text-align: center;
-						color: #9a9a9a;
-						font-size: 16px;
-					}
-				}
-			}
-		}
+//@media only screen and (-webkit-min-device-pixel-ratio: 2),
+//		only screen and (min-device-pixel-ratio: 2),
+//		screen and (min-width:0px) and (max-width:320px)
+//{
+//	body{
+//		font-size: 4px;
+//	}
+//}
+
+@media only screen and (min-width:0px) and (max-width:320px){
+	body{
+		font-size: 11px;
 	}
+}
 
+@media only screen and (min-width:321px) and (max-width:480px){
+	body{
+		font-size: 18px;
+	}
+}
+
+@media only screen and (min-width:481px) and (max-width:920px){
+	body{
+		font-size: 22px;
+	}
+}
+
+@media only screen and (min-width:921px){
+	body{
+		font-size: 24px;
+	}
 }
