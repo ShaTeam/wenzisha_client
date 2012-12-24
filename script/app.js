@@ -4,7 +4,7 @@
 }).call(this);
 (function() {
   this.JST || (this.JST = {});
-  this.JST["view/setTopic"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--出题卡-->\n<div class="word">\n     <span>\n         <em></em><figure><input type="text" placeholder="点击输入取卡口令"></figure>\n     </span>\n</div>\n<ul class="putin">\n    <li>\n        <input placeholder="点此输入">\n    </li>\n    <li>\n        <input placeholder="点此输入">\n    </li>\n    <li>\n        <input placeholder="点此输入">\n    </li>\n</ul>\n\n<section class="fire">\n    <div class="btn">\n        <span id="setTopic">\n            出题\n        </span>\n    </div>\n    <div class="hyph">\n        <ul>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n        </ul>\n    </div>\n</section>\n');}return __p.join('');};
+  this.JST["view/setTopic"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--出题卡-->\n<div class="word">\n     <span>\n         <em></em><figure><input type="text" tabindex="-1" placeholder="点击输入取卡口令"></figure>\n     </span>\n</div>\n<ul class="putin">\n    <li>\n        <input tabindex="2" placeholder="点此输入">\n    </li>\n    <li>\n        <input tabindex="3" placeholder="点此输入">\n    </li>\n    <li>\n        <input tabindex="4" placeholder="点此输入">\n    </li>\n</ul>\n\n<section class="fire">\n    <div class="btn">\n        <span id="setTopic">\n            出题\n        </span>\n    </div>\n    <div class="hyph">\n        <ul>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n        </ul>\n    </div>\n</section>\n');}return __p.join('');};
 }).call(this);
 (function() {
   this.JST || (this.JST = {});
@@ -2211,7 +2211,6 @@ window.Zepto = Zepto
     var $content = $('#wrapper')
         ;
 
-
 //    alert(window.devicePixelRatio);
 //    alert($(document).css('-webkit-min-device-pixel-ratio'));
 
@@ -2324,7 +2323,18 @@ window.Zepto = Zepto
     }
 
     $(window).shake({action : function(){alert(1)}});
+
+
+    window.addEventListener("load",function() {
+
+        // Set a timeout...
+        setTimeout(function(){
+            // Hide the address bar!
+            window.scrollTo(0, -100);
+        }, 100);
+    });
 })(Zepto,window);
+
 
 
 

@@ -1,9 +1,11 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: "微软雅黑";
 }
 #wrapper {
   width: 100%;
+  position: relative;
 }
 #wrapper .hide {
   display: none;
@@ -42,6 +44,7 @@ header .caption {
   text-align: center;
 }
 .box-ready .word span {
+  position: relative;
   display: inline-block;
   height: 3em;
   width: 13em;
@@ -53,19 +56,21 @@ header .caption {
 .box-ready .word span figure {
   display: inline-block;
   position: relative;
-  width: 8em;
+  margin: 0;
+  left: 0px;
+  width: 100%;
   height: 2.5em;
   line-height: 2.5em;
-  margin: 0;
-  vertical-align: middle;
+  vertical-align: baseline;
+  background: transparent;
 }
 .box-ready .word span figure input {
   width: 7.1em;
-  height: 1.6em;
+  height: 1.4em;
+  line-height: 1.4em;
   border: 0px;
   background: transparent;
   text-align: center;
-  line-height: 1em;
   font-size: 1.4em;
 }
 .box-ready .word span figure input::-webkit-input-placeholder {
@@ -85,6 +90,10 @@ header .caption {
   border-bottom: 1px solid #CFCFCF;
 }
 .box-ready .word span em {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  left: 15%;
   display: inline-block;
   height: 1.3em;
   width: 1.3em;
@@ -128,7 +137,7 @@ header .caption {
 }
 .box-start {
   background: url("../image/maintext.png") no-repeat 50% 0%;
-  background-size: 12em 12em;
+  background-size: 11em 11em;
 }
 .box-start .btn {
   width: 15em;
@@ -234,7 +243,7 @@ header .caption {
 }
 .box-game span {
   display: block;
-  font-size: 3em;
+  font-size: 2.5em;
   color: #9a9a9a;
 }
 .fire {
@@ -272,13 +281,13 @@ header .caption {
   background-color: grey;
 }
 footer {
-  height: 100px;
+  height: 300px;
   width: 100%;
   margin-top: 5px;
 }
 footer .slider-outer {
   width: 20em;
-  height: 15em;
+  height: 100%;
   overflow: hidden;
   position: relative;
   margin: 0px auto;

@@ -2,14 +2,21 @@
 body {
 	margin: 0;
 	padding: 0;
+    font-family: "微软雅黑";
 }
 
 @maxSlideWidth : 20em;
 
 //layout Style
 #wrapper {
-	width: 100%;
+//    position: absolute;
+//    top: 0px;
+//    bottom: 0px;
+//    left: 0px;
+//    right: 0px;
 
+    width: 100%;
+    position: relative;
 	.hide {
 		display: none;
 	}
@@ -19,6 +26,7 @@ header{
 	position: relative;
 	display: block;
 	height: 4em;
+//	height: 20%;
 	width: 100%;
 	background: url("../image/cloud.png") no-repeat 20% 0%,
 				url("../image/sun.png") no-repeat 80% 0%,
@@ -32,6 +40,7 @@ header{
 	display: block;
 	width: 100%;
 	height: 20em;
+//	height: 60%;
 }
 
 
@@ -62,6 +71,7 @@ header{
 	.word {
 		text-align: center;
 		span {
+            position: relative;
 			display: inline-block;
 			height: 3em;
 			width: 13em;
@@ -69,22 +79,25 @@ header{
 			background-image: url("../image/grid.png");
 			-webkit-border-radius: 2em;
 			-webkit-box-shadow: 1px 3px 7px rgba(0, 0, 0, 0.3) inset;
+
 			figure {
-				display: inline-block;
-				position: relative;
-				width: 8em;
-				height: 2.5em;
-				line-height: 2.5em;
-				margin: 0;
-				vertical-align: middle;
+                display: inline-block;
+                position: relative;
+                margin: 0;
+                left: 0px;
+                width: 100%;
+                height: 2.5em;
+                line-height: 2.5em;
+                vertical-align: baseline;
+                background: transparent;
 
 				input {
 					width: 7.1em;
-					height: 1.6em;
+					height: 1.4em;
+                    line-height: 1.4em;
 					border: 0px;
 					background: transparent;
 					text-align: center;
-					line-height: 1em;
 					font-size: 1.4em;
 
 					&::-webkit-input-placeholder {
@@ -107,13 +120,17 @@ header{
 				}
 			}
 			em {
-				display: inline-block;
-				height: 1.3em;
-				width: 1.3em;
-				margin-left: -1em;
-				background: url("../image/broadcast.png");
-				background-size: contain;
-				vertical-align: middle;
+                position: absolute;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                left: 15%;
+                display: inline-block;
+                height: 1.3em;
+                width: 1.3em;
+                margin-left: -1em;
+                background: url("../image/broadcast.png");
+                background-size: contain;
+                vertical-align: middle;
 			}
 		}
 	}
@@ -156,7 +173,7 @@ header{
 //module
 .box-start{
 	background: url("../image/maintext.png") no-repeat 50% 0%;
-	background-size: 12em 12em;
+	background-size: 11em 11em;
 
 	.btn {
 		width: 15em;
@@ -269,7 +286,7 @@ header{
 	}
 	span {
 		display: block;
-		font-size: 3em;
+		font-size: 2.5em;
 		color: #9a9a9a;
 	}
 }
@@ -310,12 +327,14 @@ header{
 }
 
 footer {
-	height: 100px;
+	height: 300px;
+//	height: 100px;
+//	height: 30%;
 	width: 100%;
 	margin-top: 5px;
 	.slider-outer {
 		width: @maxSlideWidth;
-		height: 15em;
+		height: 100%;
 		overflow: hidden;
 		position: relative;
 		margin: 0px auto;

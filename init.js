@@ -2,7 +2,6 @@
     var $content = $('#wrapper')
         ;
 
-
 //    alert(window.devicePixelRatio);
 //    alert($(document).css('-webkit-min-device-pixel-ratio'));
 
@@ -115,4 +114,15 @@
     }
 
     $(window).shake({action : function(){alert(1)}});
+
+
+    window.addEventListener("load",function() {
+
+        // Set a timeout...
+        setTimeout(function(){
+            // Hide the address bar!
+            window.scrollTo(0, -100);
+        }, 100);
+    });
 })(Zepto,window);
+
