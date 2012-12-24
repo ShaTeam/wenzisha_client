@@ -1,0 +1,43 @@
+CACHE MANIFEST
+
+# VERSION 0.7
+
+# 直接缓存的文件
+image/bg.png
+image/box.png
+image/broadcast.png
+image/choose.png
+image/cloud.png
+image/common.png
+image/dark.png
+image/find.png
+image/fool.png
+image/footer.png
+image/ghost.png
+image/grid.png
+image/group.png
+image/hand.png
+image/imglet.png
+image/judge.png
+image/justify.png
+image/maintext.png
+image/moon.png
+image/pencil.png
+image/popup3.png
+image/q_man.png
+image/qm.png
+image/set.png
+image/setup.png
+image/shake.png
+image/shaketxt.png
+image/start.png
+image/start_box.png
+image/sun.png
+image/unlock.png
+image/word.png
+
+# 需要在线访问的文件
+NETWORK:
+
+# 替代方案
+FALLBACK:
