@@ -1,22 +1,26 @@
 (function() {
   this.JST || (this.JST = {});
-  this.JST["view/headerTxt"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--确认人数\\出题卡-->\n<figure class="caption">',  caption,'</figure>\n<div class="set">\n</div>\n');}return __p.join('');};
+  this.JST["view/help-switcher"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('');  if(index == 1){ ; __p.push('\n<p>\n    这是一个大家坐在一起的文字游戏！首先要集齐至少<strong>7</strong>个人用浏览器打开<em>www.wenzisha.com</em>其中一人点击出题按钮，其余人进入游戏准备抓鬼。\n</p>\n');  }else if(index == 2){ ; __p.push('\n<p>\n    法官进入出题界面,并将领卡密码告诉大家，其他人输入密码领取卡片。<br>\n    法官出题需保证两个词<span>字数一致，强烈相关。</span>\n</p>\n');  }else if(index == 3){ ; __p.push('\n<p>\n    所有人确认好自己的身份卡\n</p>\n');  }else if(index == 4){ ; __p.push('\n<p>\n    法官：天黑请闭眼，鬼请睁眼，鬼需要互相认识同伴，并指认开始阐述的起点。（通常以顺时针方向进行）\n</p>\n');  }else if(index == 5){ ; __p.push('\n<p>\n    从鬼指认的人开始阐述，平民和傻子需要尽量阐述的让同伴理解你的词，但不要让鬼猜到你的词。\n</p>\n');  }else if(index == 6){ ; __p.push('\n<p>\n    阐述一轮结束后，法官需要组织大家进行投票谁是鬼。票数最多的人被投死，如票数相同，则继续阐述再进行投票，直到投死一个人为止。\n</p>\n');  }else if(index == 7){ ; __p.push('\n<p>\n    被投死的人，需要承认是否是鬼，如回答不是鬼，则没有遗言；<br>\n    如回答是鬼，则可以向法官问一个可以用“是”或“否”作答的问题，法官将如实回答。\n</p>\n');  }else if(index == 8){ ; __p.push('\n<p>\n    当鬼猜出词时，鬼胜；<br>\n    当平民和傻子的人数少于鬼的人数时，鬼胜;<br>\n    当平民和傻子将鬼全部投死，平民和傻子胜。\n</p>\n');  }else{ ; __p.push('\n<p>\n    <span>error</span>a\n</p>\n');  } ; __p.push('\n\n');}return __p.join('');};
 }).call(this);
 (function() {
   this.JST || (this.JST = {});
-  this.JST["view/setTopic"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--出题卡-->\n<div class="word">\n     <span>\n         <em></em><figure><input type="text" tabindex="-1" placeholder="点击输入取卡口令"></figure>\n     </span>\n</div>\n<ul class="putin">\n    <li>\n        <input tabindex="2" placeholder="点此输入">\n    </li>\n    <li>\n        <input tabindex="3" placeholder="点此输入">\n    </li>\n    <li>\n        <input tabindex="4" placeholder="点此输入">\n    </li>\n</ul>\n\n<section class="fire">\n    <div class="btn">\n        <span id="setTopic">\n            出题\n        </span>\n    </div>\n    <div class="hyph">\n        <ul>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n        </ul>\n    </div>\n</section>\n');}return __p.join('');};
+  this.JST["view/help"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<header>\n    <figure class="caption">开始游戏</figure>\n    <div class="close">\n    </div>\n</header>\n<section class="box box-help">\n    <p>\n        这是一个大家坐在一起的文字游戏！首先要集齐至少<strong>7</strong>个人用浏览器打开<em>www.wenzisha.com</em>其中一人点击出题按钮，其余人进入游戏准备抓鬼。\n    </p>\n</section>\n\n<footer class="slider">\n    <div class="help-man">\n    </div>\n\n    <div class="slider-status">\n        <span class="sel"></span>\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n    </div>\n    <div class="slider-outer">\n        <ul class="slider-wrap">\n            <li>\n                <img data-img="../image/1.png" src="../image/1.png">\n            </li>\n            <li>\n                <img data-img="../image/2.png" src="../image/1.png">\n            </li>\n            <li>\n                <img data-img="../image/3.png" src="../image/1.png">\n            </li>\n            <li>\n                <img data-img="../image/4.png" src="../image/1.png">\n            </li>\n            <li>\n                <img data-img="../image/5.png" src="../image/1.png">\n            </li>\n            <li>\n                <img data-img="../image/6.png" src="../image/1.png">\n            </li>\n            <li>\n                <img data-img="../image/7.png" src="../image/1.png">\n            </li>\n            <li>\n                <img data-img="../image/8.png" src="../image/1.png">\n            </li>\n        </ul>\n    </div>\n</footer>\n');}return __p.join('');};
 }).call(this);
 (function() {
   this.JST || (this.JST = {});
-  this.JST["view/startGame"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('\n<div class="card hide">\n   <span>\n       3\n   </span>\n</div>\n<div class="face">\n   <span>\n\t   ?\n   </span>\n</div>\n<span>\n   <em>3</em>人已经领取卡片\n</span>\n\n\n<section class="fire">\n    <div class="btn">\n        <span id="startGame">\n            开始游戏\n        </span>\n    </div>\n    <div class="hyph">\n        <ul>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n        </ul>\n    </div>\n</section>\n');}return __p.join('');};
+  this.JST["view/s-1"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--出题卡-->\n<div class="word">\n     <span>\n         <em></em><figure><input type="text" tabindex="-1" placeholder="点击输入取卡口令"></figure>\n     </span>\n</div>\n<ul class="putin">\n    <li>\n        <input tabindex="2" placeholder="点此输入">\n    </li>\n    <li>\n        <input tabindex="3" placeholder="点此输入">\n    </li>\n    <li>\n        <input tabindex="4" placeholder="点此输入">\n    </li>\n</ul>\n\n<section class="fire">\n    <div class="btn">\n        <span id="setTopic">\n            出题\n        </span>\n    </div>\n</section>\n');}return __p.join('');};
 }).call(this);
 (function() {
   this.JST || (this.JST = {});
-  this.JST["view/userGet"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<section class="box">\n    <div class="word">\n         <span>\n             <em></em><figure><input type="text" placeholder="输入取卡口令"><i id="confirm">OK</i></figure>\n         </span>\n    </div>\n</section>\n\n<div class="box">\n    <div class="card hide">\n       <span>\n           请输入<br>口令\n       </span>\n\n    </div>\n    <div class="face">\n\n    </div>\n    <span>\n       3人已经领取卡片\n    </span>\n</div>\n');}return __p.join('');};
+  this.JST["view/s-2"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--出题卡-->\n<div class="word">\n     <p>\n         <em>13</em>人已经领取卡片<br>\n         全部人领取后可以开始游戏\n     </p>\n</div>\n<ul class="putin">\n    <li>\n        <input tabindex="2" placeholder="点此输入">\n    </li>\n    <li>\n        <input tabindex="3" placeholder="点此输入">\n    </li>\n    <li>\n        <input tabindex="4" placeholder="点此输入">\n    </li>\n</ul>\n\n<section class="fire">\n    <div class="btn">\n        <span id="setTopic">\n            出题\n        </span>\n    </div>\n</section>\n');}return __p.join('');};
 }).call(this);
 (function() {
   this.JST || (this.JST = {});
-  this.JST["view/userWait"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--领卡片-->\n\n<header>\n    <figure>领卡片</figure>\n    <div id="set">\n    </div>\n</header>\n\n<section class="box">\n\n</section>\n\n<div class="box">\n    <div class="card hide">\n        <figure>\n            <p>出题中</p>\n        </figure>\n\n    </div>\n    <div class="face">\n       <span>\n           3\n       </span>\n    </div>\n       <span>\n           3人已经领取卡片\n       </span>\n</div>\n\n</div>\n');}return __p.join('');};
+  this.JST["view/w-1"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<div class="word">\n     <span>\n         <em></em><figure><input type="text" placeholder="输入取卡口令"><i id="confirm">OK</i></figure>\n     </span>\n</div>\n\n<div class="card hide">\n   <span>\n       请输入<br>口令\n   </span>\n\n</div>\n<div class="face">\n\n</div>\n<span class="tip">\n   3人已经领取卡片\n</span>\n\n');}return __p.join('');};
+}).call(this);
+(function() {
+  this.JST || (this.JST = {});
+  this.JST["view/w-2"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<div class="word">\n\n</div>\n\n<div class="card hide">\n    <figure>\n        <p>出题中</p>\n    </figure>\n\n</div>\n\n<div class="face">\n   <span>\n       3\n   </span>\n</div>\n\n<span class="tip">\n   3人已经领取卡片\n</span>\n');}return __p.join('');};
 }).call(this);
 /* Zepto v1.0rc1 - polyfill zepto event detect fx ajax form touch - zeptojs.com/license */
 
@@ -1723,7 +1727,7 @@ window.Zepto = Zepto
 	window.css3 = css3;
 })(window);
 
-(function($,css3){
+(function($,css3,window){
 	var isAndroid = (/android/gi).test(navigator.appVersion),
 		has3d = css3.has3d(),
 		hasTransform = !isAndroid && css3.hasTransform(),
@@ -1736,7 +1740,7 @@ window.Zepto = Zepto
 			container : ".slider",  //大容器，包含状态，上下页等
 			wrap : ".slider-outer",  //滑动显示区域
 			wrapUl : ".slider-wrap",  //滑动容器
-			wrapStatus : null,  //状态容器
+			wrapStatus : ".slider-status",  //状态容器
 			margin : 0,  //滑动容器内子元素的间距
 			cls : "sel",  //状态容器内子元素选中的样式
 			prev : null,  //上一页
@@ -1797,6 +1801,8 @@ window.Zepto = Zepto
 			status = that._status = Math.floor(step/single),  //每页显示子元素的个数
 			allWidth = single*len;  //滑动容器的宽度
 
+            console.log(that._step);
+
             if(status < 1){
                 //出错，childs宽度不能大于_wrap宽度.
                 throw Error("childs宽度不能大于_wrap宽度");
@@ -1817,6 +1823,8 @@ window.Zepto = Zepto
 				allWidth += (len-1)*margin;  //总宽度增加
 				that._step += margin;
 			}
+
+            console.log(that._step);
 			
 			//是否初始位置
 			var initLeft = op.left;
@@ -2067,6 +2075,9 @@ window.Zepto = Zepto
 				if(!that.op.isLoop){that._current = that._minpage;}
 				else{that._current = that._minpage - 1;}
 			}
+
+            $(document).trigger('slider', [that._current + 1])
+
 			this.touchf(-1);
 		},
 		next : function(e){
@@ -2077,6 +2088,9 @@ window.Zepto = Zepto
 				if(!that.op.isLoop){that._current = that._maxpage;}
 				else{that._current = that._maxpage + 1;}
 			}
+
+            $(document).trigger('slider', [that._current + 1])
+
 			that.touchf(1);
 		},
 		touchf : function(str){
@@ -2206,134 +2220,264 @@ window.Zepto = Zepto
 		//console.log($.touchSlider.cache);
 	}
 	return $.touchSlider;
-})(Zepto,window.css3);
-(function($,window){
-    var $content = $('#wrapper')
+})(Zepto,window.css3,window);
+(function ($, window) {
+    var $content = $('#wrapper'),
+        $container = $('#container'),
+        $wheader = $content.find('header'),
+        $wbox = $content.find('.box')
         ;
 
 //    alert(window.devicePixelRatio);
 //    alert($(document).css('-webkit-min-device-pixel-ratio'));
 
-    $('.slider').slider({ margin: 5, isPlay: false, lazy : 'data-img'});
+    //神
+    var God = {
+        init:function () {
+            God.getApple();
+            God.confirmPeople();
+            God.action();
+        },
+        //法官出题.
+        getApple:function () {
 
-    $content.on('touchstart','.face',function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        $('.card').removeClass('hide');
-    });
+            var header = '<figure class="caption">出题卡</figure>\
+                            <div class="set">\
+                          </div>';
 
-    $content.on('touchend','.face',function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        $('.card').addClass('hide');
-    });
+            $content.on('tap', '.pen', function (e) {
+                $wheader.html(header);
+                $wbox.removeClass('box-start').addClass('box-ready').html(JST['view/s-1']());
+            });
+        },
+        //确认人数.
+        confirmPeople:function () {
+            $content.on('tap', '#setTopic', function (e) {
+                $('header figure').text('确认人数');
+                $wbox.removeClass('box-ready').addClass('box-game').html(JST['view/s-2']());
+            });
+        },
+        //开始游戏.
+        action:function () {
 
-    //法官出题.
-    $content.on('tap','.pen',function(e){
-        $('header').html(JST['view/headerTxt']({caption: '出题卡'}));
-        $('.box').removeClass('box-start').addClass('box-ready').html(JST['view/setTopic']());
-    });
-
-
-    //设置.
-    $content.on('tap','#set',function(e){
-        alert('set');
-    });
-
-
-    //出题按钮.
-    $content.on('tap','#setTopic',function(e){
-        $('header figure').text('确认人数');
-        $('.box').removeClass('box-ready').addClass('box-game').html(JST['view/startGame']());
-    });
-
-    $content.on('tap','#startGame',function(e){
-        this.style.visibility = 'hidden';
-        $('header figure').text('游戏中');
-    });
-
-    //进入玩家页面.
-    $content.on('tap','.btn',function(e){
-        $('#content').html(JST['view/userGet']());
-    });
-
-    //玩家确认口令.
-    $content.on('tap','#confirm',function(e){
-        $('#content').html(JST['view/userWait']());
-    });
-
-    //shake 组件  2011.05.04
-    $.fn.shake = function(options){
-        var setting = {
-            sensitivity : 15,
-            timer : 200,
-            position : {x1 : 0 , x2 : 0 , y1 : 0 , y2 : 0 , z1 : 0 , z2 : 0 },
-            action : {}
-        };
-        if(options){
-            $.extend(setting, options);
-        };
-        var SHAKE = {
-
-            _timer : {
-            },
-            checkUA : function(){
-                if (typeof window.DeviceOrientationEvent != 'undefined') {
-                    if (typeof window.DeviceMotionEvent != 'undefined'){
-                        //window.onorientationchange = SD.unit.updateOrientation;
-                        window.addEventListener('devicemotion', function(e){SHAKE.get(e)}, false);
-                        SHAKE.start();
-                        return true;
-                    }else{
-                        alert("对不起您的设备不支持摇动");
-                        return false;
-                    }
-                }else{
-                    alert("对不起您的设备不支持摇动");
-                    return false;
-                }
-            },
-            // 晃动时在 x y z 方向上的加速度
-            get : function(e){
-                setting.position.x1 = e.accelerationIncludingGravity.x;
-                setting.position.y1 = e.accelerationIncludingGravity.y;
-                setting.position.z1 = e.accelerationIncludingGravity.z;
-            },
-            // 判断晃动是否满足敏感系数，满足的话更新 x2 y2 z2
-            isMeetSensitivity : function(){
-                var change = Math.abs(setting.position.x1 - setting.position.x2 + setting.position.y1 - setting.position.y2 + setting.position.z1 - setting.position.z2);
-                if (change > setting.sensitivity) {
-                    //alert('Shake!');
-                    setting.action();
-                    //console.log(typeof(setting.action))
-                }
-                // 更新
-                setting.position.x2 = setting.position.x1;
-                setting.position.y2 = setting.position.y1;
-                setting.position.z2 = setting.position.z1;
-            },
-            start : function(){
-                SHAKE._timer = setInterval(function(){SHAKE.isMeetSensitivity()} , setting.timer);
-            },
-            stop : function(){
-                clearInterval(SHAKE._timer)
-            }
-        };
-        SHAKE.checkUA();
+        }
     }
 
-    $(window).shake({action : function(){alert(1)}});
+    God.init();
+
+    var stage = {
+        init:function () {
+            stage.set();
+            stage.registerShake();
+            stage.shake();
+            stage.hideAddrBar();
+            stage.help();
+        },
+        //设置.
+        set:function () {
+            $content.on('tap', '.set', function (e) {
+                alert('We are striving for that!');
+            });
+        },
+
+        //摇晃.
+        registerShake:function () {
+            //shake 组件
+            $.fn.shake = function (options) {
+                var setting = {
+                    sensitivity:15,
+                    timer:200,
+                    position:{x1:0, x2:0, y1:0, y2:0, z1:0, z2:0 },
+                    action:{}
+                };
+                if (options) {
+                    $.extend(setting, options);
+                }
+                ;
+                var SHAKE = {
+
+                    _timer:{
+                    },
+                    checkUA:function () {
+                        if (typeof window.DeviceOrientationEvent != 'undefined') {
+                            if (typeof window.DeviceMotionEvent != 'undefined') {
+                                //window.onorientationchange = SD.unit.updateOrientation;
+                                window.addEventListener('devicemotion', function (e) {
+                                    SHAKE.get(e)
+                                }, false);
+                                SHAKE.start();
+                                return true;
+                            } else {
+                                alert("对不起您的设备不支持摇动");
+                                return false;
+                            }
+                        } else {
+                            alert("对不起您的设备不支持摇动");
+                            return false;
+                        }
+                    },
+                    // 晃动时在 x y z 方向上的加速度
+                    get:function (e) {
+                        setting.position.x1 = e.accelerationIncludingGravity.x;
+                        setting.position.y1 = e.accelerationIncludingGravity.y;
+                        setting.position.z1 = e.accelerationIncludingGravity.z;
+                    },
+                    // 判断晃动是否满足敏感系数，满足的话更新 x2 y2 z2
+                    isMeetSensitivity:function () {
+                        var change = Math.abs(setting.position.x1 - setting.position.x2 + setting.position.y1 - setting.position.y2 + setting.position.z1 - setting.position.z2);
+                        if (change > setting.sensitivity) {
+                            //alert('Shake!');
+                            setting.action();
+                            //console.log(typeof(setting.action))
+                        }
+                        // 更新
+                        setting.position.x2 = setting.position.x1;
+                        setting.position.y2 = setting.position.y1;
+                        setting.position.z2 = setting.position.z1;
+                    },
+                    start:function () {
+                        SHAKE._timer = setInterval(function () {
+                            SHAKE.isMeetSensitivity()
+                        }, setting.timer);
+                    },
+                    stop:function () {
+                        clearInterval(SHAKE._timer)
+                    }
+                };
+                SHAKE.checkUA();
+            }
+        },
+
+        shake:function () {
+            $(window).shake({action:function () {
+
+                alert(1)
+            }});
+        },
+
+        //滑动.
+        slider:function () {
+
+            $('.slider').slider({ margin:0, isPlay:false, lazy:'data-img'});
+
+            var titleTable = {
+                1:'开始游戏',
+                2:'领卡片',
+                3:'确认身份',
+                4:'天黑闭眼',
+                5:'依次阐述',
+                6:'投票',
+                7:'遗言',
+                8:'游戏结束'
+            }
+
+            var $cbox =  $container.find('.box'),
+                $ccaption = $container.find('.caption');
+
+            //slider.
+            $(document).on('slider', function (e, index) {
+
+                $cbox.animate({opacity:0}, 500, 'ease-out', function () {
+                    $cbox.html(JST['view/help-switcher']({index:index})).animate({
+                        opacity:1
+                    }, 600, 'ease-out')
+                });
+
+                $ccaption.animate({
+                    translateX:'-300px'
+                }, 500, 'ease-out', function () {
+                    $ccaption.text(titleTable[index]).animate({
+                        translateX:"0px"
+                    }, 600, 'ease-out')
+                })
+            })
+        },
+
+        //隐藏地址栏.
+        hideAddrBar: function() {
+
+            $(function(){
+                // Set a timeout...
+                setTimeout(function () {
+                    window.scrollTo(0, -100);
+                }, 100);
+            });
+        },
 
 
-    window.addEventListener("load",function() {
+        //帮助.
+        help: function(){
+            $(document).on('tap','.help-man',function(e){
 
-        // Set a timeout...
-        setTimeout(function(){
-            // Hide the address bar!
-            window.scrollTo(0, -100);
-        }, 100);
-    });
-})(Zepto,window);
+                $content.addClass('hide');
+
+                $container.html(JST['view/help']()).removeClass('hide');
+
+                //推迟初始化的时间.
+                stage.slider();
+
+                //注册关闭事件.
+                stage.close();
+            });
+        },
+
+        close: function(){
+            $container.on('tap','.close',function(e){
+                $container.addClass('hide');
+                $content.removeClass('hide');
+            });
+        }
+    }
+
+    stage.init();
+
+    var gamer = {
+        init:function () {
+            gamer.getApple();
+            gamer.userTouch();
+            gamer.waiting();
+            gamer.action();
+        },
+        getApple:function () {
+            var header = '<figure class="caption">领卡片</figure>\
+                            <div class="set">\
+                          </div>';
+
+            $content.on('tap', '.btn', function (e) {
+                $wheader.html(header);
+                $wbox.removeClass('box-start').addClass('box-game').html(JST['view/w-1']());
+            });
+        },
+        userTouch: function(){
+            $content.on('touchstart', '.face', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                $('.card').removeClass('hide');
+            });
+
+            $content.on('touchend', '.face', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                $('.card').addClass('hide');
+            });
+        },
+        waiting:function () {
+            //玩家确认口令.
+            $content.on('tap', '#confirm', function (e) {
+                $wbox.html(JST['view/w-2']());
+            });
+        },
+        action:function () {
+            $content.on('tap', '#startGame', function (e) {
+                this.style.visibility = 'hidden';
+                $('header figure').text('游戏中');
+            });
+        }
+    }
+
+    gamer.init();
+
+})(Zepto, window);
 
 
 
