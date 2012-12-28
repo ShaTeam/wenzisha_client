@@ -5,8 +5,17 @@
         $wbox = $content.find('.box')
         ;
 
-//    alert(window.devicePixelRatio);
-//    alert($(document).css('-webkit-min-device-pixel-ratio'));
+    var Server = {
+        'open' : 'http://localhost:88/room/open',
+        'join' : 'http://localhost:88/room/join',
+        'get-players' : 'http://localhost:88/room/get-players',
+        'get-amount' : 'http://localhost:88/room/get-amount',
+        'get-status' : 'http://localhost:88/room/get-status',
+        'set-status' : 'http://localhost:88/room/set-status',
+        'random-puzzle' : 'http://localhost:88/room/random-puzzle',
+        'start-game' : 'http://localhost:88/room/start-game',
+        'end-game' : 'http://localhost:88/room/end-game'
+    }
 
     //神
     var God = {
@@ -18,14 +27,32 @@
         //法官出题.
         getApple:function () {
 
+
+
             var header = '<figure class="caption">出题卡</figure>\
                             <div class="set">\
                           </div>';
 
             $content.on('tap', '.pen', function (e) {
+
+                $.ajaxJSONP({
+                    type: 'GET',
+                    url: Server.open,
+                    data: {},
+                    dataType: 'json',
+                    success: function(data){
+                        alert(JSON.parse(data));
+                    },
+                    error: function(xhr, type){
+                        alert('Ajax error!')
+                    }
+                });
+
                 $wheader.html(header);
                 $wbox.removeClass('box-start').addClass('box-ready').html(JST['view/s-1']());
             });
+
+
         },
         //确认人数.
         confirmPeople:function () {

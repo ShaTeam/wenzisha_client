@@ -2228,8 +2228,16 @@ window.Zepto = Zepto
         $wbox = $content.find('.box')
         ;
 
-//    alert(window.devicePixelRatio);
-//    alert($(document).css('-webkit-min-device-pixel-ratio'));
+    var Server = {
+        'join' : 'http://localhost:88/room/join',
+        'get-players' : 'http://localhost:88/room/get-players',
+        'get-amount' : 'http://localhost:88/room/get-amount',
+        'get-status' : 'http://localhost:88/room/get-status',
+        'set-status' : 'http://localhost:88/room/set-status',
+        'random-puzzle' : 'http://localhost:88/room/random-puzzle',
+        'start-game' : 'http://localhost:88/room/start-game',
+        'end-game' : 'http://localhost:88/room/end-game'
+    }
 
     //神
     var God = {
@@ -2248,6 +2256,18 @@ window.Zepto = Zepto
             $content.on('tap', '.pen', function (e) {
                 $wheader.html(header);
                 $wbox.removeClass('box-start').addClass('box-ready').html(JST['view/s-1']());
+            });
+
+            $.ajaxJSONP({
+                type: 'GET',
+                url: Server.open,
+                dataType: 'json',
+                success: function(data){
+                    alert(data);
+                },
+                error: function(xhr, type){
+                    alert('Ajax error!')
+                }
             });
         },
         //确认人数.
