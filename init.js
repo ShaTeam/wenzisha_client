@@ -6,28 +6,71 @@
         ;
 
     var Server = {
-        'open' : 'http://localhost:88/room/open',
-        'join' : 'http://localhost:88/room/join',
-        'get-players' : 'http://localhost:88/room/get-players',
-        'get-amount' : 'http://localhost:88/room/get-amount',
-        'get-status' : 'http://localhost:88/room/get-status',
-        'set-status' : 'http://localhost:88/room/set-status',
-        'random-puzzle' : 'http://localhost:88/room/random-puzzle',
-        'start-game' : 'http://localhost:88/room/start-game',
-        'end-game' : 'http://localhost:88/room/end-game'
+        'open' : 'http://10.13.125.68:88/room/open?callback=?',
+        'join' : 'http://10.13.125.68:88/room/join',
+        'get-players' : 'http://10.13.125.68:88/room/get-players',
+        'get-amount' : 'http://10.13.125.68:88/room/get-amount',
+        'get-status' : 'http://10.13.125.68:88/room/get-status',
+        'set-status' : 'http://10.13.125.68:88/room/set-status',
+        'random-puzzle' : 'http://10.13.125.68:88/room/random-puzzle',
+        'start-game' : 'http://10.13.125.68:88/room/start-game',
+        'end-game' : 'http://10.13.125.68:88/room/end-game'
     }
 
     //神
     var God = {
+        certificate: {
+            adminId: "",
+            roomId: -1,
+            startTimestamp: -1,
+            endTimestamp: -1
+        },
         init:function () {
             God.getApple();
-            God.confirmPeople();
+            God.setTopic();
+            God.flip();
+            God.wordNumAutoComplete();
             God.action();
+        },
+
+        //翻转隐藏（平民、傻子、鬼）
+        flip: function(){
+            var $item,
+                $span,
+                isVisible = false
+                ;
+            $content.on('tap','.god li',function(e){
+                $item = $(this);
+                $span = $item.find('span');
+                isVisible = $span.css('visibility');
+
+                if(isVisible.indexOf('visible') > -1){
+                    $item.animate({
+                        rotate3d:'0, 1, 0, 180deg'
+                    },200,'ease-in',function(){
+                        $span.css('visibility','hidden');
+                    });
+                }
+                else if(isVisible.indexOf('hidden') > -1){
+                    $item.animate({
+                        rotate3d:'0, 1, 0, 0deg'
+                    },200,'ease-in',function(){
+                        $span.css('visibility','visible');
+                    });
+                }
+                else{
+                    alert('hello');
+                }
+            });
+        },
+        //填词.
+        wordNumAutoComplete: function(){
+            $content.on('change','.putin input',function(e){
+                $('#ghostTip').val(this.value.toString().length);
+            });
         },
         //法官出题.
         getApple:function () {
-
-
 
             var header = '<figure class="caption">出题卡</figure>\
                             <div class="set">\
@@ -41,7 +84,15 @@
                     data: {},
                     dataType: 'json',
                     success: function(data){
-                        alert(JSON.parse(data));
+                        //保存凭证
+                        if(data && (data.code == 0)){
+                            God.certificate.adminId = data.adminId;
+                            God.certificate.roomId = data.roomId;
+                            God.certificate.startTimestamp = data.startTimestamp;
+                            God.certificate.endTimestamp = data.endTimestamp;
+
+                            $('#roomId').val('取卡口令:' + data.roomId);
+                        }
                     },
                     error: function(xhr, type){
                         alert('Ajax error!')
@@ -54,16 +105,25 @@
 
 
         },
-        //确认人数.
-        confirmPeople:function () {
+        //出题.
+        setTopic:function () {
             $content.on('tap', '#setTopic', function (e) {
+
+                if($('#orTip').val().length != $('#idiTip').val().length){
+                    alert('平民和傻子的词长需一致!')
+                }
+
                 $('header figure').text('确认人数');
                 $wbox.removeClass('box-ready').addClass('box-game').html(JST['view/s-2']());
             });
         },
         //开始游戏.
         action:function () {
-
+            $content.on('tap', '#startGame', function (e) {
+                $('header figure').text('游戏中');
+                this.style.backgroundColor = 'green';
+                this.innerText = '游戏已开始';
+            });
         }
     }
 
@@ -240,14 +300,13 @@
             gamer.getApple();
             gamer.userTouch();
             gamer.waiting();
-            gamer.action();
         },
         getApple:function () {
             var header = '<figure class="caption">领卡片</figure>\
                             <div class="set">\
                           </div>';
 
-            $content.on('tap', '.btn', function (e) {
+            $content.on('tap', '#gamer', function (e) {
                 $wheader.html(header);
                 $wbox.removeClass('box-start').addClass('box-game').html(JST['view/w-1']());
             });
@@ -269,12 +328,6 @@
             //玩家确认口令.
             $content.on('tap', '#confirm', function (e) {
                 $wbox.html(JST['view/w-2']());
-            });
-        },
-        action:function () {
-            $content.on('tap', '#startGame', function (e) {
-                this.style.visibility = 'hidden';
-                $('header figure').text('游戏中');
             });
         }
     }

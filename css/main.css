@@ -51,40 +51,6 @@ header .close {
   background: url("../image/close.png") no-repeat;
   background-size: contain;
 }
-.box-ready .putin {
-  padding: 0;
-  text-align: center;
-  margin: 30px 0px;
-}
-.box-ready .putin li {
-  display: inline-block;
-  height: 6.1em;
-  width: 6.1em;
-  margin: 0 0;
-  text-align: center;
-  background-position: bottom;
-  background-size: contain;
-  background-color: #e4e8eb;
-}
-.box-ready .putin li input {
-  width: 4em;
-  height: 1em;
-  border: 0px;
-  background-color: transparent;
-  text-align: center;
-  font-size: 1.3em;
-  margin-top: 5px;
-}
-.box-ready .putin li:nth-child(1) {
-  margin-left: 10px;
-  background-image: url("../image/ghost.png");
-}
-.box-ready .putin li:nth-child(2) {
-  background-image: url("../image/common.png");
-}
-.box-ready .putin li:nth-child(3) {
-  background-image: url("../image/fool.png");
-}
 .word {
   text-align: center;
   height: 60px;
@@ -118,6 +84,7 @@ header .close {
   background: transparent;
   text-align: center;
   font-size: 16px;
+  letter-spacing: 0.2em;
   vertical-align: middle;
   display: table-cell;
 }
@@ -150,6 +117,83 @@ header .close {
   background: url("../image/broadcast.png");
   background-size: contain;
   vertical-align: middle;
+}
+.word p {
+  font-size: 16px;
+}
+.word p strong {
+  font-size: 30px;
+  color: red;
+}
+.putin {
+  padding: 0;
+  text-align: center;
+  margin: 20px 0px;
+}
+.putin li {
+  position: relative;
+  display: inline-block;
+  height: 6.1em;
+  width: 6.1em;
+  margin: 0 0;
+  text-align: center;
+  background-position: bottom;
+  background-size: contain;
+  background-color: #e4e8eb;
+}
+.putin li input {
+  width: 4em;
+  height: 1.3em;
+  border: 0px;
+  background-color: transparent;
+  text-align: center;
+  font-size: 1.3em;
+  margin-top: 5px;
+}
+.putin li span {
+  height: 40px;
+  line-height: 40px;
+}
+.putin li strong {
+  display: inline;
+  font-size: 1.3em;
+}
+.putin li:nth-child(1) {
+  margin-left: 10px;
+  background-image: url("../image/ghost.png");
+}
+.putin li:nth-child(1):after {
+  content: '平民的词';
+  position: absolute;
+  bottom: -1.5em;
+  width: 6.1em;
+  left: 50%;
+  -webkit-transform: translatex(-50%);
+}
+.putin li:nth-child(2) {
+  background-image: url("../image/common.png");
+}
+.putin li:nth-child(2):after {
+  content: '傻子的词';
+  position: absolute;
+  bottom: -1.5em;
+  width: 6.1em;
+  left: 50%;
+  -webkit-transform: translatex(-50%);
+}
+.putin li:nth-child(3) {
+  background-image: url("../image/fool.png");
+}
+.putin li:nth-child(3):after {
+  content: '鬼的数字';
+  position: absolute;
+  bottom: -1.5em;
+  width: 6.1em;
+  left: 50%;
+  -webkit-transform: translatex(-50%);
+}
+.flipper {
+  -webkit-transform: rotate3d(0, 1, 0, 180deg);
 }
 .box-start {
   background: url("../image/maintext.png") no-repeat 50% 0%;
@@ -286,6 +330,7 @@ header .close {
 }
 .fire {
   display: block;
+  margin-top: 30px;
   width: 100%;
 }
 .fire .btn {
@@ -380,7 +425,7 @@ header .close {
   display: inline-block;
   width: 80%;
   height: 100px;
-  background: url("../image/1.png") no-repeat;
+  background: url("../image/1.png") no-repeat 50% 0%;
   background-size: contain;
 }
 @-webkit-keyframes shake {
@@ -427,14 +472,35 @@ header .close {
   body {
     font-size: 18px;
   }
+  header {
+    margin-top: 1em;
+    margin-bottom: 2em;
+  }
+  .box {
+    margin-bottom: 3em;
+  }
 }
 @media only screen and (min-width: 481px) and (max-width: 920px) {
   body {
     font-size: 22px;
   }
+  header {
+    margin-top: 1em;
+    margin-bottom: 2em;
+  }
+  .box {
+    margin-bottom: 3em;
+  }
 }
 @media only screen and (min-width: 921px) {
   body {
     font-size: 24px;
+  }
+  header {
+    margin-top: 1em;
+    margin-bottom: 2em;
+  }
+  .box {
+    margin-bottom: 3em;
   }
 }
