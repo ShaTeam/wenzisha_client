@@ -142,14 +142,17 @@ header .close {
   background-size: contain;
   background-color: #e4e8eb;
 }
-.putin li input {
-  width: 4em;
-  height: 1.3em;
-  border: 0px;
+.putin li textarea {
+  width: 4.6em;
+  height: auto;
+  border: none;
   background-color: transparent;
   text-align: center;
   font-size: 1.3em;
   margin-top: 5px;
+  outline: none;
+  overflow: auto;
+  resize: none;
 }
 .putin li span {
   height: 40px;

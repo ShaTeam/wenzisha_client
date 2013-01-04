@@ -15,7 +15,7 @@
         'getAmount' : HOST + '/room/get-amount?callback=?',
         'getStatus' : HOST + '/room/get-status?callback=?',
         'getPuzzle' : HOST + '/player/get-puzzle?callback=?',
-        'randomPuzzle' : HOST + '/room/random-puzzle',
+        'randomPuzzle' : HOST + '/room/random-puzzle?callback=?',
         'startGame' : HOST + '/room/start-game?callback=?',
         'endGame' : HOST + '/room/end-game?callback=?'
     }
@@ -34,6 +34,27 @@
             idiotWord: ''
         },
         playerNumTick: null,
+        randomPuzzle: function(){
+            $.ajaxJSONP({
+                type: 'GET',
+                url: Server.randomPuzzle,
+                data: {
+                    roomId: God.certificate.roomId,
+                    adminId: God.certificate.adminId
+                },
+                dataType: 'json',
+                success: function(data){
+                    if(data && data.words){
+                        $('#idiTip').val(data.words[0] || '走你');
+                        $('#orTip').val(data.words[1] || '航母');
+                        $('#ghostTip').val(data.words[0].length);
+                    }
+                },
+                error: function(xhr, type){
+                    throw 'randomPuzzle Ajax error!';
+                }
+            });
+        },
         init:function () {
 
             $content.on('tap', '.pen', function(e){
@@ -173,7 +194,7 @@
         },
         //填词.
         wordNumAutoComplete: function(){
-            $content.on('change','.putin input',function(e){
+            $content.on('change','.putin textarea',function(e){
                 $('#ghostTip').val(this.value.toString().length);
             });
         },
@@ -412,8 +433,9 @@
 
         shake:function () {
             $(window).shake({action:function () {
-
-                alert(1)
+                if($('#idiTip').length > 0){
+                    God.randomPuzzle();
+                }
             }});
         },
 
