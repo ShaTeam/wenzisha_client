@@ -175,7 +175,7 @@
 			status = that._status = Math.floor(step/single),  //每页显示子元素的个数
 			allWidth = single*len;  //滑动容器的宽度
 
-            console.log(that._step);
+
 
             if(status < 1){
                 //出错，childs宽度不能大于_wrap宽度.
@@ -198,7 +198,6 @@
 				that._step += margin;
 			}
 
-            console.log(that._step);
 			
 			//是否初始位置
 			var initLeft = op.left;
@@ -230,7 +229,6 @@
 				return null;
 			}
 			wul.css('width',allWidth);
-            console.log(allWidth);
 			//复制收尾元素，以便循环
 			if(op.isLoop){
 				$(childs[0].cloneNode(true)).appendTo(wul);

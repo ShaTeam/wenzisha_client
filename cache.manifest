@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# VERSION 0.7
+# VERSION 0.1
 
 # 直接缓存的文件
 image/bg.png
@@ -10,7 +10,6 @@ image/choose.png
 image/cloud.png
 image/common.png
 image/dark.png
-image/find.png
 image/fool.png
 image/footer.png
 image/ghost.png
@@ -38,6 +37,7 @@ image/word.png
 
 # 需要在线访问的文件
 NETWORK:
+
 
 # 替代方案
 FALLBACK:

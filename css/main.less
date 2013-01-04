@@ -1,3 +1,5 @@
+@img-url: "http://192.168.1.110/git/wenzisha_client/";
+
 //base Style
 body {
 	margin: 0;
@@ -22,7 +24,7 @@ header {
 	display: block;
 	height: 60px; //	height: 20%;
 	width: 100%;
-	background: url("../image/cloud.png") no-repeat 20% 0%, url("../image/sun.png") no-repeat 80% 0%, url("../image/cloud.png") no-repeat 40% 100%, url("../image/cloud.png") no-repeat 10% 100%;
+	background: url("@{img-url}/image/cloud.png") no-repeat 20% 0%, url("@{img-url}/image/sun.png") no-repeat 80% 0%, url("@{img-url}/image/cloud.png") no-repeat 40% 100%, url("@{img-url}/image/cloud.png") no-repeat 10% 100%;
 	background-size: 20px 20px;
 }
 
@@ -41,7 +43,7 @@ header {
 		top: 5px;
 		width: 32px;
 		height: 32px;
-		background: url("../image/set.png") no-repeat;
+		background: url("@{img-url}/image/set.png") no-repeat;
 		background-size: contain;
 	}
 
@@ -60,7 +62,7 @@ header {
 		top: 5px;
 		width: 24px;
 		height: 24px;
-		background: url("../image/close.png") no-repeat;
+		background: url("@{img-url}/image/close.png") no-repeat;
 		background-size: contain;
 	}
 }
@@ -80,7 +82,7 @@ header {
 		height: 50px;
 		width: 180px;
 		line-height: 50px;
-		background-image: url("../image/grid.png");
+		background-image: url("@{img-url}/image/grid.png");
 		-webkit-border-radius: 25px;
 		-webkit-box-shadow: 1px 3px 7px rgba(0, 0, 0, 0.3) inset;
 
@@ -137,7 +139,7 @@ header {
 			height: 20px;
 			width: 18px;
 			margin-left: -1em;
-			background: url("../image/broadcast.png");
+			background: url("@{img-url}/image/broadcast.png");
 			background-size: contain;
 			vertical-align: middle;
 		}
@@ -173,9 +175,10 @@ header {
 			font-size: 1.3em;
 			margin-top: 5px;
 		}
-		span{
+        span{
 			height: 40px;
 			line-height: 40px;
+            display: inline-block;
 		}
 		strong{
 			display: inline;
@@ -187,7 +190,7 @@ header {
 	}
 	li:nth-child(1) {
 		margin-left: 10px;
-		background-image: url("../image/common.png");
+		background-image: url("@{img-url}/image/common.png");
 
 		&:after{
 			content: '平民的词';
@@ -199,7 +202,7 @@ header {
 		}
 	}
 	li:nth-child(2) {
-		background-image: url("../image/fool.png");
+		background-image: url("@{img-url}/image/fool.png");
 		&:after{
 			content: '傻子的词';
 			position: absolute;
@@ -210,7 +213,7 @@ header {
 		}
 	}
 	li:nth-child(3) {
-		background-image: url("../image/ghost.png");
+		background-image: url("@{img-url}/image/ghost.png");
 		&:after{
 			content: '鬼的数字';
 			position: absolute;
@@ -228,7 +231,7 @@ header {
 
 //module
 .box-start {
-	background: url("../image/maintext.png") no-repeat 50% 0%;
+	background: url("@{img-url}/image/maintext.png") no-repeat 50% 0%;
 	background-size: 130px 130px;
 
 	.btn {
@@ -238,7 +241,7 @@ header {
 		-webkit-transform: translatex(-50%);
 		bottom: 0px;
 		position: absolute;
-		background: url("../image/setup.png") no-repeat;
+		background: url("@{img-url}/image/setup.png") no-repeat;
 		background-size: contain;
 
 		&:after {
@@ -249,7 +252,7 @@ header {
 			top: -44px;
 			left: 50%;
 			-webkit-transform: translatex(-45%);
-			background: url("../image/start_box.png") no-repeat;
+			background: url("@{img-url}/image/start_box.png") no-repeat;
 			background-size: contain;
 		}
 
@@ -260,7 +263,7 @@ header {
 			height: 100px;
 			top: -80px;
 			left: -15%;
-			background: url("../image/hand.png") no-repeat;
+			background: url("@{img-url}/image/hand.png") no-repeat;
 			background-size: contain;
 		}
 	}
@@ -272,7 +275,7 @@ header {
 		left: 50%;
 		-webkit-transform: translatex(-180%);
 		bottom: 60%;
-		background: url("../image/word.png") no-repeat;
+		background: url("@{img-url}/image/word.png") no-repeat;
 		background-size: contain;
 	}
 }
@@ -291,7 +294,7 @@ header {
 		top: -20px;
 		-webkit-border-top-left-radius: 5px;
 		-webkit-border-top-right-radius: 5px;
-		background: url("../image/ghost.png") no-repeat 90% 0%, url("../image/common.png") no-repeat 45% 50%, url("../image/fool.png") no-repeat 10% 100%;
+		background: url("@{img-url}/image/ghost.png") no-repeat 90% 0%, url("@{img-url}/image/common.png") no-repeat 45% 50%, url("@{img-url}/image/fool.png") no-repeat 10% 100%;
 		background-size: 90%;
 
 		span {
@@ -308,14 +311,14 @@ header {
 		figure {
 			width: 100%;
 			height: 40px;
-			background: url("../image/pencil.png") no-repeat 90% 0%;
+			background: url("@{img-url}/image/pencil.png") no-repeat 90% 0%;
 			background-size: contain;
 			margin-left: 0px;
 		}
 	}
 
     .peopleCard{
-        background: url("../image/common.png") no-repeat 50% 0%;
+        background: url("@{img-url}/image/common.png") no-repeat 50% 0%;
         background-size: 90%;
         top: -10px;
         figure{
@@ -323,7 +326,7 @@ header {
         }
     }
     .ghostCard{
-        background: url("../image/ghost.png") no-repeat 50% 0%;
+        background: url("@{img-url}/image/ghost.png") no-repeat 50% 0%;
         background-size: 90%;
         top: -10px;
         figure{
@@ -337,7 +340,7 @@ header {
 		width: 130px;
 		height: 130px;
 		display: inline-block;
-		background: url("../image/box.png") no-repeat;
+		background: url("@{img-url}/image/box.png") no-repeat;
 		background-size: contain;
 		span {
 			position: absolute;
@@ -373,12 +376,12 @@ header {
 		strong{
 			display: inline-block;
 			width: 25px;
-			background: url("../image/circle.png") no-repeat;
+			background: url("@{img-url}/image/circle.png") no-repeat;
 			background-size: cover;
 		}
 		em{
 			color: red;
-			background: url("../image/underline.png") no-repeat;
+			background: url("@{img-url}/image/underline.png") no-repeat;
 			background-size: contain;
 			background-position: bottom;
 		}
@@ -424,7 +427,7 @@ header {
 	}
 
 	.slider-outer {
-		width: 300px;
+		width: 290px;
 		height: 100px;
 		overflow: hidden;
 		position: relative;
@@ -440,7 +443,7 @@ header {
 				float: left;
 				width: 290px;
 				height: 90px;
-				text-align: center;
+				text-align: right;
 				img {
 					width: 250px;
 					height: 90px;
@@ -476,7 +479,7 @@ header {
 	width: 50px;
 	height: 80px;
 	left: 0px;
-	background: url("../image/q_man.png") no-repeat;
+	background: url("@{img-url}/image/q_man.png") no-repeat;
 	background-size: contain;
 
 	-webkit-animation: shake 1s ease-out 4;
@@ -498,8 +501,8 @@ header {
 	.img-detail{
 		display: inline-block;
 		width: 80%;
-		height: 100px;
-		background: url("../image/1.png") no-repeat 50% 0%;
+		height: 90px;
+		background: url("@{img-url}/image/1.png") no-repeat 50% 0%;
 		background-size: contain;
 	}
 }

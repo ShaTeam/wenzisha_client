@@ -7,13 +7,13 @@
 </div>
 <ul class="putin god">
     <li>
-        <span><%=peopleWord %></span>
+        <span><%=peopleWord || ' ' %></span>
     </li>
     <li>
-        <span><%=idiotWord %></span>
+        <span><%=idiotWord || ' '%></span>
     </li>
     <li>
-        <span><%=idiotWord.toString().length %></span>
+        <span><%=idiotWord.toString().trim().length %></span>
     </li>
 </ul>
 
