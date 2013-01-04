@@ -6,16 +6,19 @@
         ;
 
     var Server = {
-        'open' : 'http://10.13.125.68:88/room/open?callback=?',
-        'join' : 'http://10.13.125.68:88/room/join',
-        'get-players' : 'http://10.13.125.68:88/room/get-players',
-        'get-amount' : 'http://10.13.125.68:88/room/get-amount',
-        'get-status' : 'http://10.13.125.68:88/room/get-status',
-        'set-status' : 'http://10.13.125.68:88/room/set-status',
-        'random-puzzle' : 'http://10.13.125.68:88/room/random-puzzle',
-        'start-game' : 'http://10.13.125.68:88/room/start-game',
-        'end-game' : 'http://10.13.125.68:88/room/end-game'
+        'HOST': 'http://localhost:88',
+        'open' : Server.HOST + '/room/open?callback=?',
+        'join' : Server.HOST + '/room/join?callback=?',
+        'setPuzzle' : Server.HOST + '/room/set-puzzle?callback=?',
+        'getPlayers' : Server.HOST + '/room/get-players?callback=?',
+        'getAmount' : Server.HOST + '/room/get-amount?callback=?',
+        'getStatus' : Server.HOST + '/room/get-status?callback=?',
+        'getPuzzle' : Server.HOST + '/player/get-puzzle?callback=?',
+        'randomPuzzle' : Server.HOST + '/room/random-puzzle',
+        'startGame' : Server.HOST + '/room/start-game?callback=?',
+        'endGame' : Server.HOST + '/room/end-game'
     }
+
 
     //神
     var God = {
@@ -25,6 +28,11 @@
             startTimestamp: -1,
             endTimestamp: -1
         },
+        role: {
+            peopleWord: '',
+            idiotWord: ''
+        },
+        playerNumTick: null,
         init:function () {
             God.getApple();
             God.setTopic();
@@ -32,7 +40,40 @@
             God.wordNumAutoComplete();
             God.action();
         },
+        refreshPlayers: function(){
+            $.ajaxJSONP({
+                type: 'GET',
+                url: Server.getPlayers,
+                data: {
+                    roomId: God.certificate.roomId,
+                    adminId: God.certificate.adminId
+                },
+                dataType: 'json',
+                success: function(data){
+                    if(data){
+                        $('.word strong').text(
+                            data.playerList.filter(function(item){
 
+                                /*0 - UNKOWN
+                                1 - GOD
+                                2 - PEOPLE
+                                3 - ONI
+                                4 - IDIOT
+                                */
+                                return item.character == 2 ||
+                                    item.character == 3  ||
+                                    item.character == 4
+                            }).length
+                        );
+                    }
+                },
+                error: function(xhr, type){
+                    throw 'God setTopic Ajax error!';
+                }
+            });
+
+            God.playerNumTick = setTimeout(arguments.callee,2000);
+        },
         //翻转隐藏（平民、傻子、鬼）
         flip: function(){
             var $item,
@@ -69,7 +110,7 @@
                 $('#ghostTip').val(this.value.toString().length);
             });
         },
-        //法官出题.
+        //法官.
         getApple:function () {
 
             var header = '<figure class="caption">出题卡</figure>\
@@ -83,9 +124,10 @@
                     url: Server.open,
                     data: {},
                     dataType: 'json',
+                    context: $('body'),
                     success: function(data){
                         //保存凭证
-                        if(data && (data.code == 0)){
+                        if(data && (typeof data.code == 'number') && (data.code == 0)){
                             God.certificate.adminId = data.adminId;
                             God.certificate.roomId = data.roomId;
                             God.certificate.startTimestamp = data.startTimestamp;
@@ -95,7 +137,7 @@
                         }
                     },
                     error: function(xhr, type){
-                        alert('Ajax error!')
+                        throw 'God getApple Ajax error!';
                     }
                 });
 
@@ -111,18 +153,114 @@
 
                 if($('#orTip').val().length != $('#idiTip').val().length){
                     alert('平民和傻子的词长需一致!')
+                    return;
                 }
 
-                $('header figure').text('确认人数');
-                $wbox.removeClass('box-ready').addClass('box-game').html(JST['view/s-2']());
+                God.role.peopleWord = $('#orTip').val().trim();
+                God.role.idiotWord = $('#idiTip').val().trim();
+
+                $.ajaxJSONP({
+                    type: 'GET',
+                    url: Server.setPuzzle,
+                    data: {
+                        roomId: God.certificate.roomId,
+                        adminId: God.certificate.adminId,
+                        words:God.role.peopleWord + ',' + God.role.idiotWord
+                    },
+                    dataType: 'json',
+                    success: function(data){
+                        if(data && (typeof data.code == 'number') && (data.code == 0)){
+                            $('header figure').text('确认人数');
+                            $wbox.removeClass('box-ready').addClass('box-game').html(JST['view/s-2']({
+                                peopleWord: God.role.peopleWord,
+                                idiotWord : God.role.idiotWord,
+                                gamerNum: (data.characters.people.count>>>0) +
+                                            (data.characters.idiot.count>>>0) +
+                                                (data.characters.oni.count>>>0)
+                            }));
+
+
+                            //更新玩家人数.
+                            God.refreshPlayers();
+                        }
+                    },
+                    error: function(xhr, type){
+                        throw 'God setTopic Ajax error!';
+                    }
+                });
             });
         },
         //开始游戏.
         action:function () {
             $content.on('tap', '#startGame', function (e) {
+
+                //游戏开始，不再轮询加入玩家的人数.
+                window.clearTimeout(God.playerNumTick);
+                God.playerNumTick = null;
+
+                var $status = $('.word p');
+
                 $('header figure').text('游戏中');
-                this.style.backgroundColor = 'green';
-                this.innerText = '游戏已开始';
+                this.style.backgroundColor = '#E43C3C';
+                this.innerText = '结束/重新游戏';
+                $status.html();
+
+                $.ajaxJSONP({
+                    type: 'GET',
+                    url: Server.startGame,
+                    data: {
+                        roomId: God.certificate.roomId,
+                        adminId: God.certificate.adminId,
+                        words:God.role.peopleWord + ',' + God.role.idiotWord
+                    },
+                    dataType: 'json',
+                    success: function(data){
+                        if(data && (typeof data.code == 'number') && (data.code == 0)){
+
+                            var peopleNum = 0,
+                                idiotNum = 0,
+                                oniNum = 0,
+                                role = ''
+                                ;
+
+                            for(var item in data.playerList){
+
+                                role =  item.character;
+
+                                /**
+                                 * 0 - UNKOWN
+                                 1 - GOD
+                                 2 - PEOPLE
+                                 3 - ONI
+                                 4 - IDIOT
+                                 */
+
+                                if(role == 3){
+                                    oniNum++ ;
+                                }
+                                else if(role == 2){
+                                    peopleNum++;
+                                }
+                                else if(role == 4){
+                                    idiotNum++;
+                                }
+                            }
+
+                            var tipSnap = '<strong>'+ peopleNum + '</strong>个平民,\
+                                          <strong>'+ idiotNum + '</strong>个傻子,\
+                                          <strong>'+ oniNum + '</strong>个鬼<br>\
+                                            全部人请确认身份'
+                                        ;
+
+                            $status.html(tipSnap);
+                        }
+                    },
+                    error: function(xhr, type){
+                        throw 'startGame Ajax error!';
+                    }
+                });
+
+
             });
         }
     }
@@ -172,11 +310,11 @@
                                 SHAKE.start();
                                 return true;
                             } else {
-                                alert("对不起您的设备不支持摇动");
+                                console.log("对不起您的设备不支持摇动");
                                 return false;
                             }
                         } else {
-                            alert("对不起您的设备不支持摇动");
+                            console.log("对不起您的设备不支持摇动");
                             return false;
                         }
                     },
@@ -296,10 +434,118 @@
     stage.init();
 
     var gamer = {
+        statusTick : null,
+        amountTick : null,
         init:function () {
             gamer.getApple();
             gamer.userTouch();
             gamer.waiting();
+        },
+        getAmount: function(roomId,playerId){
+
+            //查看人数
+            $.ajaxJSONP({
+                type:'GET',
+                url:Server.getAmount,
+                data:{
+                    roomId:roomId ,
+                    playerId: playerId
+                },
+                dataType:'json',
+                success:function (data) {
+                    //保存凭证
+                    if (data && (typeof data.code == 'number') && (data.code == 0)) {
+
+                        $('.tip').text((+data.playerAmount - 1) + '人已经领取卡片');
+                    }
+                },
+                error:function (xhr, type) {
+                    throw 'jsonP Ajax error!';
+                }
+            });
+
+
+            gamer.amountTick = setTimeout(arguments.callee, 2000,roomId,playerId);
+        },
+        getStatus: function(roomId,playerId){
+            //查看自己的状态.
+            $.ajaxJSONP({
+                type:'GET',
+                url:Server.getStatus,
+                data:{
+                    roomId: roomId,
+                    playerId: playerId
+                },
+                dataType:'json',
+                success:function (data) {
+                    //保存凭证
+                    if (data && data.status) {
+
+
+                        /*
+                         STATUS
+                         0 - IDLE
+                         1 - OPEN
+                         2 - PUZZLE
+                         3 - GAME
+                         */
+                        if(data.status == 0){
+                            alert('你已经和大家失去了联系!');
+                            window.clearTimeout(gamer.statusTick);
+                            return;
+                        }
+
+                        if(data.status == 1){
+
+                        }
+
+                        if(data.status == 2){
+                            $.ajaxJSONP({
+                                type:'GET',
+                                url:Server.getPuzzle,
+                                data:{
+                                    playerId: playerId
+                                },
+                                dataType:'json',
+                                success:function (data) {
+                                     if(data && data.word && data.character){
+                                         $wbox.html(JST['view/w-2']({
+                                             character: data.character,
+                                             word: data.word,
+                                             playerNum: undefined
+                                         }));
+
+                                         window.clearTimeout(gamer.statusTick);
+                                         throw 'getPuzzle result error!';
+
+                                         return;
+                                     }
+                                },
+                                error:function (xhr, type) {
+                                    window.clearTimeout(gamer.statusTick);
+                                    throw 'getPuzzle Ajax error!';
+
+                                    return;
+                                }
+                            });
+                        }
+
+                        if(data.status == 3){
+
+                        }
+                    }
+
+                },
+                error:function (xhr, type) {
+                    window.clearTimeout(gamer.statusTick);
+                    throw 'getStatus Ajax error!';
+
+                    return;
+
+                }
+            });
+
+            gamer.statusTick = setTimeout(arguments.callee, 300,roomId,playerId);
         },
         getApple:function () {
             var header = '<figure class="caption">领卡片</figure>\
@@ -325,9 +571,43 @@
             });
         },
         waiting:function () {
+
             //玩家确认口令.
             $content.on('tap', '#confirm', function (e) {
-                $wbox.html(JST['view/w-2']());
+
+                var roomId = $('.word input').val().trim();
+
+                $.ajaxJSONP({
+                    type:'GET',
+                    url:Server.join,
+                    data:{ roomId:roomId },
+                    dataType:'json',
+                    success:function (data) {
+
+                        //保存凭证
+                        if (data && (typeof data.code == 'number') && (data.code == 0)) {
+
+                            $wbox.html(JST['view/w-2']({
+                                character: -1,
+                                playerNum: +data.playerAmount - 1
+                            }));
+
+                            gamer.getAmount(roomId, data.playerId);
+                            gamer.getStatus(roomId, data.playerId);
+                        }
+                    },
+                    TimeOut: 3000,
+                    error:function (xhr, type) {
+                        if(type.indexof('timeout') > -1) {
+                            throw 'timeout';
+                        }
+                        else{
+                            throw 'jsonP Ajax error!';
+                        }
+                    }
+                });
+
+                $(this).css('disabled','disabled');
             });
         }
     }

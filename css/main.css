@@ -83,18 +83,19 @@ header .close {
   border: 0px;
   background: transparent;
   text-align: center;
-  font-size: 16px;
-  letter-spacing: 0.2em;
+  font-size: 14px;
+  letter-spacing: 0.1em;
   vertical-align: middle;
   display: table-cell;
 }
 .word span figure input::-webkit-input-placeholder {
-  font-size: 15px;
+  font-size: 13px;
 }
 .word span figure i {
   display: inline-block;
   position: absolute;
   background: #f0f0f0;
+  font-size: 12px;
   width: 30px;
   height: 30px;
   line-height: 30px;
@@ -160,7 +161,7 @@ header .close {
 }
 .putin li:nth-child(1) {
   margin-left: 10px;
-  background-image: url("../image/ghost.png");
+  background-image: url("../image/common.png");
 }
 .putin li:nth-child(1):after {
   content: '平民的词';
@@ -168,10 +169,10 @@ header .close {
   bottom: -1.5em;
   width: 6.1em;
   left: 50%;
-  -webkit-transform: translatex(-50%);
+  -webkit-transform: translateX(-50%);
 }
 .putin li:nth-child(2) {
-  background-image: url("../image/common.png");
+  background-image: url("../image/fool.png");
 }
 .putin li:nth-child(2):after {
   content: '傻子的词';
@@ -179,10 +180,10 @@ header .close {
   bottom: -1.5em;
   width: 6.1em;
   left: 50%;
-  -webkit-transform: translatex(-50%);
+  -webkit-transform: translateX(-50%);
 }
 .putin li:nth-child(3) {
-  background-image: url("../image/fool.png");
+  background-image: url("../image/ghost.png");
 }
 .putin li:nth-child(3):after {
   content: '鬼的数字';
@@ -190,7 +191,7 @@ header .close {
   bottom: -1.5em;
   width: 6.1em;
   left: 50%;
-  -webkit-transform: translatex(-50%);
+  -webkit-transform: translateX(-50%);
 }
 .flipper {
   -webkit-transform: rotate3d(0, 1, 0, 180deg);
@@ -275,6 +276,22 @@ header .close {
   background-size: contain;
   margin-left: 0px;
 }
+.box-game .peopleCard {
+  background: url("../image/common.png") no-repeat 50% 0%;
+  background-size: 90%;
+  top: -10px;
+}
+.box-game .peopleCard figure {
+  background: transparent;
+}
+.box-game .ghostCard {
+  background: url("../image/ghost.png") no-repeat 50% 0%;
+  background-size: 90%;
+  top: -10px;
+}
+.box-game .ghostCard figure {
+  background: transparent;
+}
 .box-game .face {
   position: relative;
   z-index: 1;
@@ -342,7 +359,7 @@ header .close {
   width: 140px;
   color: white;
   font-size: 18px;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.1em;
   line-height: 40px;
   display: inline-block;
   -webkit-border-radius: 20px;
