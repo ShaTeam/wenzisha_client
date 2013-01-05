@@ -8,11 +8,11 @@
 }).call(this);
 (function() {
   this.JST || (this.JST = {});
-  this.JST["view/s-1"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--出题卡-->\n<div class="word">\n     <span>\n         <em></em><figure><input id="roomId" type="text" tabindex="-1" readonly="true"></figure>\n     </span>\n</div>\n<ul class="putin">\n    <li>\n        <input id="orTip" tabindex="2" placeholder="点此输入">\n    </li>\n    <li>\n        <input id="idiTip" tabindex="3" placeholder="点此输入">\n    </li>\n    <li>\n        <input id="ghostTip" tabindex="3"  value="0" readonly="true">\n    </li>\n</ul>\n\n<section class="fire">\n    <div class="btn">\n        <span id="setTopic">\n            出题\n        </span>\n    </div>\n</section>\n');}return __p.join('');};
+  this.JST["view/s-1"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--出题卡-->\n<div class="word">\n     <span>\n         <em></em><figure><input id="roomId" type="text" tabindex="-1" readonly="true"></figure>\n     </span>\n</div>\n<ul class="putin">\n    <li>\n        <textarea id="orTip" wrap="physical" rows="2" tabindex="2" placeholder="点此输入"></textarea>\n    </li>\n    <li>\n        <textarea id="idiTip" wrap="physical" rows="2" tabindex="3" placeholder="点此输入"></textarea>\n    </li>\n    <li>\n        <textarea id="ghostTip" wrap="physical" rows="2" tabindex="3"  value="0" readonly="true"></textarea>\n    </li>\n</ul>\n\n<section class="fire">\n    <div class="btn">\n        <span id="setTopic">\n            出题\n        </span>\n    </div>\n</section>\n');}return __p.join('');};
 }).call(this);
 (function() {
   this.JST || (this.JST = {});
-  this.JST["view/s-2"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--出题卡-->\n<div class="word">\n     <p>\n         <strong>', gamerNum ,'</strong>人已经领取卡片<br>\n         全部人领取后可以开始游戏\n     </p>\n</div>\n<ul class="putin god">\n    <li>\n        <span>', peopleWord || ' ' ,'</span>\n    </li><li>\n        <span>', idiotWord || ' ','</span>\n    </li><li>\n        <span>', idiotWord.toString().trim().length ,'</span>\n    </li>\n</ul>\n\n<section class="fire">\n    <div class="btn">\n        <span id="startGame">\n            开始游戏\n        </span>\n    </div>\n</section>\n');}return __p.join('');};
+  this.JST["view/s-2"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--出题卡-->\n<div class="word">\n     <p>\n         <strong>', gamerNum ,'</strong>人已经领取卡片<br>\n         全部人领取后可以开始游戏\n     </p>\n</div>\n<ul class="putin god">\n    <li>\n        <span>', peopleWord || ' ' ,'</span>\n    </li>\n    <li>\n        <span>', idiotWord || ' ','</span>\n    </li>\n    <li>\n        <span>', idiotWord.toString().trim().length ,'</span>\n    </li>\n</ul>\n\n<section class="fire">\n    <div class="btn">\n        <span id="startGame">\n            开始游戏\n        </span>\n    </div>\n</section>\n');}return __p.join('');};
 }).call(this);
 (function() {
   this.JST || (this.JST = {});
@@ -1804,7 +1804,7 @@ window.Zepto = Zepto
 			status = that._status = Math.floor(step/single),  //每页显示子元素的个数
 			allWidth = single*len;  //滑动容器的宽度
 
-            console.log(that._step);
+
 
             if(status < 1){
                 //出错，childs宽度不能大于_wrap宽度.
@@ -1827,7 +1827,6 @@ window.Zepto = Zepto
 				that._step += margin;
 			}
 
-            console.log(that._step);
 			
 			//是否初始位置
 			var initLeft = op.left;
@@ -1859,7 +1858,6 @@ window.Zepto = Zepto
 				return null;
 			}
 			wul.css('width',allWidth);
-            console.log(allWidth);
 			//复制收尾元素，以便循环
 			if(op.isLoop){
 				$(childs[0].cloneNode(true)).appendTo(wul);
@@ -2231,7 +2229,7 @@ window.Zepto = Zepto
         $wbox = $content.find('.box')
         ;
 
-    var HOST = 'http://192.168.1.110:88';
+    var HOST = 'http://localhost:88';
 
     var Server = {
         'open' : HOST + '/room/open?callback=?',
@@ -2241,9 +2239,9 @@ window.Zepto = Zepto
         'getAmount' : HOST + '/room/get-amount?callback=?',
         'getStatus' : HOST + '/room/get-status?callback=?',
         'getPuzzle' : HOST + '/player/get-puzzle?callback=?',
-        'randomPuzzle' : HOST + '/room/random-puzzle',
+        'randomPuzzle' : HOST + '/room/random-puzzle?callback=?',
         'startGame' : HOST + '/room/start-game?callback=?',
-        'endGame' : HOST + '/room/end-game'
+        'endGame' : HOST + '/room/end-game?callback=?'
     }
 
 
@@ -2260,208 +2258,111 @@ window.Zepto = Zepto
             idiotWord: ''
         },
         playerNumTick: null,
-        init:function () {
-            God.getApple();
-            God.setTopic();
-            God.flip();
-            God.wordNumAutoComplete();
-            God.action();
-        },
-        refreshPlayers: function(){
+        randomPuzzle: function(){
             $.ajaxJSONP({
                 type: 'GET',
-                url: Server.getPlayers,
+                url: Server.randomPuzzle,
                 data: {
                     roomId: God.certificate.roomId,
                     adminId: God.certificate.adminId
                 },
                 dataType: 'json',
                 success: function(data){
-                    if(data){
-                        $('.word strong').text(
-                            data.playerList.filter(function(item){
-
-                                /*0 - UNKOWN
-                                1 - GOD
-                                2 - PEOPLE
-                                3 - ONI
-                                4 - IDIOT
-                                */
-                                return item.character == 2 ||
-                                    item.character == 3  ||
-                                    item.character == 4
-                            }).length
-                        );
+                    if(data && data.words){
+                        $('#idiTip').val(data.words[0] || '走你');
+                        $('#orTip').val(data.words[1] || '航母');
+                        $('#ghostTip').val(data.words[0].length);
                     }
                 },
                 error: function(xhr, type){
-                    throw 'God setTopic Ajax error!';
+                    throw 'randomPuzzle Ajax error!';
                 }
             });
-
-            God.playerNumTick = setTimeout(arguments.callee,2000);
         },
-        //翻转隐藏（平民、傻子、鬼）
-        flip: function(){
-            var $item,
-                $span,
-                isVisible = false
-                ;
+        init:function () {
+
+            $content.on('tap', '.pen', function(e){
+                God.getApple.call(e);
+            });
+            $content.on('tap', '#setTopic', function(e){
+                God.setTopic.call(e);
+            });
             $content.on('tap','.god li',function(e){
-                $item = $(this);
-                $span = $item.find('span');
-                isVisible = $span.css('visibility');
-
-                if(isVisible.indexOf('visible') > -1){
-                    $item.animate({
-                        rotate3d:'0, 1, 0, 180deg'
-                    },200,'ease-in',function(){
-                        $span.css('visibility','hidden');
-                    });
-                }
-                else if(isVisible.indexOf('hidden') > -1){
-                    $item.animate({
-                        rotate3d:'0, 1, 0, 0deg'
-                    },200,'ease-in',function(){
-                        $span.css('visibility','visible');
-                    });
-                }
-                else{
-                    alert('hello');
-                }
+                God.flip.call(e);
+            });
+            God.wordNumAutoComplete();
+            $content.on('tap', '#startGame', function(e){
+                God.action.call(e);
             });
         },
-        //填词.
-        wordNumAutoComplete: function(){
-            $content.on('change','.putin input',function(e){
-                $('#ghostTip').val(this.value.toString().length);
-            });
-        },
-        //法官.
-        getApple:function () {
+        /*
+         0 - IDLE
+         1 - OPEN
+         2 - PUZZLE
+         3 - GAME
+         */
+        refreshPlayers: function(status){
 
-            var header = '<figure class="caption">出题卡</figure>\
-                            <div class="set">\
-                          </div>';
-
-            $content.on('tap', '.pen', function (e) {
-
+            //确认人数中...
+            if(status == 2){
                 $.ajaxJSONP({
                     type: 'GET',
-                    url: Server.open,
-                    data: {},
-                    dataType: 'json',
-                    context: $('body'),
-                    success: function(data){
-                        //保存凭证
-                        if(data && (typeof data.code == 'number') && (data.code == 0)){
-                            God.certificate.adminId = data.adminId;
-                            God.certificate.roomId = data.roomId;
-                            God.certificate.startTimestamp = data.startTimestamp;
-                            God.certificate.endTimestamp = data.endTimestamp;
-
-                            $('#roomId').val('取卡口令:' + data.roomId);
-                        }
-                    },
-                    error: function(xhr, type){
-                        throw 'God getApple Ajax error!';
-                    }
-                });
-
-                $wheader.html(header);
-                $wbox.removeClass('box-start').addClass('box-ready').html(JST['view/s-1']());
-            });
-
-
-        },
-        //出题.
-        setTopic:function () {
-            $content.on('tap', '#setTopic', function (e) {
-
-                if($('#orTip').val().length != $('#idiTip').val().length){
-                    alert('平民和傻子的词长需一致!')
-                    return;
-                }
-
-                God.role.peopleWord = $('#orTip').val().trim();
-                God.role.idiotWord = $('#idiTip').val().trim();
-
-                $.ajaxJSONP({
-                    type: 'GET',
-                    url: Server.setPuzzle,
+                    url: Server.getPlayers,
                     data: {
                         roomId: God.certificate.roomId,
-                        adminId: God.certificate.adminId,
-                        words:God.role.peopleWord + ',' + God.role.idiotWord
+                        adminId: God.certificate.adminId
                     },
                     dataType: 'json',
                     success: function(data){
-                        if(data && (typeof data.code == 'number') && (data.code == 0)){
-                            $('header figure').text('确认人数');
-                            $wbox.removeClass('box-ready').addClass('box-game').html(JST['view/s-2']({
-                                peopleWord: God.role.peopleWord,
-                                idiotWord : God.role.idiotWord,
-                                gamerNum: (data.characters.people.count>>>0) +
-                                            (data.characters.idiot.count>>>0) +
-                                                (data.characters.oni.count>>>0)
-                            }));
+                        if(data){
+                            $('.word strong').text(
+                                data.playerList.filter(function(item){
 
-
-                            //更新玩家人数.
-                            God.refreshPlayers();
+                                    /*0 - UNKOWN
+                                     1 - GOD
+                                     2 - PEOPLE
+                                     3 - ONI
+                                     4 - IDIOT
+                                     */
+                                    return item.character == 2 ||
+                                        item.character == 3  ||
+                                        item.character == 4
+                                }).length
+                            );
                         }
                     },
                     error: function(xhr, type){
                         throw 'God setTopic Ajax error!';
                     }
                 });
-            });
-        },
-        //开始游戏.
-        action:function () {
-            $content.on('tap', '#startGame', function (e) {
 
-                //游戏开始，不再轮询加入玩家的人数.
-                window.clearTimeout(God.playerNumTick);
-                God.playerNumTick = null;
 
-                var $status = $('.word p');
+                God.playerNumTick = setTimeout(arguments.callee,2000,2);
+            }
 
-                $('header figure').text('游戏中');
-                this.style.backgroundColor = '#E43C3C';
-                this.innerText = '结束/重新游戏';
-                $status.html();
-
+            //游戏中..
+            if(status == 3) {
                 $.ajaxJSONP({
                     type: 'GET',
-                    url: Server.startGame,
+                    url: Server.getPlayers,
                     data: {
                         roomId: God.certificate.roomId,
-                        adminId: God.certificate.adminId,
-                        words:God.role.peopleWord + ',' + God.role.idiotWord
+                        adminId: God.certificate.adminId
                     },
                     dataType: 'json',
                     success: function(data){
-                        if(data && (typeof data.code == 'number') && (data.code == 0)){
-
+                        if(data && data.playerList){
                             var peopleNum = 0,
                                 idiotNum = 0,
                                 oniNum = 0,
-                                role = ''
+                                $status = $('.word p'),
+                                role = '',
+                                len =  data.playerList.length
                                 ;
 
-                            for(var item in data.playerList){
+                            for(var i = 0;i < len; i++){
 
-                                role =  item.character;
-
-                                /**
-                                 * 0 - UNKOWN
-                                 1 - GOD
-                                 2 - PEOPLE
-                                 3 - ONI
-                                 4 - IDIOT
-                                 */
-
+                                role =  data.playerList[i].character;
                                 if(role == 3){
                                     oniNum++ ;
                                 }
@@ -2477,17 +2378,194 @@ window.Zepto = Zepto
                                           <strong>'+ idiotNum + '</strong>个傻子,\
                                           <strong>'+ oniNum + '</strong>个鬼<br>\
                                             全部人请确认身份'
-                                        ;
+                                ;
 
                             $status.html(tipSnap);
                         }
                     },
                     error: function(xhr, type){
-                        throw 'startGame Ajax error!';
+                        throw 'God setTopic Ajax error!';
+                    }
+                });
+            }
+        },
+        //翻转隐藏（平民、傻子、鬼）
+        flip: function(tag,e){
+            var $item = $('.god li'),
+                $span  = $item.find('span'),
+                isVisible = $span.css('visibility')
+                ;
+
+
+            if(isVisible.indexOf('visible') > -1){
+                $item.animate({
+                    rotate3d:'0, 1, 0, 180deg'
+                },200,'ease-in',function(){
+                    $span.css('visibility','hidden');
+                });
+            }
+            else if(isVisible.indexOf('hidden') > -1){
+                $item.animate({
+                    rotate3d:'0, 1, 0, 0deg'
+                },200,'ease-in',function(){
+                    $span.css('visibility','visible');
+                });
+            }
+            else{
+                alert('hello');
+            }
+
+        },
+        //填词.
+        wordNumAutoComplete: function(){
+            $content.on('change','.putin textarea',function(e){
+                $('#ghostTip').val(this.value.toString().length);
+            });
+        },
+        //法官.
+        getApple:function () {
+
+            var header = '<figure class="caption">出题卡</figure>\
+                            <div class="set">\
+                          </div>';
+
+            $.ajaxJSONP({
+                type: 'GET',
+                url: Server.open,
+                data: {},
+                dataType: 'json',
+                context: $('body'),
+                success: function(data){
+                    //保存凭证
+                    if(data && (typeof data.code == 'number') && (data.code == 0)){
+                        God.certificate.adminId = data.adminId;
+                        God.certificate.roomId = data.roomId;
+                        God.certificate.startTimestamp = data.startTimestamp;
+                        God.certificate.endTimestamp = data.endTimestamp;
+
+                        $('#roomId').val('取卡口令:' + data.roomId);
+                    }
+                },
+                error: function(xhr, type){
+                    throw 'open Ajax error!';
+                }
+            });
+
+            $wheader.html(header);
+            $wbox.removeClass('box-start').removeClass('box-game').addClass('box-ready').html(JST['view/s-1']());
+        },
+        //出题.
+        setTopic:function () {
+            var orTipVal =  $('#orTip').val(),
+                idiTip = $('#idiTip').val()
+                ;
+
+            if(orTipVal.length != idiTip.length){
+                alert('平民和傻子的词长需一致!');
+                return;
+            }
+
+
+            if(orTipVal.trim().length == 0 || idiTip.trim().length == 0){
+                alert('请填词!');
+                return;
+            }
+
+            if(!window.confirm('请确认所有玩家都已加入，否则可能丢失玩家')) return;
+
+            God.role.peopleWord = $('#orTip').val().trim();
+            God.role.idiotWord = $('#idiTip').val().trim();
+
+            $.ajaxJSONP({
+                type: 'GET',
+                url: Server.setPuzzle,
+                data: {
+                    roomId: God.certificate.roomId,
+                    adminId: God.certificate.adminId,
+                    words:God.role.peopleWord + ',' + God.role.idiotWord
+                },
+                dataType: 'json',
+                success: function(data){
+                    if(data && (typeof data.code == 'number') && (data.code == 0)){
+                        $('header figure').text('确认人数');
+                        $wbox.removeClass('box-ready').addClass('box-game').html(JST['view/s-2']({
+                            peopleWord: God.role.peopleWord,
+                            idiotWord : God.role.idiotWord,
+                            gamerNum: (data.characters.people.count>>>0) +
+                                (data.characters.idiot.count>>>0) +
+                                (data.characters.oni.count>>>0)
+                        }));
+
+
+                        //更新玩家人数.
+                        God.refreshPlayers(2);
+                    }
+                },
+                error: function(xhr, type){
+                    throw 'God setTopic Ajax error!';
+                }
+            });
+        },
+        //开始游戏.
+        action:function (e) {
+            var $this = $('#startGame')
+                ;
+
+            //结束游戏.
+            if($this.text().indexOf('重新游戏') > -1){
+                $.ajaxJSONP({
+                    type: 'GET',
+                    url: Server.endGame,
+                    data: {
+                        roomId: God.certificate.roomId,
+                        adminId: God.certificate.adminId
+                    },
+                    dataType: 'json',
+                    success: function(result){
+                        /*
+                         0 - IDLE
+                         1 - JOIN
+                         2 - PUZZLE
+                         3 - GAME
+                         */
+
+                        if(result.status == 0){
+                              God.getApple();
+                        }
+                    },
+                    error: function(xhr, type){
+                        throw 'endGame Ajax error!';
                     }
                 });
 
+                return;
+            }
 
+            //游戏开始，不再轮询加入玩家的人数.
+            window.clearTimeout(God.playerNumTick);
+            God.playerNumTick = null;
+
+            var $status = $('.word p');
+
+            $('header figure').text('游戏中');
+            $this.css('backgroundColor','#E43C3C').text('结束/重新游戏');
+            $status.html();
+
+            $.ajaxJSONP({
+                type: 'GET',
+                url: Server.startGame,
+                data: {
+                    roomId: God.certificate.roomId,
+                    adminId: God.certificate.adminId,
+                    words:God.role.peopleWord + ',' + God.role.idiotWord
+                },
+                dataType: 'json',
+                success: function(data){
+                    data && data.status && God.refreshPlayers(data.status);
+                },
+                error: function(xhr, type){
+                    throw 'startGame Ajax error!';
+                }
             });
         }
     }
@@ -2579,8 +2657,9 @@ window.Zepto = Zepto
 
         shake:function () {
             $(window).shake({action:function () {
-
-                alert(1)
+                if($('#idiTip').length > 0){
+                    God.randomPuzzle();
+                }
             }});
         },
 
@@ -2628,7 +2707,7 @@ window.Zepto = Zepto
             $(function(){
                 // Set a timeout...
                 setTimeout(function () {
-                    window.scrollTo(0, -100);
+                    window.scrollTo(0, -200);
                 }, 100);
             });
         },
@@ -2741,6 +2820,8 @@ window.Zepto = Zepto
                                              word: data.word,
                                              playerNum: undefined
                                          }));
+
+                                         $('header figure').text('游戏中');
 
                                          window.clearTimeout(gamer.statusTick);
                                          throw 'getPuzzle result error!';

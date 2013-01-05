@@ -5,7 +5,7 @@
         $wbox = $content.find('.box')
         ;
 
-    var HOST = 'http://192.168.1.110:88';
+    var HOST = 'http://localhost:88';
 
     var Server = {
         'open' : HOST + '/room/open?callback=?',
