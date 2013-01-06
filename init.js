@@ -91,20 +91,26 @@
                     dataType: 'json',
                     success: function(data){
                         if(data){
-                            $('.word strong').text(
-                                data.playerList.filter(function(item){
 
-                                    /*0 - UNKOWN
-                                     1 - GOD
-                                     2 - PEOPLE
-                                     3 - ONI
-                                     4 - IDIOT
-                                     */
-                                    return item.character == 2 ||
-                                        item.character == 3  ||
-                                        item.character == 4
-                                }).length
-                            );
+                            var totalPlayers = 0
+                                isAllOk = true
+                                ;
+
+                            for(var i = 0,item,len = data.playerList.length; i < len;i++){
+                                item = data.playerList[i];
+                                if(item.character == 2 || item.character == 3 || item.character == 4){
+                                    totalPlayers++;
+
+                                    if(item.status == 0 || item.status == 1 || item.status == 3){
+                                        isAllOk = false;
+                                    }
+                                }
+                            }
+                            $('.word strong').text(totalPlayers);
+
+                            if(isAllOk){
+                                $('#startGame').removeClass('wait').addClass('ready').text('开始游戏');
+                            }
                         }
                     },
                     error: function(xhr, type){
@@ -286,6 +292,10 @@
         action:function (e) {
             var $this = $('#startGame')
                 ;
+
+            if($this.text().indexOf('等待玩家') > -1){
+                return;
+            }
 
             //结束游戏.
             if($this.text().indexOf('重新游戏') > -1){
