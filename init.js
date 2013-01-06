@@ -111,9 +111,12 @@
                             if(isAllOk){
                                 $('#startGame').removeClass('wait').addClass('ready').text('开始游戏');
                             }
+
+                            stage.mask.hide();
                         }
                     },
                     error: function(xhr, type){
+                        stage.mask.hide();
                         throw 'God setTopic Ajax error!';
                     }
                 });
@@ -207,6 +210,9 @@
         //法官.
         getApple:function () {
 
+            stage.mask.show();
+
+
             var header = '<figure class="caption">出题卡</figure>\
                             <div class="set">\
                           </div>';
@@ -226,9 +232,12 @@
                         God.certificate.endTimestamp = data.endTimestamp;
 
                         $('#roomId').val('取卡口令:' + data.roomId);
+
+                        stage.mask.hide();
                     }
                 },
                 error: function(xhr, type){
+                    stage.mask.hide();
                     throw 'open Ajax error!';
                 }
             });
@@ -258,6 +267,8 @@
             God.role.peopleWord = $('#orTip').val().trim();
             God.role.idiotWord = $('#idiTip').val().trim();
 
+            stage.mask.show();
+
             $.ajaxJSONP({
                 type: 'GET',
                 url: Server.setPuzzle,
@@ -284,6 +295,8 @@
                     }
                 },
                 error: function(xhr, type){
+
+                    stage.mask.hide();
                     throw 'God setTopic Ajax error!';
                 }
             });
@@ -363,6 +376,7 @@
             stage.set();
             stage.registerShake();
             stage.shake();
+            stage.overlay();
             stage.hideAddrBar();
             stage.help();
         },
@@ -498,6 +512,80 @@
             });
         },
 
+        //遮罩.
+        overlay: function() {
+            var funCreate = function(tagName, attr) {
+                var element = null;
+                if (typeof tagName === "string") {
+                    element = document.createElement(tagName);
+
+                    if (typeof attr === "object") {
+                        var keyAttr, keyStyle;
+                        for (keyAttr in attr) {
+                            if (keyAttr === "styles" && typeof attr[keyAttr] === "object") {
+                                // 样式
+                                for (keyStyle in attr[keyAttr]) {
+                                    element.style[keyStyle]    = attr[keyAttr][keyStyle];
+
+                                    if (keyStyle === "opacity" && window.innerWidth + "" == "undefined") {
+                                        element.style.filter = "alpha(opacity="+ (attr[keyAttr][keyStyle] * 100) +")";
+                                    }
+                                }
+                            }
+                            else {
+                                if (keyAttr === "class") {
+                                    keyAttr = "className";
+                                }
+                                element[keyAttr] = attr[keyAttr];
+                            }
+
+                        }
+                    }
+                }
+                return  element;
+            };
+            var element = funCreate("div", {
+                styles: {
+                    display: "none",
+                    width: "100%",
+                    height: "100%",
+                    backgroundColor: "#000",
+                    backgroundImage: "url('http://a.tbcdn.cn/mw/base/styles/component/more/images/loading-grey.gif')",
+                    backgroundRepeat: "no-repeat",
+                    backgroundAttachment: "fixed",
+                    backgroundPosition: "center center",
+                    opacity: 0.35,
+                    position: "absolute",
+                    zIndex: 100,
+                    left: 0,
+                    top: 0,
+                    bottom: 0 ,
+                    webkitTransform: "translate3d(0px, 0px, 0px)"
+                }
+            });
+
+            var container = $('#wrapper');
+            container.eq(0).append(element);
+
+            stage.mask =
+            {
+                display: false,
+                show: function() {
+                    element.style.display = "block";
+                    this.display = true;
+                    document.ontouchmove = function(e){
+                        e.preventDefault();
+                    };
+                    return this;
+                },
+                hide: function() {
+                    element.style.display = "none";
+                    this.display = false;
+                    document.ontouchmove = null;
+                    return this;
+                }
+            };
+        },
 
         //帮助.
         help: function(){
