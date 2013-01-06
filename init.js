@@ -20,6 +20,16 @@
         'endGame' : HOST + '/room/end-game?callback=?'
     }
 
+    var TipInfo = {
+        '1': '没有指定的房间',
+        '2':'没有指定的玩家',
+        '4':'房间已满',
+        '8':'当前指向的不是管理员',
+        '16': '当前玩家没有权限（不是Room的成员）',
+        '32': '当前玩家不是JOIN的状态',
+        '1024': '未知错误'
+    }
+
 
     //神
     var God = {
@@ -616,6 +626,7 @@
     var gamer = {
         statusTick : null,
         amountTick : null,
+
         init:function () {
             gamer.getApple();
             gamer.userTouch();
@@ -698,9 +709,7 @@
                                          $('header figure').text('游戏中');
 
                                          window.clearTimeout(gamer.statusTick);
-                                         throw 'getPuzzle result error!';
-
-                                         return;
+                                         window.clearTimeout(gamer.amountTick);
                                      }
                                 },
                                 error:function (xhr, type) {
@@ -727,7 +736,7 @@
                 }
             });
 
-            gamer.statusTick = setTimeout(arguments.callee, 300,roomId,playerId);
+            gamer.statusTick = setTimeout(arguments.callee, 1000,roomId,playerId);
         },
         getApple:function () {
             var header = '<figure class="caption">领卡片</figure>\
@@ -767,15 +776,21 @@
                     success:function (data) {
 
                         //保存凭证
-                        if (data && (typeof data.code == 'number') && (data.code == 0)) {
+                        if (data && (typeof data.code == 'number')) {
 
-                            $wbox.html(JST['view/w-2']({
-                                character: -1,
-                                playerNum: +data.playerAmount - 1
-                            }));
+                            if(data.code == 0){
+                                $wbox.html(JST['view/w-2']({
+                                    character: -1,
+                                    playerNum: +data.playerAmount - 1
+                                }));
 
-                            gamer.getAmount(roomId, data.playerId);
-                            gamer.getStatus(roomId, data.playerId);
+                                gamer.getAmount(roomId, data.playerId);
+                                gamer.getStatus(roomId, data.playerId);
+                            }
+                            else{
+                                alert(TipInfo[data.reason]);
+                            }
+
                         }
                     },
                     TimeOut: 3000,

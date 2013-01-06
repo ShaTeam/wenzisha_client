@@ -1,26 +1,14 @@
-(function() {
-  this.JST || (this.JST = {});
-  this.JST["view/help-switcher"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('');  if(index == 1){ ; __p.push('\n<p>\n    这是一个大家坐在一起的文字游戏！首先要集齐至少<strong>7</strong>个人用浏览器打开<em>www.wenzisha.com</em>其中一人点击出题按钮，其余人进入游戏准备抓鬼。\n</p>\n');  }else if(index == 2){ ; __p.push('\n<p>\n    法官进入出题界面,并将领卡密码告诉大家，其他人输入密码领取卡片。<br>\n    法官出题需保证两个词<span>字数一致，强烈相关。</span>\n</p>\n');  }else if(index == 3){ ; __p.push('\n<p>\n    所有人确认好自己的身份卡\n</p>\n');  }else if(index == 4){ ; __p.push('\n<p>\n    法官：天黑请闭眼，鬼请睁眼，鬼需要互相认识同伴，并指认开始阐述的起点。（通常以顺时针方向进行）\n</p>\n');  }else if(index == 5){ ; __p.push('\n<p>\n    从鬼指认的人开始阐述，平民和傻子需要尽量阐述的让同伴理解你的词，但不要让鬼猜到你的词。\n</p>\n');  }else if(index == 6){ ; __p.push('\n<p>\n    阐述一轮结束后，法官需要组织大家进行投票谁是鬼。票数最多的人被投死，如票数相同，则继续阐述再进行投票，直到投死一个人为止。\n</p>\n');  }else if(index == 7){ ; __p.push('\n<p>\n    被投死的人，需要承认是否是鬼，如回答不是鬼，则没有遗言；<br>\n    如回答是鬼，则可以向法官问一个可以用“是”或“否”作答的问题，法官将如实回答。\n</p>\n');  }else if(index == 8){ ; __p.push('\n<p>\n    当鬼猜出词时，鬼胜；<br>\n    当平民和傻子的人数少于鬼的人数时，鬼胜;<br>\n    当平民和傻子将鬼全部投死，平民和傻子胜。\n</p>\n');  }else{ ; __p.push('\n<p>\n    <span>error</span>a\n</p>\n');  } ; __p.push('\n\n');}return __p.join('');};
+(function() { this.JST || (this.JST = {}); this.JST["view/help-switcher"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('');  if(index == 1){ ; __p.push('\n<p>\n    这是一个大家坐在一起的文字游戏！首先要集齐至少<strong>7</strong>个人用浏览器打开<em>www.wenzisha.com</em>其中一人点击出题按钮，其余人进入游戏准备抓鬼。\n</p>\n');  }else if(index == 2){ ; __p.push('\n<p>\n    法官进入出题界面,并将领卡密码告诉大家，其他人输入密码领取卡片。<br>\n    法官出题需保证两个词<span>字数一致，强烈相关。</span>\n</p>\n');  }else if(index == 3){ ; __p.push('\n<p>\n    所有人确认好自己的身份卡\n</p>\n');  }else if(index == 4){ ; __p.push('\n<p>\n    法官：天黑请闭眼，鬼请睁眼，鬼需要互相认识同伴，并指认开始阐述的起点。（通常以顺时针方向进行）\n</p>\n');  }else if(index == 5){ ; __p.push('\n<p>\n    从鬼指认的人开始阐述，平民和傻子需要尽量阐述的让同伴理解你的词，但不要让鬼猜到你的词。\n</p>\n');  }else if(index == 6){ ; __p.push('\n<p>\n    阐述一轮结束后，法官需要组织大家进行投票谁是鬼。票数最多的人被投死，如票数相同，则继续阐述再进行投票，直到投死一个人为止。\n</p>\n');  }else if(index == 7){ ; __p.push('\n<p>\n    被投死的人，需要承认是否是鬼，如回答不是鬼，则没有遗言；<br>\n    如回答是鬼，则可以向法官问一个可以用“是”或“否”作答的问题，法官将如实回答。\n</p>\n');  }else if(index == 8){ ; __p.push('\n<p>\n    当鬼猜出词时，鬼胜；<br>\n    当平民和傻子的人数少于鬼的人数时，鬼胜;<br>\n    当平民和傻子将鬼全部投死，平民和傻子胜。\n</p>\n');  }else{ ; __p.push('\n<p>\n    <span>error</span>a\n</p>\n');  } ; __p.push('\n\n');}return __p.join('');};
 }).call(this);
-(function() {
-  this.JST || (this.JST = {});
-  this.JST["view/help"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<header>\n    <figure class="caption">开始游戏</figure>\n    <div class="close">\n    </div>\n</header>\n<section class="box box-help">\n    <p>\n        这是一个大家坐在一起的文字游戏！首先要集齐至少<strong>7</strong>个人用浏览器打开<em>www.wenzisha.com</em>其中一人点击出题按钮，其余人进入游戏准备抓鬼。\n    </p>\n</section>\n\n<footer class="slider">\n    <div class="help-man">\n    </div>\n\n    <div class="slider-status">\n        <span class="sel"></span>\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n    </div>\n    <div class="slider-outer">\n        <ul class="slider-wrap">\n            <li>\n                <img data-img="./image/1.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/2.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/3.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/4.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/5.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/6.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/7.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/8.png" src="./image/1.png">\n            </li>\n        </ul>\n    </div>\n</footer>\n');}return __p.join('');};
+(function() { this.JST || (this.JST = {}); this.JST["view/help"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<header>\n    <figure class="caption">开始游戏</figure>\n    <div class="close">\n    </div>\n</header>\n<section class="box box-help">\n    <p>\n        这是一个大家坐在一起的文字游戏！首先要集齐至少<strong>7</strong>个人用浏览器打开<em>www.wenzisha.com</em>其中一人点击出题按钮，其余人进入游戏准备抓鬼。\n    </p>\n</section>\n\n<footer class="slider">\n    <div class="help-man">\n    </div>\n\n    <div class="slider-status">\n        <span class="sel"></span>\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n    </div>\n    <div class="slider-outer">\n        <ul class="slider-wrap">\n            <li>\n                <img data-img="./image/1.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/2.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/3.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/4.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/5.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/6.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/7.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/8.png" src="./image/1.png">\n            </li>\n        </ul>\n    </div>\n</footer>\n');}return __p.join('');};
 }).call(this);
-(function() {
-  this.JST || (this.JST = {});
-  this.JST["view/s-1"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--出题卡-->\n<div class="word">\n     <span>\n         <em></em><figure><input id="roomId" type="text" tabindex="-1" readonly="true"></figure>\n     </span>\n</div>\n<ul class="putin">\n    <li>\n        <textarea id="orTip" wrap="physical" rows="2" tabindex="2" placeholder="点此输入"></textarea>\n    </li>\n    <li>\n        <textarea id="idiTip" wrap="physical" rows="2" tabindex="3" placeholder="点此输入"></textarea>\n    </li>\n    <li>\n        <textarea id="ghostTip" wrap="physical" rows="2" tabindex="3"  value="0" readonly="true"></textarea>\n    </li>\n</ul>\n\n<section class="fire">\n    <div class="btn">\n        <span id="setTopic">\n            出题\n        </span>\n    </div>\n</section>\n');}return __p.join('');};
+(function() { this.JST || (this.JST = {}); this.JST["view/s-1"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--出题卡-->\n<div class="word">\n     <span>\n         <em></em><figure><input id="roomId" type="text" tabindex="-1" readonly="true"></figure>\n     </span>\n</div>\n<ul class="putin">\n    <li>\n        <textarea id="orTip" wrap="physical" rows="2" tabindex="2" placeholder="点此输入"></textarea>\n    </li>\n    <li>\n        <textarea id="idiTip" wrap="physical" rows="2" tabindex="3" placeholder="点此输入"></textarea>\n    </li>\n    <li>\n        <textarea id="ghostTip" wrap="physical" rows="2" tabindex="3"  value="0" readonly="true"></textarea>\n    </li>\n</ul>\n\n<section class="fire">\n    <div class="btn">\n        <span id="setTopic">\n            出题\n        </span>\n    </div>\n</section>\n');}return __p.join('');};
 }).call(this);
-(function() {
-  this.JST || (this.JST = {});
-  this.JST["view/s-2"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--出题卡-->\n<div class="word">\n     <p>\n         <strong>', gamerNum ,'</strong>人已经领取卡片<br>\n         全部人领取后可以开始游戏\n     </p>\n</div>\n<ul class="putin god">\n    <li>\n        <span>', peopleWord || ' ' ,'</span>\n    </li>\n    <li>\n        <span>', idiotWord || ' ','</span>\n    </li>\n    <li>\n        <span>', idiotWord.toString().trim().length ,'</span>\n    </li>\n</ul>\n\n<section class="fire">\n    <div class="btn">\n        <span id="startGame" class="wait">\n            等待玩家\n        </span>\n    </div>\n</section>\n');}return __p.join('');};
+(function() { this.JST || (this.JST = {}); this.JST["view/s-2"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--出题卡-->\n<div class="word">\n     <p>\n         <strong>', gamerNum ,'</strong>人已经领取卡片<br>\n         全部人领取后可以开始游戏\n     </p>\n</div>\n<ul class="putin god">\n    <li>\n        <span>', peopleWord || ' ' ,'</span>\n    </li>\n    <li>\n        <span>', idiotWord || ' ','</span>\n    </li>\n    <li>\n        <span>', idiotWord.toString().trim().length ,'</span>\n    </li>\n</ul>\n\n<section class="fire">\n    <div class="btn">\n        <span id="startGame" class="wait">\n            等待玩家\n        </span>\n    </div>\n</section>\n');}return __p.join('');};
 }).call(this);
-(function() {
-  this.JST || (this.JST = {});
-  this.JST["view/w-1"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<div class="word">\n     <span>\n         <em></em><figure><input type="text" placeholder="输入取卡口令"><i id="confirm">OK</i></figure>\n     </span>\n</div>\n\n<div class="card hide">\n   <span>\n       请输入<br>口令\n   </span>\n\n</div>\n<div class="face">\n\n</div>\n<span class="tip">\n   请输入口令\n</span>\n\n');}return __p.join('');};
+(function() { this.JST || (this.JST = {}); this.JST["view/w-1"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<div class="word">\n     <span>\n         <em></em><figure><input type="text" placeholder="输入取卡口令"><i id="confirm">OK</i></figure>\n     </span>\n</div>\n\n<div class="card hide">\n   <span>\n       请输入<br>口令\n   </span>\n\n</div>\n<div class="face">\n\n</div>\n<span class="tip">\n   请输入口令\n</span>\n\n');}return __p.join('');};
 }).call(this);
-(function() {
-  this.JST || (this.JST = {});
-  this.JST["view/w-2"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--0 - UNKOWN-->\n<!--1 - GOD-->\n<!--2 - PEOPLE-->\n<!--3 - ONI-->\n<!--4 - IDIOT-->\n\n<div class="word">\n\n</div>\n\n');  if(character === -1) { ; __p.push('\n<div class="card hide">\n    <figure>\n        <p>出题中</p>\n    </figure>\n</div>\n');  } ; __p.push('\n\n');  if(character === 2 || character === 4) { ; __p.push('\n<div class="card peopleCard hide">\n    <figure>\n        <p>',  word,'</p>\n    </figure>\n</div>\n');  } ; __p.push('\n\n');  if(character === 3) { ; __p.push('\n<div class="card ghostCard hide">\n    <figure>\n        <p>',  word,'</p>\n    </figure>\n</div>\n');  } ; __p.push('\n\n<div class="face">\n   <span>\n       ?\n   </span>\n</div>\n\n<span class="tip">\n   ');  if(typeof playerNum !== undefined) {; __p.push('\n   ',  playerNum,'人已经加入房间\n\n   ');  } ; __p.push('\n</span>\n');}return __p.join('');};
+(function() { this.JST || (this.JST = {}); this.JST["view/w-2"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--0 - UNKOWN-->\n<!--1 - GOD-->\n<!--2 - PEOPLE-->\n<!--3 - ONI-->\n<!--4 - IDIOT-->\n\n<div class="word">\n\n</div>\n\n');  if(character === -1) { ; __p.push('\n<div class="card hide">\n    <figure>\n        <p>出题中</p>\n    </figure>\n</div>\n');  } ; __p.push('\n\n');  if(character === 2 || character === 4) { ; __p.push('\n<div class="card peopleCard hide">\n    <figure>\n        <p>',  word,'</p>\n    </figure>\n</div>\n');  } ; __p.push('\n\n');  if(character === 3) { ; __p.push('\n<div class="card ghostCard hide">\n    <figure>\n        <p>',  word,'</p>\n    </figure>\n</div>\n');  } ; __p.push('\n\n<div class="face">\n   <span>\n       ?\n   </span>\n</div>\n\n<span class="tip">\n   ');  if(typeof playerNum !== undefined) {; __p.push('\n   ',  playerNum,'人已经加入房间\n\n   ');  } ; __p.push('\n</span>\n');}return __p.join('');};
 }).call(this);
 ;(function(undefined){
     if (String.prototype.trim === undefined) // fix for iOS 3.2
@@ -2244,6 +2232,16 @@ window.Zepto = Zepto
         'endGame' : HOST + '/room/end-game?callback=?'
     }
 
+    var TipInfo = {
+        '1': '没有指定的房间',
+        '2':'没有指定的玩家',
+        '4':'房间已满',
+        '8':'当前指向的不是管理员',
+        '16': '当前玩家没有权限（不是Room的成员）',
+        '32': '当前玩家不是JOIN的状态',
+        '1024': '未知错误'
+    }
+
 
     //神
     var God = {
@@ -2922,6 +2920,7 @@ window.Zepto = Zepto
                                          $('header figure').text('游戏中');
 
                                          window.clearTimeout(gamer.statusTick);
+                                         window.clearTimeout(gamer.amountTick);
                                          throw 'getPuzzle result error!';
 
                                          return;
@@ -2951,7 +2950,7 @@ window.Zepto = Zepto
                 }
             });
 
-            gamer.statusTick = setTimeout(arguments.callee, 300,roomId,playerId);
+            gamer.statusTick = setTimeout(arguments.callee, 1000,roomId,playerId);
         },
         getApple:function () {
             var header = '<figure class="caption">领卡片</figure>\
@@ -2991,15 +2990,21 @@ window.Zepto = Zepto
                     success:function (data) {
 
                         //保存凭证
-                        if (data && (typeof data.code == 'number') && (data.code == 0)) {
+                        if (data && (typeof data.code == 'number')) {
 
-                            $wbox.html(JST['view/w-2']({
-                                character: -1,
-                                playerNum: +data.playerAmount - 1
-                            }));
+                            if(data.code == 0){
+                                $wbox.html(JST['view/w-2']({
+                                    character: -1,
+                                    playerNum: +data.playerAmount - 1
+                                }));
 
-                            gamer.getAmount(roomId, data.playerId);
-                            gamer.getStatus(roomId, data.playerId);
+                                gamer.getAmount(roomId, data.playerId);
+                                gamer.getStatus(roomId, data.playerId);
+                            }
+                            else{
+                                alert(TipInfo[data.reason]);
+                            }
+
                         }
                     },
                     TimeOut: 3000,
