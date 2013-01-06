@@ -12,7 +12,7 @@
 }).call(this);
 (function() {
   this.JST || (this.JST = {});
-  this.JST["view/s-2"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--出题卡-->\n<div class="word">\n     <p>\n         <strong>', gamerNum ,'</strong>人已经领取卡片<br>\n         全部人领取后可以开始游戏\n     </p>\n</div>\n<ul class="putin god">\n    <li>\n        <span>', peopleWord || ' ' ,'</span>\n    </li>\n    <li>\n        <span>', idiotWord || ' ','</span>\n    </li>\n    <li>\n        <span>', idiotWord.toString().trim().length ,'</span>\n    </li>\n</ul>\n\n<section class="fire">\n    <div class="btn">\n        <span id="startGame">\n            开始游戏\n        </span>\n    </div>\n</section>\n');}return __p.join('');};
+  this.JST["view/s-2"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--出题卡-->\n<div class="word">\n     <p>\n         <strong>', gamerNum ,'</strong>人已经领取卡片<br>\n         全部人领取后可以开始游戏\n     </p>\n</div>\n<ul class="putin god">\n    <li>\n        <span>', peopleWord || ' ' ,'</span>\n    </li>\n    <li>\n        <span>', idiotWord || ' ','</span>\n    </li>\n    <li>\n        <span>', idiotWord.toString().trim().length ,'</span>\n    </li>\n</ul>\n\n<section class="fire">\n    <div class="btn">\n        <span id="startGame" class="wait">\n            等待玩家\n        </span>\n    </div>\n</section>\n');}return __p.join('');};
 }).call(this);
 (function() {
   this.JST || (this.JST = {});
@@ -2315,20 +2315,26 @@ window.Zepto = Zepto
                     dataType: 'json',
                     success: function(data){
                         if(data){
-                            $('.word strong').text(
-                                data.playerList.filter(function(item){
 
-                                    /*0 - UNKOWN
-                                     1 - GOD
-                                     2 - PEOPLE
-                                     3 - ONI
-                                     4 - IDIOT
-                                     */
-                                    return item.character == 2 ||
-                                        item.character == 3  ||
-                                        item.character == 4
-                                }).length
-                            );
+                            var totalPlayers = 0
+                                isAllOk = true
+                                ;
+
+                            for(var i = 0,item,len = data.playerList.length; i < len;i++){
+                                item = data.playerList[i];
+                                if(item.character == 2 || item.character == 3 || item.character == 4){
+                                    totalPlayers++;
+
+                                    if(item.status == 0 || item.status == 1 || item.status == 3){
+                                        isAllOk = false;
+                                    }
+                                }
+                            }
+                            $('.word strong').text(totalPlayers);
+
+                            if(isAllOk){
+                                $('#startGame').removeClass('wait').addClass('ready').text('开始游戏');
+                            }
                         }
                     },
                     error: function(xhr, type){
@@ -2510,6 +2516,10 @@ window.Zepto = Zepto
         action:function (e) {
             var $this = $('#startGame')
                 ;
+
+            if($this.text().indexOf('等待玩家') > -1){
+                return;
+            }
 
             //结束游戏.
             if($this.text().indexOf('重新游戏') > -1){
