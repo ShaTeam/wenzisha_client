@@ -5,7 +5,7 @@
         $wbox = $content.find('.box')
         ;
 
-    var HOST = 'http://localhost:88';
+    var HOST = 'http://s.wenzisha.com';
 
     var Server = {
         'open' : HOST + '/room/open?callback=?',
@@ -538,7 +538,7 @@
                     //保存凭证
                     if (data && (typeof data.code == 'number') && (data.code == 0)) {
 
-                        $('.tip').text((+data.playerAmount - 1) + '人已经领取卡片');
+                        $('.tip').text((+data.playerAmount - 1) + '人已经加入房间');
                     }
                 },
                 error:function (xhr, type) {

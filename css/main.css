@@ -16,7 +16,7 @@ header {
   display: block;
   height: 60px;
   width: 100%;
-  background: url("http://192.168.1.110/git/wenzisha_client//image/cloud.png") no-repeat 20% 0%, url("http://192.168.1.110/git/wenzisha_client//image/sun.png") no-repeat 80% 0%, url("http://192.168.1.110/git/wenzisha_client//image/cloud.png") no-repeat 40% 100%, url("http://192.168.1.110/git/wenzisha_client//image/cloud.png") no-repeat 10% 100%;
+  background: url("../image/cloud.png") no-repeat 20% 0%, url("../image/sun.png") no-repeat 80% 0%, url("../image/cloud.png") no-repeat 40% 100%, url("../image/cloud.png") no-repeat 10% 100%;
   background-size: 20px 20px;
 }
 .box {
@@ -31,7 +31,7 @@ header .set {
   top: 5px;
   width: 32px;
   height: 32px;
-  background: url("http://192.168.1.110/git/wenzisha_client//image/set.png") no-repeat;
+  background: url("../image/set.png") no-repeat;
   background-size: contain;
 }
 header .caption {
@@ -48,7 +48,7 @@ header .close {
   top: 5px;
   width: 24px;
   height: 24px;
-  background: url("http://192.168.1.110/git/wenzisha_client//image/close.png") no-repeat;
+  background: url("../image/close.png") no-repeat;
   background-size: contain;
 }
 .word {
@@ -61,7 +61,7 @@ header .close {
   height: 50px;
   width: 180px;
   line-height: 50px;
-  background-image: url("http://192.168.1.110/git/wenzisha_client//image/grid.png");
+  background-image: url("../image/grid.png");
   -webkit-border-radius: 25px;
   -webkit-box-shadow: 1px 3px 7px rgba(0, 0, 0, 0.3) inset;
 }
@@ -115,7 +115,7 @@ header .close {
   height: 20px;
   width: 18px;
   margin-left: -1em;
-  background: url("http://192.168.1.110/git/wenzisha_client//image/broadcast.png");
+  background: url("../image/broadcast.png");
   background-size: contain;
   vertical-align: middle;
 }
@@ -165,7 +165,7 @@ header .close {
 }
 .putin li:nth-child(1) {
   margin-left: 10px;
-  background-image: url("http://192.168.1.110/git/wenzisha_client//image/common.png");
+  background-image: url("../image/common.png");
 }
 .putin li:nth-child(1):after {
   content: '平民的词';
@@ -176,7 +176,7 @@ header .close {
   -webkit-transform: translateX(-50%);
 }
 .putin li:nth-child(2) {
-  background-image: url("http://192.168.1.110/git/wenzisha_client//image/fool.png");
+  background-image: url("../image/fool.png");
 }
 .putin li:nth-child(2):after {
   content: '傻子的词';
@@ -187,7 +187,7 @@ header .close {
   -webkit-transform: translateX(-50%);
 }
 .putin li:nth-child(3) {
-  background-image: url("http://192.168.1.110/git/wenzisha_client//image/ghost.png");
+  background-image: url("../image/ghost.png");
 }
 .putin li:nth-child(3):after {
   content: '鬼的数字';
@@ -201,7 +201,7 @@ header .close {
   -webkit-transform: rotate3d(0, 1, 0, 180deg);
 }
 .box-start {
-  background: url("http://192.168.1.110/git/wenzisha_client//image/maintext.png") no-repeat 50% 0%;
+  background: url("../image/maintext.png") no-repeat 50% 0%;
   background-size: 130px 130px;
 }
 .box-start .btn {
@@ -211,7 +211,7 @@ header .close {
   -webkit-transform: translatex(-50%);
   bottom: 0px;
   position: absolute;
-  background: url("http://192.168.1.110/git/wenzisha_client//image/setup.png") no-repeat;
+  background: url("../image/setup.png") no-repeat;
   background-size: contain;
 }
 .box-start .btn:after {
@@ -222,7 +222,7 @@ header .close {
   top: -44px;
   left: 50%;
   -webkit-transform: translatex(-45%);
-  background: url("http://192.168.1.110/git/wenzisha_client//image/start_box.png") no-repeat;
+  background: url("../image/start_box.png") no-repeat;
   background-size: contain;
 }
 .box-start .btn:before {
@@ -232,7 +232,7 @@ header .close {
   height: 100px;
   top: -80px;
   left: -15%;
-  background: url("http://192.168.1.110/git/wenzisha_client//image/hand.png") no-repeat;
+  background: url("../image/hand.png") no-repeat;
   background-size: contain;
 }
 .box-start .pen {
@@ -242,7 +242,7 @@ header .close {
   left: 50%;
   -webkit-transform: translatex(-180%);
   bottom: 60%;
-  background: url("http://192.168.1.110/git/wenzisha_client//image/word.png") no-repeat;
+  background: url("../image/word.png") no-repeat;
   background-size: contain;
 }
 .box-game {
@@ -260,7 +260,7 @@ header .close {
   top: -20px;
   -webkit-border-top-left-radius: 5px;
   -webkit-border-top-right-radius: 5px;
-  background: url("http://192.168.1.110/git/wenzisha_client//image/ghost.png") no-repeat 90% 0%, url("http://192.168.1.110/git/wenzisha_client//image/common.png") no-repeat 45% 50%, url("http://192.168.1.110/git/wenzisha_client//image/fool.png") no-repeat 10% 100%;
+  background: url("../image/ghost.png") no-repeat 90% 0%, url("../image/common.png") no-repeat 45% 50%, url("../image/fool.png") no-repeat 10% 100%;
   background-size: 90%;
 }
 .box-game .card span {
@@ -276,12 +276,12 @@ header .close {
 .box-game .card figure {
   width: 100%;
   height: 40px;
-  background: url("http://192.168.1.110/git/wenzisha_client//image/pencil.png") no-repeat 90% 0%;
+  background: url("../image/pencil.png") no-repeat 90% 0%;
   background-size: contain;
   margin-left: 0px;
 }
 .box-game .peopleCard {
-  background: url("http://192.168.1.110/git/wenzisha_client//image/common.png") no-repeat 50% 0%;
+  background: url("../image/common.png") no-repeat 50% 0%;
   background-size: 90%;
   top: -10px;
 }
@@ -289,7 +289,7 @@ header .close {
   background: transparent;
 }
 .box-game .ghostCard {
-  background: url("http://192.168.1.110/git/wenzisha_client//image/ghost.png") no-repeat 50% 0%;
+  background: url("../image/ghost.png") no-repeat 50% 0%;
   background-size: 90%;
   top: -10px;
 }
@@ -302,7 +302,7 @@ header .close {
   width: 130px;
   height: 130px;
   display: inline-block;
-  background: url("http://192.168.1.110/git/wenzisha_client//image/box.png") no-repeat;
+  background: url("../image/box.png") no-repeat;
   background-size: contain;
 }
 .box-game .face span {
@@ -337,12 +337,12 @@ header .close {
 .box-help p strong {
   display: inline-block;
   width: 25px;
-  background: url("http://192.168.1.110/git/wenzisha_client//image/circle.png") no-repeat;
+  background: url("../image/circle.png") no-repeat;
   background-size: cover;
 }
 .box-help p em {
   color: red;
-  background: url("http://192.168.1.110/git/wenzisha_client//image/underline.png") no-repeat;
+  background: url("../image/underline.png") no-repeat;
   background-size: contain;
   background-position: bottom;
 }
@@ -428,7 +428,7 @@ header .close {
   width: 50px;
   height: 80px;
   left: 0px;
-  background: url("http://192.168.1.110/git/wenzisha_client//image/q_man.png") no-repeat;
+  background: url("../image/q_man.png") no-repeat;
   background-size: contain;
   -webkit-animation: shake 1s ease-out 4;
 }
@@ -446,7 +446,7 @@ header .close {
   display: inline-block;
   width: 80%;
   height: 90px;
-  background: url("http://192.168.1.110/git/wenzisha_client//image/1.png") no-repeat 50% 0%;
+  background: url("../image/1.png") no-repeat 50% 0%;
   background-size: contain;
 }
 @-webkit-keyframes shake {
