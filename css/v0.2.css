@@ -15,7 +15,7 @@ body {
   padding-top: 1px;
   left: 50%;
   top: 50%;
-  -webkit-transform: translatex(-50%) translatey(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
 }
 #wrapper {
   z-index: 10;
@@ -41,7 +41,7 @@ header + .container,
   display: block;
   top: 50%;
   left: 50%;
-  -webkit-transform: translatex(-50%) translatey(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
 }
 footer {
   height: 90px;
@@ -84,7 +84,7 @@ footer .f-r-3 {
   -webkit-border-radius: 5px;
   left: 50%;
   top: 50%;
-  -webkit-transform: translatex(-50%) translatey(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
 }
 #msg .title {
   width: 100%;
@@ -175,7 +175,7 @@ header .replay {
   bottom: 30px;
   width: 90px;
   height: 20px;
-  -webkit-transform: translatex(-50%);
+  -webkit-transform: translateX(-50%);
   background: url("../image/eyes.png") no-repeat;
   -webkit-animation: hide 3s ease-out infinite;
 }
@@ -308,7 +308,7 @@ header .replay {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translatex(-50%) translatey(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
 }
 #popup .grp input,
 #popup .grp button {
@@ -353,7 +353,7 @@ header .replay {
   width: 160px;
   height: 70px;
   background: #DF3333;
-  -webkit-transform: rotatex(35deg) translatey(-35px);
+  -webkit-transform: rotateX(35deg) translateY(-35px);
 }
 .box:after {
   content: ' ';
@@ -363,7 +363,7 @@ header .replay {
   width: 130px;
   height: 20px;
   background: black;
-  -webkit-transform: translatex(-50%) rotatex(20deg);
+  -webkit-transform: translateX(-50%) rotateX(20deg);
   border-radius: 10px;
 }
 .box .arrow {
@@ -371,7 +371,7 @@ header .replay {
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translatex(-50%) translatey(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
   width: 32px;
   height: 32px;
   background: #8e1515;
@@ -394,30 +394,51 @@ header .replay {
   border-bottom: 30px solid #8e1515;
   border-right: 30px solid #b22424;
 }
-.box .paper {
+.box .clip {
+  display: inline-block;
+  width: 120px;
+  height: 130px;
+  left: 20px;
+  position: relative;
+  top: -150px;
+  overflow: hidden;
+}
+.box .clip .paper {
   position: absolute;
   display: inline-block;
-  -webkit-transform: translatey(-35px);
+  -webkit-transform: translateY(-55px);
   width: 120px;
-  height: 18px;
+  height: 120px;
   background-color: white;
   overflow: hidden;
-  left: 20px;
+  top: 150px;
   z-index: 11;
   background: url("../image/common.png") no-repeat;
   background-size: 100% 100%;
+  -webkit-animation: collapse 2s ease-in 1s;
 }
-.box .paper label {
+.box .clip .paper label {
   width: 100%;
   height: 20%;
   display: inline-block;
   vertical-align: middle;
   text-align: center;
   top: 50%;
-  -webkit-transform: translatey(-50%);
+  -webkit-transform: translateY(-50%);
   position: absolute;
   overflow: hidden;
   z-index: 12;
+}
+@-webkit-keyframes collapse {
+  0% {
+    -webkit-transform: translateY(-55px);
+  }
+  50% {
+    -webkit-transform: translateY(-137px);
+  }
+  100% {
+    -webkit-transform: translateY(-55px);
+  }
 }
 .box .common {
   background: url("../image/common.png") no-repeat;

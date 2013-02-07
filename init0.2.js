@@ -548,7 +548,7 @@
             }
         },
 
-        getCookie:function (key) {
+        getCookie:function (name) {
             var c_start,
                 c_end
                 ;
@@ -770,11 +770,12 @@
                                 <span class="replay">\
                                 </span>',
                     box = '<div id="" class="box">\
-                                    <span class="arrow"></span>\
-                                <span class="paper"><label></label></span>\
+                                <span class="arrow"></span>\
+                                <span class="clip">\
+                                    <span class="paper"><label>出题中</label></span>\
+                                </span>\
                             </div>\
                             <div class="roomStatus">\
-                            \
                             </div>'
                     ;
 
@@ -844,6 +845,13 @@
                 stage.mask.show();
                 gamer.join(gamer.callbackJoin);
             });
+
+            //完成空白区域.
+            $(document).on('tap','#popup',function(e){
+                if(e.target === this){
+                    $(this).hide();
+                }
+            });
         }
     }
 
@@ -882,7 +890,7 @@
             TouchMove.gestureInfo.offsetY = offsetY;
 
             if(_height >=18 && _height <= 120){
-                TouchMove.targetInfo.$popup.style.height = _height + 'px';
+                //TouchMove.targetInfo.$popup.style.height = _height + 'px';
                 TouchMove.targetInfo.$popup.style.webkitTransform = 'translateY('+ shiftY + 'px)';
             }
         },
@@ -891,13 +899,13 @@
             TouchMove.gestureInfo.originY = 0;
 
             if(TouchMove.gestureInfo.offsetY < 0){
-                TouchMove.targetInfo.$popup.style.height = '120px';
+                //TouchMove.targetInfo.$popup.style.height = '120px';
                 TouchMove.targetInfo.$popup.style.webkitTransform = 'translateY(-137px)';
             }
 
             if(TouchMove.gestureInfo.offsetY > 0){
-                TouchMove.targetInfo.$popup.style.height = '18px';
-                TouchMove.targetInfo.$popup.style.webkitTransform = 'translateY(-35px)';
+                //TouchMove.targetInfo.$popup.style.height = '18px';
+                TouchMove.targetInfo.$popup.style.webkitTransform = 'translateY(-55px)';
             }
         }
     }
