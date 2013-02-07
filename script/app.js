@@ -2513,7 +2513,7 @@ window.Zepto = Zepto
             }
         },
 
-        getCookie:function (key) {
+        getCookie:function (name) {
             var c_start,
                 c_end
                 ;
