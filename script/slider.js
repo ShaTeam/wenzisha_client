@@ -101,7 +101,7 @@
 	window.css3 = css3;
 })(window);
 
-(function($,css3){
+(function($,css3,window){
 	var isAndroid = (/android/gi).test(navigator.appVersion),
 		has3d = css3.has3d(),
 		hasTransform = !isAndroid && css3.hasTransform(),
@@ -114,7 +114,7 @@
 			container : ".slider",  //大容器，包含状态，上下页等
 			wrap : ".slider-outer",  //滑动显示区域
 			wrapUl : ".slider-wrap",  //滑动容器
-			wrapStatus : null,  //状态容器
+			wrapStatus : ".slider-status",  //状态容器
 			margin : 0,  //滑动容器内子元素的间距
 			cls : "sel",  //状态容器内子元素选中的样式
 			prev : null,  //上一页
@@ -175,6 +175,8 @@
 			status = that._status = Math.floor(step/single),  //每页显示子元素的个数
 			allWidth = single*len;  //滑动容器的宽度
 
+
+
             if(status < 1){
                 //出错，childs宽度不能大于_wrap宽度.
                 throw Error("childs宽度不能大于_wrap宽度");
@@ -195,6 +197,7 @@
 				allWidth += (len-1)*margin;  //总宽度增加
 				that._step += margin;
 			}
+
 			
 			//是否初始位置
 			var initLeft = op.left;
@@ -226,7 +229,6 @@
 				return null;
 			}
 			wul.css('width',allWidth);
-            console.log(allWidth);
 			//复制收尾元素，以便循环
 			if(op.isLoop){
 				$(childs[0].cloneNode(true)).appendTo(wul);
@@ -445,6 +447,9 @@
 				if(!that.op.isLoop){that._current = that._minpage;}
 				else{that._current = that._minpage - 1;}
 			}
+
+            $(document).trigger('slider', [that._current + 1])
+
 			this.touchf(-1);
 		},
 		next : function(e){
@@ -455,6 +460,9 @@
 				if(!that.op.isLoop){that._current = that._maxpage;}
 				else{that._current = that._maxpage + 1;}
 			}
+
+            $(document).trigger('slider', [that._current + 1])
+
 			that.touchf(1);
 		},
 		touchf : function(str){
@@ -584,4 +592,4 @@
 		//console.log($.touchSlider.cache);
 	}
 	return $.touchSlider;
-})(Zepto,window.css3);
+})(Zepto,window.css3,window);

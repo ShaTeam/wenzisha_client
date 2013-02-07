@@ -1,22 +1,14 @@
-(function() {
-  this.JST || (this.JST = {});
-  this.JST["view/headerTxt"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--确认人数\\出题卡-->\n<figure class="caption">',  caption,'</figure>\n<div class="set">\n</div>\n');}return __p.join('');};
+(function() { this.JST || (this.JST = {}); this.JST["view/help-main"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<header>\n    <figure class="caption">开始游戏</figure>\n    <div class="close">\n    </div>\n</header>\n<div class="container">\n    <dt class="help-tip">\n        <dl>这是一个大家坐在一起的文字游戏！首先要集齐至少<strong>7</strong>个人用浏览器打开<em>www.wenzisha.com</em>其中一人点击出题按钮，其余人进入游戏准备抓鬼。</dl>\n    </dt>\n</div>\n\n<footer>\n    <div class="slider">\n        <div class="help-man">\n        </div>\n\n        <div class="slider-status">\n        <span class="sel"></span>\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n    </div>\n        <div class="slider-outer">\n        <ul class="slider-wrap">\n            <li>\n                <img data-img="./image/1.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/2.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/3.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/4.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/5.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/6.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/7.png" src="./image/1.png">\n            </li>\n            <li>\n                <img data-img="./image/8.png" src="./image/1.png">\n            </li>\n        </ul>\n    </div>\n    </div>\n</footer>\n');}return __p.join('');};
 }).call(this);
-(function() {
-  this.JST || (this.JST = {});
-  this.JST["view/setTopic"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--出题卡-->\n<div class="word">\n     <span>\n         <em></em><figure><input type="text" tabindex="-1" placeholder="点击输入取卡口令"></figure>\n     </span>\n</div>\n<ul class="putin">\n    <li>\n        <input tabindex="2" placeholder="点此输入">\n    </li>\n    <li>\n        <input tabindex="3" placeholder="点此输入">\n    </li>\n    <li>\n        <input tabindex="4" placeholder="点此输入">\n    </li>\n</ul>\n\n<section class="fire">\n    <div class="btn">\n        <span id="setTopic">\n            出题\n        </span>\n    </div>\n    <div class="hyph">\n        <ul>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n        </ul>\n    </div>\n</section>\n');}return __p.join('');};
+(function() { this.JST || (this.JST = {}); this.JST["view/help-switcher"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('');  if(index == 1){ ; __p.push('\n<dt class="help-tip">\n    <dl>这是一个大家坐在一起的文字游戏！首先要集齐至少<strong>7</strong>个人用浏览器打开<em>www.wenzisha.com</em>其中一人点击出题按钮，其余人进入游戏准备抓鬼。</dl>\n</dt>\n');  }else if(index == 2){ ; __p.push('\n<dt class="help-tip">\n    <dl>法官进入出题界面,并将领卡密码告诉大家，其他人输入密码领取卡片。</dl>\n    <dl>法官出题需保证两个词<span>字数一致，强烈相关。</span></dl>\n</dt>\n');  }else if(index == 3){ ; __p.push('\n<dt class="help-tip">\n    <dl>所有人确认好自己的身份卡</dl>\n</dt>\n');  }else if(index == 4){ ; __p.push('\n<dt class="help-tip">\n    <dl>法官：天黑请闭眼，鬼请睁眼，鬼需要互相认识同伴，并指认开始阐述的起点。（通常以顺时针方向进行）</dl>\n</dt>\n');  }else if(index == 5){ ; __p.push('\n<dt class="help-tip">\n    从鬼指认的人开始阐述，平民和傻子需要尽量阐述的让同伴理解你的词，但不要让鬼猜到你的词。\n</dt>\n');  }else if(index == 6){ ; __p.push('\n<dt class="help-tip">\n    阐述一轮结束后，法官需要组织大家进行投票谁是鬼。票数最多的人被投死，如票数相同，则继续阐述再进行投票，直到投死一个人为止。\n</dt>\n');  }else if(index == 7){ ; __p.push('\n<dt class="help-tip">\n    <dl>被投死的人，需要承认是否是鬼，如回答不是鬼，则没有遗言；</dl>\n    <dl>如回答是鬼，则可以向法官问一个可以用“是”或“否”作答的问题，法官将如实回答。</dl>\n</dt>\n');  }else if(index == 8){ ; __p.push('\n<dt class="help-tip">\n    <dl>当鬼猜出词时，鬼胜；</dl>\n    <dl>当平民和傻子的人数少于鬼的人数时，鬼胜;</dl>\n    <dl>当平民和傻子将鬼全部投死，平民和傻子胜。</dl>\n</dt>\n');  }else{ ; __p.push('\n<dt class="help-tip">\n    <dl>error</dl>\n</dt>\n');  } ; __p.push('\n\n');}return __p.join('');};
 }).call(this);
-(function() {
-  this.JST || (this.JST = {});
-  this.JST["view/startGame"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('\n<div class="card hide">\n   <span>\n       3\n   </span>\n</div>\n<div class="face">\n   <span>\n\t   ?\n   </span>\n</div>\n<span>\n   <em>3</em>人已经领取卡片\n</span>\n\n\n<section class="fire">\n    <div class="btn">\n        <span id="startGame">\n            开始游戏\n        </span>\n    </div>\n    <div class="hyph">\n        <ul>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n            <li></li>\n        </ul>\n    </div>\n</section>\n');}return __p.join('');};
+(function() { this.JST || (this.JST = {}); this.JST["view/s-1"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--出题卡-->\n<div class="word">\n     <span>\n         <em></em><figure><input id="roomId" type="text" tabindex="-1" readonly="true"></figure>\n     </span>\n</div>\n<ul class="putin">\n    <li>\n        <textarea id="orTip" wrap="physical" rows="2" tabindex="2" placeholder="点此输入"></textarea>\n    </li>\n    <li>\n        <textarea id="idiTip" wrap="physical" rows="2" tabindex="3" placeholder="点此输入"></textarea>\n    </li>\n    <li>\n        <textarea id="ghostTip" wrap="physical" rows="2" tabindex="3"  value="0" readonly="true"></textarea>\n    </li>\n</ul>\n\n<section class="fire">\n    <div class="btn">\n        <span id="setTopic">\n            出题\n        </span>\n    </div>\n</section>\n');}return __p.join('');};
 }).call(this);
-(function() {
-  this.JST || (this.JST = {});
-  this.JST["view/userGet"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<section class="box">\n    <div class="word">\n         <span>\n             <em></em><figure><input type="text" placeholder="输入取卡口令"><i id="confirm">OK</i></figure>\n         </span>\n    </div>\n</section>\n\n<div class="box">\n    <div class="card hide">\n       <span>\n           请输入<br>口令\n       </span>\n\n    </div>\n    <div class="face">\n\n    </div>\n    <span>\n       3人已经领取卡片\n    </span>\n</div>\n');}return __p.join('');};
+(function() { this.JST || (this.JST = {}); this.JST["view/s-2"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--出题卡-->\n<div class="word">\n     <p>\n         <strong>', gamerNum ,'</strong>人已经领取卡片<br>\n         全部人领取后可以开始游戏\n     </p>\n</div>\n<ul class="putin god">\n    <li>\n        <span>', peopleWord || ' ' ,'</span>\n    </li>\n    <li>\n        <span>', idiotWord || ' ','</span>\n    </li>\n    <li>\n        <span>', idiotWord.toString().trim().length ,'</span>\n    </li>\n</ul>\n\n<section class="fire">\n    <div class="btn">\n        <span id="startGame" class="wait">\n            等待玩家\n        </span>\n    </div>\n</section>\n');}return __p.join('');};
 }).call(this);
-(function() {
-  this.JST || (this.JST = {});
-  this.JST["view/userWait"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--领卡片-->\n\n<header>\n    <figure>领卡片</figure>\n    <div id="set">\n    </div>\n</header>\n\n<section class="box">\n\n</section>\n\n<div class="box">\n    <div class="card hide">\n        <figure>\n            <p>出题中</p>\n        </figure>\n\n    </div>\n    <div class="face">\n       <span>\n           3\n       </span>\n    </div>\n       <span>\n           3人已经领取卡片\n       </span>\n</div>\n\n</div>\n');}return __p.join('');};
+(function() { this.JST || (this.JST = {}); this.JST["view/w-1"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<div class="word">\n     <span>\n         <em></em><figure><input type="text" placeholder="输入取卡口令"><i id="confirm">OK</i></figure>\n     </span>\n</div>\n\n<div class="card hide">\n   <span>\n       请输入<br>口令\n   </span>\n\n</div>\n<div class="face">\n\n</div>\n<span class="tip">\n   请输入口令\n</span>\n\n');}return __p.join('');};
+}).call(this);
+(function() { this.JST || (this.JST = {}); this.JST["view/w-2"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<!--0 - UNKOWN-->\n<!--1 - GOD-->\n<!--2 - PEOPLE-->\n<!--3 - ONI-->\n<!--4 - IDIOT-->\n\n<div class="word">\n\n</div>\n\n');  if(character === -1) { ; __p.push('\n<div class="card hide">\n    <figure>\n        <p>出题中</p>\n    </figure>\n</div>\n');  } ; __p.push('\n\n');  if(character === 2 || character === 4) { ; __p.push('\n<div class="card peopleCard hide">\n    <figure>\n        <p>',  word,'</p>\n    </figure>\n</div>\n');  } ; __p.push('\n\n');  if(character === 3) { ; __p.push('\n<div class="card ghostCard hide">\n    <figure>\n        <p>',  word,'</p>\n    </figure>\n</div>\n');  } ; __p.push('\n\n<div class="face">\n   <span>\n       ?\n   </span>\n</div>\n\n<span class="tip">\n   ');  if(typeof playerNum !== undefined) {; __p.push('\n   ',  playerNum,'人已经加入房间\n\n   ');  } ; __p.push('\n</span>\n');}return __p.join('');};
 }).call(this);
 /* Zepto v1.0rc1 - polyfill zepto event detect fx ajax form touch - zeptojs.com/license */
 
@@ -1375,250 +1367,6 @@ window.Zepto = Zepto
   })
 })(Zepto)
 ;
-(function($,window){
-    var win = $(window),
-
-        T_float = [
-            '<div class="c-float-popWrap msgMode hide">',
-            '<div class="c-float-modePop">',
-            '<div class="warnMsg"></div>',
-            '<div class="content"></div>',
-            '<div class="doBtn">',
-            '<button class="ok">确定</button>',
-            '<button class="cancel">取消</button>',
-            '</div>',
-            '</div>',
-            '</div>'
-        ].join(''),
-
-        E_float = $(T_float),
-        E_floatMsg = E_float.find('.warnMsg'),
-        E_floatContent = E_float.find('.content'),
-        E_floatOk = E_float.find('.doBtn .ok'),
-        E_floatCancel = E_float.find('.doBtn .cancel'),
-
-        initDom = false,
-        domContainer = '#tbh5v0',
-        flashTimeoutId
-        ;
-
-    function ModePop(options) {
-        this._options = $.extend({
-            mode : 'msg',
-            text : '网页提示',
-        }, options || {});
-
-        this._init();
-    }
-
-    $.extend(ModePop.prototype, {
-        _init : function() {
-            var that = this,
-                opt = that._options,
-                mode = opt.mode,
-                text = opt.text,
-                content = opt.content,
-                callback = opt.callback,
-                background = opt.background
-                ;
-
-            // set mode
-            var classTxt = E_float.attr('class');
-            classTxt = classTxt.replace(/(msg|alert|confirm)Mode/i, mode + 'Mode');
-            E_float.attr('class', classTxt);
-
-            // set background
-            background && E_float.css('background', background);
-
-            // set text & content
-            text && E_floatMsg.html(text);
-            content && E_floatContent.html(content);
-
-            // click event
-            /*
-             E_float.off('click')
-             .on('click', '.doBtn .ok', function(e) {
-             callback.call(that, e, true);
-             })
-             .on('click', '.doBtn .cancel', function(e) {
-             callback.call(that, e, false);
-             });
-             */
-            E_floatOk.off('click')
-                .on('click', function(e) {
-                    callback.call(that, e, true);
-                });
-            E_floatCancel.off('click')
-                .on('click', function(e) {
-                    callback.call(that, e, false);
-                });
-
-
-            if (!initDom) {
-                initDom = true;
-                $(domContainer).append(E_float);
-                win.on('resize', function() {
-                    setTimeout(function() {
-                        that._pos();
-                    }, 500);
-                });
-            }
-        },
-
-        _pos : function() {
-            var that = this,
-                doc = document,
-                docEl = doc.documentElement,
-                body = doc.body,
-                top, left, cW, cH, eW, eH
-                ;
-
-            if (!that.isHide()) {
-                top = body.scrollTop;
-                left = body.scrollLeft;
-                cW = docEl.clientWidth;
-                cH = docEl.clientHeight;
-                eW = E_float.width();
-                eH = E_float.height();
-
-                E_float.css({
-                    top : top + (cH - eH) / 2,
-                    left : left + (cW - eW) / 2
-                });
-            }
-        },
-
-        isShow : function() {
-            return E_float.hasClass('show');
-        },
-
-        isHide : function() {
-            return E_float.hasClass('hide');
-        },
-
-        _cbShow : function() {
-            var that = this,
-                opt = that._options,
-                onShow = opt.onShow
-                ;
-
-            E_float.addClass('show');
-            onShow && onShow.call(that);
-        },
-
-        show : function() {
-            var that = this
-                ;
-
-            if (flashTimeoutId) {
-                clearTimeout(flashTimeoutId);
-                flashTimeoutId = undefined;
-            }
-
-            if (!that.isShow()) {
-                E_float.css('opacity', '0').removeClass('hide');
-                that._pos();
-
-                E_float.animate({'opacity': '1'}, 300, 'linear', function() {
-                    that._cbShow();
-                });
-            } else {
-                that._cbShow();
-            }
-        },
-
-        _cbHide : function() {
-            var that = this,
-                opt = that._options,
-                onHide = opt.onHide
-                ;
-
-            E_float.addClass('hide');
-            onHide && onHide.call(that);
-        },
-
-        hide : function() {
-            var that = this
-                ;
-
-            if (!that.isHide()) {
-                E_float.css('opacity', 1).removeClass('show');
-
-                E_float.animate({'opacity': 0}, 300, 'linear', function() {
-                    that._cbHide();
-                });
-            } else {
-                that._cbHide();
-            }
-        },
-
-        flash : function(timeout) {
-            var that = this
-            opt = that._options
-            ;
-
-            opt.onShow = function() {
-                flashTimeoutId = setTimeout(function() {
-                    if (flashTimeoutId) {
-                        that.hide();
-                    }
-                }, timeout);
-            }
-
-            that.show();
-        }
-    });
-
-    window.Notification = new function() {
-
-        this.simple = function(text, bg, timeout) {
-            if (arguments.length == 2) {
-                if (typeof arguments[1] == 'number') {
-                    timeout = arguments[1];
-                    bg = undefined;
-                }
-            }
-
-            var pop = new ModePop({
-                mode : 'msg',
-                text : text,
-                background : bg
-            });
-
-            pop.flash(timeout || 2000);
-            return pop;
-        }
-
-        this.msg = function(text, options) {
-            return new ModePop($.extend({
-                mode : 'msg',
-                text : text
-            }, options || {}));
-        }
-
-        this.alert = function(text, callback, options) {
-            return new ModePop($.extend({
-                mode : 'alert',
-                text : text,
-                callback : callback
-            }, options || {}));
-        }
-
-        this.confirm = function(text, content, callback, options) {
-            return new ModePop($.extend({
-                mode : 'confirm',
-                text : text,
-                content : content,
-                callback : callback,
-            }, options || {}));
-        }
-
-        this.pop = function(options) {
-            return new ModePop(options);
-        }
-
-    };
-})(Zepto,window);
 /**
  * @fileoverview slider组件
  * 依赖zepto
@@ -1723,7 +1471,7 @@ window.Zepto = Zepto
 	window.css3 = css3;
 })(window);
 
-(function($,css3){
+(function($,css3,window){
 	var isAndroid = (/android/gi).test(navigator.appVersion),
 		has3d = css3.has3d(),
 		hasTransform = !isAndroid && css3.hasTransform(),
@@ -1736,7 +1484,7 @@ window.Zepto = Zepto
 			container : ".slider",  //大容器，包含状态，上下页等
 			wrap : ".slider-outer",  //滑动显示区域
 			wrapUl : ".slider-wrap",  //滑动容器
-			wrapStatus : null,  //状态容器
+			wrapStatus : ".slider-status",  //状态容器
 			margin : 0,  //滑动容器内子元素的间距
 			cls : "sel",  //状态容器内子元素选中的样式
 			prev : null,  //上一页
@@ -1797,6 +1545,8 @@ window.Zepto = Zepto
 			status = that._status = Math.floor(step/single),  //每页显示子元素的个数
 			allWidth = single*len;  //滑动容器的宽度
 
+
+
             if(status < 1){
                 //出错，childs宽度不能大于_wrap宽度.
                 throw Error("childs宽度不能大于_wrap宽度");
@@ -1817,6 +1567,7 @@ window.Zepto = Zepto
 				allWidth += (len-1)*margin;  //总宽度增加
 				that._step += margin;
 			}
+
 			
 			//是否初始位置
 			var initLeft = op.left;
@@ -1848,7 +1599,6 @@ window.Zepto = Zepto
 				return null;
 			}
 			wul.css('width',allWidth);
-            console.log(allWidth);
 			//复制收尾元素，以便循环
 			if(op.isLoop){
 				$(childs[0].cloneNode(true)).appendTo(wul);
@@ -2067,6 +1817,9 @@ window.Zepto = Zepto
 				if(!that.op.isLoop){that._current = that._minpage;}
 				else{that._current = that._minpage - 1;}
 			}
+
+            $(document).trigger('slider', [that._current + 1])
+
 			this.touchf(-1);
 		},
 		next : function(e){
@@ -2077,6 +1830,9 @@ window.Zepto = Zepto
 				if(!that.op.isLoop){that._current = that._maxpage;}
 				else{that._current = that._maxpage + 1;}
 			}
+
+            $(document).trigger('slider', [that._current + 1])
+
 			that.touchf(1);
 		},
 		touchf : function(str){
@@ -2206,135 +1962,916 @@ window.Zepto = Zepto
 		//console.log($.touchSlider.cache);
 	}
 	return $.touchSlider;
-})(Zepto,window.css3);
-(function($,window){
-    var $content = $('#wrapper')
+})(Zepto,window.css3,window);
+(function ($, window) {
+    var $wrapper = $('#wrapper'),
+        $helper = $('#helper')
         ;
 
-//    alert(window.devicePixelRatio);
-//    alert($(document).css('-webkit-min-device-pixel-ratio'));
+//    var HOST = 'http://localhost:88';
+//    var HOST = 'http://10.13.125.79:88';
+    var HOST = 'http://s.wenzisha.com';
 
-    $('.slider').slider({ margin: 5, isPlay: false, lazy : 'data-img'});
-
-    $content.on('touchstart','.face',function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        $('.card').removeClass('hide');
-    });
-
-    $content.on('touchend','.face',function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        $('.card').addClass('hide');
-    });
-
-    //法官出题.
-    $content.on('tap','.pen',function(e){
-        $('header').html(JST['view/headerTxt']({caption: '出题卡'}));
-        $('.box').removeClass('box-start').addClass('box-ready').html(JST['view/setTopic']());
-    });
-
-
-    //设置.
-    $content.on('tap','#set',function(e){
-        alert('set');
-    });
-
-
-    //出题按钮.
-    $content.on('tap','#setTopic',function(e){
-        $('header figure').text('确认人数');
-        $('.box').removeClass('box-ready').addClass('box-game').html(JST['view/startGame']());
-    });
-
-    $content.on('tap','#startGame',function(e){
-        this.style.visibility = 'hidden';
-        $('header figure').text('游戏中');
-    });
-
-    //进入玩家页面.
-    $content.on('tap','.btn',function(e){
-        $('#content').html(JST['view/userGet']());
-    });
-
-    //玩家确认口令.
-    $content.on('tap','#confirm',function(e){
-        $('#content').html(JST['view/userWait']());
-    });
-
-    //shake 组件  2011.05.04
-    $.fn.shake = function(options){
-        var setting = {
-            sensitivity : 15,
-            timer : 200,
-            position : {x1 : 0 , x2 : 0 , y1 : 0 , y2 : 0 , z1 : 0 , z2 : 0 },
-            action : {}
-        };
-        if(options){
-            $.extend(setting, options);
-        };
-        var SHAKE = {
-
-            _timer : {
-            },
-            checkUA : function(){
-                if (typeof window.DeviceOrientationEvent != 'undefined') {
-                    if (typeof window.DeviceMotionEvent != 'undefined'){
-                        //window.onorientationchange = SD.unit.updateOrientation;
-                        window.addEventListener('devicemotion', function(e){SHAKE.get(e)}, false);
-                        SHAKE.start();
-                        return true;
-                    }else{
-                        alert("对不起您的设备不支持摇动");
-                        return false;
-                    }
-                }else{
-                    alert("对不起您的设备不支持摇动");
-                    return false;
-                }
-            },
-            // 晃动时在 x y z 方向上的加速度
-            get : function(e){
-                setting.position.x1 = e.accelerationIncludingGravity.x;
-                setting.position.y1 = e.accelerationIncludingGravity.y;
-                setting.position.z1 = e.accelerationIncludingGravity.z;
-            },
-            // 判断晃动是否满足敏感系数，满足的话更新 x2 y2 z2
-            isMeetSensitivity : function(){
-                var change = Math.abs(setting.position.x1 - setting.position.x2 + setting.position.y1 - setting.position.y2 + setting.position.z1 - setting.position.z2);
-                if (change > setting.sensitivity) {
-                    //alert('Shake!');
-                    setting.action();
-                    //console.log(typeof(setting.action))
-                }
-                // 更新
-                setting.position.x2 = setting.position.x1;
-                setting.position.y2 = setting.position.y1;
-                setting.position.z2 = setting.position.z1;
-            },
-            start : function(){
-                SHAKE._timer = setInterval(function(){SHAKE.isMeetSensitivity()} , setting.timer);
-            },
-            stop : function(){
-                clearInterval(SHAKE._timer)
-            }
-        };
-        SHAKE.checkUA();
+    var Server = {
+        'open' : HOST + '/room/open?callback=?',
+        'join' : HOST + '/room/join?callback=?',
+        'setPuzzle' : HOST + '/room/set-puzzle?callback=?',
+        'getPlayers' : HOST + '/room/get-players?callback=?',
+        'getAmount' : HOST + '/room/get-amount?callback=?',
+        'getStatus' : HOST + '/room/get-status?callback=?',
+        'getPuzzle' : HOST + '/player/get-puzzle?callback=?',
+        'randomPuzzle' : HOST + '/room/random-puzzle?callback=?',
+        'startGame' : HOST + '/room/start-game?callback=?',
+        'endGame' : HOST + '/room/end-game?callback=?'
     }
 
-    $(window).shake({action : function(){alert(1)}});
+    var ROLE = {
+        'UNKOWN':0,
+        'GOD':1,
+        'PEOPLE':2,
+        'ONI':3,
+        'IDIOT':4
+    }
+
+    var STATUS = {
+        'IDLE': 0,
+        'JOIN': 1,
+        'PUZZLE': 2,
+        'GAME': 3
+    }
+
+    var TipInfo = {
+        '1': '没有指定的房间',
+        '2':'没有指定的玩家',
+        '4':'房间已满',
+        '8':'当前指向的不是管理员',
+        '16': '当前玩家没有权限（不是Room的成员）',
+        '32': '当前玩家不是JOIN的状态',
+        '1024': '未知错误'
+    }
+
+    var CONST = {
+        'RANDOM_PUZZLE_AJAX_ERROR':'randomPuzzle Ajax error!',
+        'GET_PLAYERS_AJAX_ERROR':'God getPlayers Ajax error!',
+        'GET_PUZZLE_ROLE_ERROR':'getPuzzle role error!',
+        'TIME_OUT':'timeout',
+        'JSONP_AJAX_ERROR': 'jsonP Ajax error!',
+        'NOT_VALID_GET_PALYERS_STATUS':'getPlayers status not valid'
+    }
 
 
-    window.addEventListener("load",function() {
+//    if (window.navigator.userAgent.indexOf('iPhone') != -1) {
+//        if (window.navigator.standalone == true) {
+//
+//        }else{
+//            document.write('<p>Tap the + button and choose "Add to Home Screen"</p>');
+//        }
+//    }else{
+//        document.location.href = 'please-open-from-iphone.html';
+//    }
 
-        // Set a timeout...
-        setTimeout(function(){
-            // Hide the address bar!
-            window.scrollTo(0, -100);
-        }, 100);
-    });
-})(Zepto,window);
+    //神
+    var God = {
+        certificate: {
+            adminId: "",
+            roomId: -1
+        },
+        status: -1,
+        role: {
+            peopleWord: '',
+            idiotWord: ''
+        },
+        playerNumTick: null,
+        randomPuzzle: function(callback){
+            $.ajax({
+                type: 'GET',
+                url: Server.randomPuzzle,
+                data: {
+                    roomId: God.certificate.roomId,
+                    adminId: God.certificate.adminId
+                },
+                dataType: 'jsonp',
+                success: function(data){
+                    if(data && data.words){
+                        callback(data);
+                    }
+                },
+                error: function(xhr, type){
+                    throw Error(CONST.RANDOM_PUZZLE_AJAX_ERROR);
+                }
+            });
+        },
+        startGame:function(callback){
+            $.ajax({
+                type: 'GET',
+                url: Server.startGame,
+                data: {
+                    roomId: God.certificate.roomId,
+                    adminId: God.certificate.adminId,
+                    words:God.role.peopleWord + ',' + God.role.idiotWord
+                },
+                dataType: 'jsonp',
+                success: function(data){
+                    if(data && (typeof data.code == 'number') && (data.code == 0)){
 
+                        callback(data);
+                    }
+                },
+                error: function(xhr, type){
+                    throw 'God setTopic Ajax error!';
+                }
+            });
+        },
+        getAmount:function(callback){
+            //确认人数中...
+            if(God.status == STATUS.PUZZLE){
+                $.ajax({
+                    type: 'GET',
+                    url: Server.getAmount,
+                    data: {
+                        roomId: God.certificate.roomId,
+                        adminId: God.certificate.adminId
+                    },
+                    dataType: 'jsonp',
+                    success: function(data){
+                        if(data){
+                            callback(data);
+                        }
+                    },
+                    error: function(xhr, type){
+                        throw Error(CONST.GET_PLAYERS_AJAX_ERROR);
+                    }
+                });
+
+
+                God.playerNumTick = setTimeout(arguments.callee,2000,callback);
+            }
+        },
+        endGame: function(callback){},
+        open: function(callback){
+            $.ajax({
+                type: 'GET',
+                url: Server.open,
+                data: {},
+                dataType: 'jsonp',
+                context: $('body'),
+                success: function(data){
+                    //保存凭证
+                    if(data && (typeof data.code == 'number') && (data.code == 0)){
+                        callback(data);
+                    }
+                },
+                error: function(xhr, type){
+                    stage.mask.hide();
+                    throw 'open Ajax error!';
+                }
+            });
+        },
+        getPlayers : function(callback){
+            $.ajax({
+                type: 'GET',
+                url: Server.getPlayers,
+                data: {
+                    roomId: God.certificate.roomId,
+                    adminId: God.certificate.adminId
+                },
+                dataType: 'jsonp',
+                success: function(data){
+                    if(data && data.playerList){
+                        callback(data);
+                    }
+                },
+                error: function(xhr, type){
+                    throw 'God setTopic Ajax error!';
+                }
+            });
+        },
+        callbackGetPlayers: function(data){
+            var peopleNum = 0,
+                idiotNum = 0,
+                oniNum = 0,
+                $status = $('.playerNum'),
+                role = '',
+                len =  data.playerList.length
+                ;
+
+            for(var i = 0;i < len; i++){
+
+                role =  data.playerList[i].character;
+                if(role == 3){
+                    oniNum++ ;
+                }
+                else if(role == 2){
+                    peopleNum++;
+                }
+                else if(role == 4){
+                    idiotNum++;
+                }
+            }
+
+            var tipSnap = '<strong>'+ peopleNum + '</strong>个平民,\
+                                          <strong>'+ idiotNum + '</strong>个傻子,\
+                                          <strong>'+ oniNum + '</strong>个鬼'
+                ;
+
+            $status.html(tipSnap);
+            $('.start').css('background-color','black').css('color','white').find('label').not('.playerNum').text('天黑请闭眼');
+
+            $('.f-r-3').addClass('f-r-2').removeClass('f-r-3');
+
+            window.clearTimeout(God.playerNumTick);
+        },
+        callbackOpen: function(data){
+            God.certificate.adminId = data.adminId || '';
+            God.certificate.roomId = data.roomId || '';
+            God.status = 2;
+
+
+            var header ='<div>\
+                            <h1>\
+                            法官出题\
+                            </h1>\
+                        </div>\
+                        <div>\
+                            <span class="room">\
+                            135房间\
+                            </span>\
+                        </div>\
+                        <span class="replay">\
+                        </span>',
+                container = '<div class="top">\
+								<span class="a">\
+									<textarea id="comm" placeholder="输入平民的词"></textarea>\
+								</span><span class="b">\
+									<textarea id="idiot" placeholder="输入傻子的词"></textarea>\
+								</span>\
+							</div>\
+							<div class="bottom">\
+								<span class="start">\
+									<label class="playerNum">0人已经加入了房间</label>\
+									<label>开始游戏</label>\
+								</span>\
+							</div>',
+                msg = '<div id="msg">\
+                                <div class="title">135</div>\
+                        <div class="todo">将此房间号告诉游戏者</div>\
+                        <div class="btn">好</div>\
+                        </div>'
+
+                ;
+
+            $('header').html(header).find('.room').text(data.roomId + '房间');
+
+            $('.container').html(container).find('.a input').focus();
+
+            $('.f-r-1').addClass('f-r-2').removeClass('f-r-1');
+            $('.f-r-2').addClass('f-r-3').removeClass('f-r-2');
+
+
+            if($('#msg').length > 0){
+                $('#msg').show().find('.title').text(data.roomId);
+            }
+            else{
+                $(msg).appendTo('#wrapper').find('.title').text(data.roomId);
+            }
+
+            stage.mask.hide();
+        },
+        callbackStartGame: function(data){
+            God.status = data.status;
+            God.getPlayers(God.callbackGetPlayers);
+        },
+        callbackEnd: function(){},
+        callbackGetAmount: function(data){
+            var num = data.playerAmount ? (data.playerAmount -1) : 0;
+            $('.playerNum').text(num + '人已经加入了房间');
+        },
+        callbackRandom: function(data){
+            $('#idiot').val(data.words[0] || '');
+            $('#comm').val(data.words[1] || '');
+        },
+        init:function () {
+
+            //我是法官.
+            $(document).on('tap','.down .l',function(){
+                stage.mask.show();
+                God.open(God.callbackOpen);
+            });
+
+            //好
+            $(document).on('tap','.btn',function(){
+                $('#msg').hide();
+                God.getAmount(God.callbackGetAmount);
+            });
+
+            //开始游戏.
+            $(document).on('tap','.start',function(e){
+                var orTipVal =  $('#comm').val(),
+                    idiTip = $('#idiot').val()
+                    ;
+
+                if($(this).css('backgroundColor') == 'black'){
+                    return;
+                }
+
+                if(orTipVal.length != idiTip.length){
+                    alert('平民和傻子的词长需一致!');
+                    return;
+                }
+
+
+                if(orTipVal.trim().length == 0 || idiTip.trim().length == 0){
+                    alert('请填词!');
+                    return;
+                }
+
+                if(!window.confirm('请确认所有玩家都已加入，否则可能丢失玩家')) return;
+
+                God.role.peopleWord = orTipVal.trim();
+                God.role.idiotWord = idiTip.trim();
+
+                God.startGame(God.callbackStartGame);
+            });
+
+            //重新开始.
+            $(document).on('tap','.replay',function(){
+                window.location.reload();
+            });
+        }
+    }
+
+
+    //helper
+    var stage = {
+        init:function () {
+            stage.reset();
+            stage.hideAddrBar();
+            stage.eyes();
+            stage.help();
+            stage.registerShake();
+            stage.shake();
+            stage.overlay();
+        },
+        //设置.
+        set:function () {
+            $wrapper.on('tap', '.set', function (e) {
+                alert('We are striving for that!');
+            });
+        },
+        //鬼眼
+        eyes: function(){
+            var mask = document.querySelector('.up span')
+                switchTime = 800
+                ;
+            setTimeout(function(){
+                if(mask.style.zIndex == -1){
+                    mask.style.zIndex = 1;
+                }
+                else{
+                    mask.style.zIndex = -1;
+                }
+
+                switchTime = (switchTime == 800 ? 1200: 800);
+
+                setTimeout(arguments.callee,switchTime);
+            },1000);
+        },
+        //摇晃.
+        registerShake:function () {
+            //shake 组件
+            $.fn.shake = function (options) {
+                var setting = {
+                    sensitivity:15,
+                    timer:200,
+                    position:{x1:0, x2:0, y1:0, y2:0, z1:0, z2:0 },
+                    action:{}
+                };
+                if (options) {
+                    $.extend(setting, options);
+                }
+                ;
+                var SHAKE = {
+
+                    _timer:{
+                    },
+                    checkUA:function () {
+                        if (typeof window.DeviceOrientationEvent != 'undefined') {
+                            if (typeof window.DeviceMotionEvent != 'undefined') {
+                                //window.onorientationchange = SD.unit.updateOrientation;
+                                window.addEventListener('devicemotion', function (e) {
+                                    SHAKE.get(e)
+                                }, false);
+                                SHAKE.start();
+                                return true;
+                            } else {
+                                console.log("对不起您的设备不支持摇动");
+                                return false;
+                            }
+                        } else {
+                            console.log("对不起您的设备不支持摇动");
+                            return false;
+                        }
+                    },
+                    // 晃动时在 x y z 方向上的加速度
+                    get:function (e) {
+                        setting.position.x1 = e.accelerationIncludingGravity.x;
+                        setting.position.y1 = e.accelerationIncludingGravity.y;
+                        setting.position.z1 = e.accelerationIncludingGravity.z;
+                    },
+                    // 判断晃动是否满足敏感系数，满足的话更新 x2 y2 z2
+                    isMeetSensitivity:function () {
+                        var change = Math.abs(setting.position.x1 - setting.position.x2 + setting.position.y1 - setting.position.y2 + setting.position.z1 - setting.position.z2);
+                        if (change > setting.sensitivity) {
+                            //alert('Shake!');
+                            setting.action();
+                            //console.log(typeof(setting.action))
+                        }
+                        // 更新
+                        setting.position.x2 = setting.position.x1;
+                        setting.position.y2 = setting.position.y1;
+                        setting.position.z2 = setting.position.z1;
+                    },
+                    start:function () {
+                        SHAKE._timer = setInterval(function () {
+                            SHAKE.isMeetSensitivity()
+                        }, setting.timer);
+                    },
+                    stop:function () {
+                        clearInterval(SHAKE._timer)
+                    }
+                };
+                SHAKE.checkUA();
+            }
+        },
+
+        shake:function () {
+            $(window).shake({action:function () {
+
+                //游戏中，禁止摇动。。。
+                if($('.start').css('backgroundColor') == 'black'){
+                    return;
+                }
+
+                if($('#comm').height() > 0){
+                    God.randomPuzzle(God.callbackRandom);
+                }
+            }});
+        },
+
+        //滑动.
+        slider:function () {
+
+            $('.slider').slider({ margin:0, isPlay:false, lazy:'data-img'});
+
+            var titleTable = {
+                1:'开始游戏',
+                2:'领卡片',
+                3:'确认身份',
+                4:'天黑闭眼',
+                5:'依次阐述',
+                6:'投票',
+                7:'遗言',
+                8:'游戏结束'
+            }
+
+            var $cbox =  $('#helper .container'),
+                $ccaption = $('#helper .caption')
+                ;
+
+            //slider.
+            $(document).on('slider', function (e, index) {
+
+                $cbox.animate({opacity:0}, 500, 'ease-out', function () {
+                    $cbox.html(JST['view/help-switcher']({index:index})).animate({
+                        opacity:1
+                    }, 600, 'ease-out')
+                });
+
+                $ccaption.animate({
+                    translateX:'-300px'
+                }, 500, 'ease-out', function () {
+                    $ccaption.text(titleTable[index]).animate({
+                        translateX:"0px"
+                    }, 600, 'ease-out')
+                })
+            })
+        },
+
+        //隐藏地址栏.
+        hideAddrBar: function() {
+
+//            $(function(){
+//                // Set a timeout...
+//                setTimeout(function () {
+//                    window.scrollTo(0, 0);
+//                }, 100);
+//            });
+
+            $(document).ready(function(){
+                // Set a timeout...
+                setTimeout(function () {
+                    window.scrollTo(0, -1);
+                }, 100);
+            });
+        },
+
+        //遮罩.
+        overlay: function() {
+            stage.mask =
+            {
+                show: function() {
+                    var loading = $('.loading');
+
+                    if(loading.hasClass('hide')){
+                        loading.removeClass('hide');
+                    }
+                    else{
+                        return;
+                    }
+                },
+                hide: function() {
+                    var loading = $('.loading');
+
+                    if(!loading.hasClass('hide')){
+                        loading.addClass('hide');
+                    }
+                    else{
+                        return;
+                    }
+                }
+            };
+        },
+
+        //reset
+        reset: function(){
+            $.fn.wait = function( callback, seconds){
+                return window.setTimeout( callback, seconds * 1000 );
+            }
+
+            String.prototype.trim = function(){
+                return this.replace(/^\s+|\s+$/g, '');
+            }
+        },
+
+        getCookie:function (key) {
+            var c_start,
+                c_end
+                ;
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(name + "=")
+                if (c_start != -1) {
+                    c_start = c_start + name.length + 1;
+                    c_end = document.cookie.indexOf(";", c_start);
+                    if (c_end == -1) {
+                        c_end = document.cookie.length;
+                    }
+                    return document.cookie.substring(c_start, c_end);
+                }
+            }
+            return ""
+        },
+
+        setCookie:function (key, val, expiredays) {
+            var exdate = new Date();
+            exdate.setDate(exdate.getDate() + expiredays);
+            document.cookie = key + "=" + escape(val) +
+                ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString())
+        },
+
+        //帮助.
+        help: function(){
+            $(document).on('tap','.f-l',function(e){
+
+                $wrapper.hide();
+
+                //loading
+                stage.mask.show();
+
+                if($helper.children().length > 0){
+                    $helper.show();
+                }
+                else{
+                    $helper.html(JST['view/help-main']()).find('.container').height('170px');
+                    $('#helper footer').height('160px');
+                }
+
+                stage.mask.hide();
+
+                //推迟初始化的时间.
+                stage.slider();
+
+                //注册关闭事件.
+                stage.close();
+            });
+        },
+
+        close: function(){
+            $helper.on('tap','.close',function(e){
+                $helper.hide();
+                $('#wrapper footer').height('90px');
+                $('#wrapper .container').height('240px');
+                $wrapper.show();
+            });
+        }
+    }
+
+
+    //玩家
+    var gamer = {
+        statusTick : null,
+        amountTick : null,
+        certificate:{
+            inputRoomId: '',
+            playerId:'',
+            status:''
+        },
+        join: function(callback){
+            $.ajax({
+                type:'GET',
+                url:Server.join,
+                data:{
+                    roomId:gamer.certificate.inputRoomId,
+                    playerId:stage.getCookie('playerId')
+                },
+                dataType:'jsonp',
+                success:function (data) {
+                    //保存凭证
+                    if (data && (typeof data.code == 'number')) {
+                        callback(data);
+                    }
+                },
+                TimeOut: 3000,
+                error:function (xhr, type) {
+                    if(type.indexof(CONST.TIME_OUT) > -1) {
+                        throw Error(CONST.TIME_OUT);
+                    }
+                    else{
+                        throw 'jsonP Ajax error!';
+                    }
+                }
+            });
+        },
+        getPlayers:function(callback){
+            //等待出题中...
+            $.ajax({
+                type: 'GET',
+                url: Server.getAmount,
+                data: {
+                    roomId: gamer.certificate.inputRoomId,
+                    playerId: gamer.certificate.playerId
+                },
+                dataType: 'jsonp',
+                success: function(data){
+                    if(data){
+                        callback(data);
+                    }
+                },
+                error: function(xhr, type){
+                    throw Error(CONST.GET_PLAYERS_AJAX_ERROR);
+                }
+            });
+
+
+            gamer.amountTick = setTimeout(arguments.callee,2000,callback);
+        },
+        getStatus: function(callback){
+            //查看自己的状态.
+            $.ajax({
+                type:'GET',
+                url:Server.getStatus,
+                data:{
+                    roomId: gamer.certificate.inputRoomId,
+                    playerId: gamer.certificate.playerId
+                },
+                dataType:'jsonp',
+                success:function (data) {
+                    //保存凭证
+                    if (data && data.status) {
+                        callback(data);
+                    }
+
+                },
+                error:function (xhr, type) {
+                    window.clearTimeout(gamer.statusTick);
+                    throw 'getStatus Ajax error!';
+
+                    return;
+
+                }
+            });
+
+            gamer.statusTick = setTimeout(arguments.callee, 2000,callback);
+        },
+        getPuzzle: function(callback){
+            $.ajax({
+                type:'GET',
+                url:Server.getPuzzle,
+                data:{
+                    playerId: gamer.certificate.playerId
+                },
+                dataType:'jsonp',
+                success:function (data) {
+                    if(data && data.word){
+                        callback(data);
+                    }
+                },
+                error:function (xhr, type) {
+                    window.clearTimeout(gamer.statusTick);
+                    throw 'getPuzzle Ajax error!';
+                }
+            });
+        },
+        callbackGetPuzzle: function(data){
+            var role = data.character,
+                $paper = $('.paper')
+                ;
+
+
+            window.clearTimeout(gamer.statusTick);
+            window.clearTimeout(gamer.amountTick);
+
+            if(role == ROLE.ONI){
+                $paper.addClass('oni').find('label').text(data.word);
+            }
+            else if(role== ROLE.PEOPLE){
+                $paper.addClass('common').find('label').text(data.word);
+            }
+            else if(role == ROLE.IDIOT){
+                $paper.addClass('common').find('label').text(data.word);
+            }
+            else{
+                throw Error(CONST.GET_PUZZLE_ROLE_ERROR);
+            }
+
+            $('header h1').text('游戏开始');
+
+        },
+        callbackGetStatus: function(data){
+            if(data.status == STATUS.IDLE){
+                alert('你已经和大家失去了联系!');
+                window.clearTimeout(gamer.statusTick);
+                return;
+            }
+            if(data.status == STATUS.GAME){
+                gamer.getPuzzle(gamer.callbackGetPuzzle);
+            }
+        },
+        callbackJoin: function(data){
+
+            if(data.code == 0){
+                gamer.certificate.playerId = data.playerId;
+                stage.setCookie('playerId',data.playerId);
+
+                var header = '<div>\
+                                    <h1>\
+                                    等待出题\
+                                    </h1>\
+                                </div>\
+                                <div>\
+                                    <span class="room">\
+                                    135房间\
+                                    </span>\
+                                </div>\
+                                <span class="replay">\
+                                </span>',
+                    box = '<div id="" class="box">\
+                                    <span class="arrow"></span>\
+                                <span class="paper"><label></label></span>\
+                            </div>\
+                            <div class="roomStatus">\
+                            \
+                            </div>'
+                    ;
+
+                $('header').html(header).find('.room').text(gamer.certificate.inputRoomId + '房间');
+                $('.container').html(box);
+                $('.f-r-1').addClass('f-r-2').removeClass('f-r-1');
+
+
+                //box touch animation.
+                TouchMove.init();
+
+                //启动2个循环.
+                gamer.getPlayers(gamer.callbackGetPlayers);
+                gamer.getStatus(gamer.callbackGetStatus);
+            }
+            else{
+                alert(TipInfo[data.reason]);
+            }
+
+            stage.mask.hide();
+        },
+        callbackGetPlayers: function(data){
+            var num = data.playerAmount ? (data.playerAmount -1) : 0;
+            $('.roomStatus').text(num + '人已经加入了房间');
+        },
+        init: function(){
+
+            //我是玩家.
+            $(document).on('tap','.down .r',function(){
+                var popup ='<div id="popup">\
+                                <div class="grp">\
+                                    <input id="roomId" type="tel" placeholder="请输入房间号">\
+                                    <button id="join">完成</button>\
+                                </div>\
+                            </div>'
+                    ;
+
+                var $popup = $('#popup')
+                                ;
+
+                if($popup.length > 0){
+                    $popup.show().wait(function(){
+                        $('#roomId').focus();
+                    },1000);
+                }
+                else{
+                    $(popup).appendTo('body').wait(function(){
+                        $('#roomId').focus();
+                    },1000);
+                }
+
+                //重新开始.
+                $(document).on('tap','header .replay',function(){
+                    window.clearTimeout(gamer.statusTick);
+                    window.clearTimeout(gamer.amountTick);
+
+                    window.location.reload();
+                });
+            });
+
+            //完成.
+            $(document).on('tap','#join',function(){
+
+                $(this).focus();
+                gamer.certificate.inputRoomId = $('#roomId').val();
+                $('#popup').hide();
+                stage.mask.show();
+                gamer.join(gamer.callbackJoin);
+            });
+        }
+    }
+
+
+    var TouchMove = {
+        gestureInfo : {
+            originX: 0,
+            originY: 0,
+            offsetY: 0
+        },
+        targetInfo:{
+            $box: null,
+            $popup: null
+        },
+        init: function(){
+            TouchMove.targetInfo.$box = $('.box')[0];
+            TouchMove.targetInfo.$popup = $('.paper')[0];
+            $(document).on('touchstart','.box',TouchMove.onTouchStart);
+            $(document).on('touchmove','.box',TouchMove.onTouchMove);
+            $(document).on('touchend','.box',TouchMove.onTouchEnd);
+
+            document.ontouchstart = function(e){
+                e.preventDefault();
+            }
+        },
+        onTouchStart: function(e){
+            TouchMove.gestureInfo.originX = e.touches[0].pageX;
+            TouchMove.gestureInfo.originY = e.touches[0].pageY;
+        },
+        onTouchMove: function(e){
+            var offsetY= (e.touches[0].pageY - TouchMove.gestureInfo.originY),
+                _height = (parseInt(TouchMove.targetInfo.$popup.style.height.toString()) || 0) - offsetY,
+                shiftY = -(_height - 18) -35
+                ;
+
+            TouchMove.gestureInfo.offsetY = offsetY;
+
+            if(_height >=18 && _height <= 120){
+                TouchMove.targetInfo.$popup.style.height = _height + 'px';
+                TouchMove.targetInfo.$popup.style.webkitTransform = 'translateY('+ shiftY + 'px)';
+            }
+        },
+        onTouchEnd: function(e){
+            TouchMove.gestureInfo.originX = 0;
+            TouchMove.gestureInfo.originY = 0;
+
+            if(TouchMove.gestureInfo.offsetY < 0){
+                TouchMove.targetInfo.$popup.style.height = '120px';
+                TouchMove.targetInfo.$popup.style.webkitTransform = 'translateY(-137px)';
+            }
+
+            if(TouchMove.gestureInfo.offsetY > 0){
+                TouchMove.targetInfo.$popup.style.height = '18px';
+                TouchMove.targetInfo.$popup.style.webkitTransform = 'translateY(-35px)';
+            }
+        }
+    }
+
+    God.init();
+    stage.init();
+    gamer.init();
+
+})(Zepto, window);
 
 
 

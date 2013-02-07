@@ -1,0 +1,527 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "微软雅黑";
+}
+#wrapper,
+#container {
+  width: 100%;
+  position: relative;
+}
+.hide {
+  display: none;
+}
+header {
+  position: relative;
+  display: block;
+  height: 60px;
+  width: 100%;
+  background: url("../image/cloud.png") no-repeat 20% 0%, url("../image/sun.png") no-repeat 80% 0%, url("../image/cloud.png") no-repeat 40% 100%, url("../image/cloud.png") no-repeat 10% 100%;
+  background-size: 20px 20px;
+}
+.box {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 250px;
+}
+header .set {
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  width: 32px;
+  height: 32px;
+  background: url("../image/set.png") no-repeat;
+  background-size: contain;
+}
+header .caption {
+  height: 100%;
+  line-height: 50px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 5px auto;
+}
+header .close {
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  width: 24px;
+  height: 24px;
+  background: url("../image/close.png") no-repeat;
+  background-size: contain;
+}
+.word {
+  text-align: center;
+  height: 60px;
+}
+.word span {
+  position: relative;
+  display: inline-block;
+  height: 50px;
+  width: 180px;
+  line-height: 50px;
+  background-image: url("../image/grid.png");
+  -webkit-border-radius: 25px;
+  -webkit-box-shadow: 1px 3px 7px rgba(0, 0, 0, 0.3) inset;
+}
+.word span figure {
+  display: table;
+  position: relative;
+  margin: 0;
+  left: 0px;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  vertical-align: baseline;
+  background: transparent;
+}
+.word span figure input {
+  width: 90px;
+  height: 25px;
+  line-height: 25px;
+  border: 0px;
+  background: transparent;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  vertical-align: middle;
+  display: table-cell;
+}
+.word span figure input::-webkit-input-placeholder {
+  font-size: 13px;
+}
+.word span figure i {
+  display: inline-block;
+  position: absolute;
+  background: #f0f0f0;
+  font-size: 12px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  top: 10px;
+  right: 10px;
+  -webkit-border-radius: 15px;
+  border-left: 1px solid white;
+  border-right: 1px solid #CFCFCF;
+  border-bottom: 1px solid #CFCFCF;
+}
+.word span em {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translatey(-50%);
+  left: 15%;
+  display: inline-block;
+  height: 20px;
+  width: 18px;
+  margin-left: -1em;
+  background: url("../image/broadcast.png");
+  background-size: contain;
+  vertical-align: middle;
+}
+.word p {
+  font-size: 16px;
+}
+.word p strong {
+  font-size: 30px;
+  color: red;
+}
+.putin {
+  padding: 0;
+  text-align: center;
+  margin: 20px 0px;
+}
+.putin li {
+  position: relative;
+  display: inline-block;
+  height: 6.1em;
+  width: 6.1em;
+  margin: 0 0;
+  text-align: center;
+  background-position: bottom;
+  background-size: contain;
+  background-color: #e4e8eb;
+}
+.putin li textarea {
+  width: 4.6em;
+  height: auto;
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  font-size: 1.3em;
+  margin-top: 5px;
+  outline: none;
+  overflow: auto;
+  resize: none;
+}
+.putin li span {
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+}
+.putin li strong {
+  display: inline;
+  font-size: 1.3em;
+}
+.putin li:nth-child(1) {
+  margin-left: 10px;
+  background-image: url("../image/common.png");
+}
+.putin li:nth-child(1):after {
+  content: '平民的词';
+  position: absolute;
+  bottom: -1.5em;
+  width: 6.1em;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+}
+.putin li:nth-child(2) {
+  background-image: url("../image/fool.png");
+}
+.putin li:nth-child(2):after {
+  content: '傻子的词';
+  position: absolute;
+  bottom: -1.5em;
+  width: 6.1em;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+}
+.putin li:nth-child(3) {
+  background-image: url("../image/ghost.png");
+}
+.putin li:nth-child(3):after {
+  content: '鬼的数字';
+  position: absolute;
+  bottom: -1.5em;
+  width: 6.1em;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+}
+.flipper {
+  -webkit-transform: rotate3d(0, 1, 0, 180deg);
+}
+.box-start {
+  background: url("../image/maintext.png") no-repeat 50% 0%;
+  background-size: 130px 130px;
+}
+.box-start .btn {
+  width: 180px;
+  height: 70px;
+  left: 50%;
+  -webkit-transform: translatex(-50%);
+  bottom: 0px;
+  position: absolute;
+  background: url("../image/setup.png") no-repeat;
+  background-size: contain;
+}
+.box-start .btn:after {
+  content: " ";
+  position: absolute;
+  width: 120px;
+  height: 55px;
+  top: -44px;
+  left: 50%;
+  -webkit-transform: translatex(-45%);
+  background: url("../image/start_box.png") no-repeat;
+  background-size: contain;
+}
+.box-start .btn:before {
+  content: " ";
+  position: absolute;
+  width: 64px;
+  height: 100px;
+  top: -80px;
+  left: -15%;
+  background: url("../image/hand.png") no-repeat;
+  background-size: contain;
+}
+.box-start .pen {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 50%;
+  -webkit-transform: translatex(-180%);
+  bottom: 60%;
+  background: url("../image/word.png") no-repeat;
+  background-size: contain;
+}
+.box-game {
+  text-align: center;
+  position: relative;
+}
+.box-game .card {
+  z-index: 2;
+  position: absolute;
+  width: 94px;
+  height: 94px;
+  background-color: red;
+  left: 50%;
+  -webkit-transform: translatex(-50%);
+  top: -20px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  background: url("../image/ghost.png") no-repeat 90% 0%, url("../image/common.png") no-repeat 45% 50%, url("../image/fool.png") no-repeat 10% 100%;
+  background-size: 90%;
+}
+.box-game .card span {
+  width: 95px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 18px;
+  font-weight: bolder;
+  color: #9A9A9A;
+  margin-top: 1em;
+  display: inline-block;
+}
+.box-game .card figure {
+  width: 100%;
+  height: 40px;
+  background: url("../image/pencil.png") no-repeat 90% 0%;
+  background-size: contain;
+  margin-left: 0px;
+}
+.box-game .peopleCard {
+  background: url("../image/common.png") no-repeat 50% 0%;
+  background-size: 90%;
+  top: -10px;
+}
+.box-game .peopleCard figure {
+  background: transparent;
+}
+.box-game .ghostCard {
+  background: url("../image/ghost.png") no-repeat 50% 0%;
+  background-size: 90%;
+  top: -10px;
+}
+.box-game .ghostCard figure {
+  background: transparent;
+}
+.box-game .face {
+  position: relative;
+  z-index: 1;
+  width: 130px;
+  height: 130px;
+  display: inline-block;
+  background: url("../image/box.png") no-repeat;
+  background-size: contain;
+}
+.box-game .face span {
+  position: absolute;
+  display: inline-block;
+  width: 78px;
+  height: 78px;
+  background: -webkit-radial-gradient(center, #eb6e6f, #e74242);
+  top: 35px;
+  left: 50%;
+  -webkit-transform: translatex(-50%);
+  -webkit-border-radius: 40px;
+  line-height: 78px;
+  font-size: 50px;
+  color: #746868;
+}
+.box-game .tip {
+  display: block;
+  font-size: 20px;
+  color: #9a9a9a;
+}
+.box-help {
+  height: 215px !important;
+  display: table;
+}
+.box-help p {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0px 20px;
+  font-size: 18px;
+}
+.box-help p strong {
+  display: inline-block;
+  width: 25px;
+  background: url("../image/circle.png") no-repeat;
+  background-size: cover;
+}
+.box-help p em {
+  color: red;
+  background: url("../image/underline.png") no-repeat;
+  background-size: contain;
+  background-position: bottom;
+}
+.box-help p span {
+  color: red;
+}
+.fire {
+  display: block;
+  margin-top: 30px;
+  width: 100%;
+}
+.fire .btn {
+  margin-top: 5px;
+  text-align: center;
+}
+.fire .btn span {
+  height: 40px;
+  width: 140px;
+  color: white;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  line-height: 40px;
+  display: inline-block;
+  -webkit-border-radius: 20px;
+  background-color: #E43C3C;
+  text-align: center;
+}
+.slider {
+  position: relative;
+  height: 130px;
+  width: 100%;
+  margin-top: 5px;
+}
+.slider .help-man {
+  top: 40px;
+}
+.slider .slider-outer {
+  width: 290px;
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+  margin: 0px auto;
+}
+.slider .slider-outer .slider-wrap {
+  position: absolute;
+  width: auto;
+  padding: 0;
+  bottom: 0px;
+  list-style: none;
+  margin: 0px 0px;
+}
+.slider .slider-outer .slider-wrap li {
+  float: left;
+  width: 290px;
+  height: 90px;
+  text-align: right;
+}
+.slider .slider-outer .slider-wrap li img {
+  width: 250px;
+  height: 90px;
+}
+.slider .slider-status {
+  height: 20px;
+  padding-top: 2px;
+  text-align: center;
+}
+.slider .slider-status span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #ccc;
+  -webkit-border-radius: 4px;
+  margin-right: 8px;
+}
+.slider .slider-status span:last-child {
+  margin-right: 0px;
+}
+.slider .slider-status .sel {
+  background-color: #FF8040;
+}
+.help-man {
+  position: absolute;
+  width: 50px;
+  height: 80px;
+  left: 0px;
+  background: url("../image/q_man.png") no-repeat;
+  background-size: contain;
+  -webkit-animation: shake 1s ease-out 4;
+}
+.bottom {
+  position: relative;
+  height: 110px;
+  width: 100%;
+  margin-top: 5px;
+  text-align: center;
+}
+.bottom .help-man {
+  top: 10px;
+}
+.bottom .img-detail {
+  display: inline-block;
+  width: 80%;
+  height: 90px;
+  background: url("../image/1.png") no-repeat 50% 0%;
+  background-size: contain;
+}
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: translate(0px, 2px);
+  }
+  10% {
+    -webkit-transform: translate(0px, 0px);
+  }
+  20% {
+    -webkit-transform: translate(0px, -2px);
+  }
+  30% {
+    -webkit-transform: translate(0px, 0px);
+  }
+  40% {
+    -webkit-transform: translate(0px, 4px);
+  }
+  50% {
+    -webkit-transform: translate(0px, -4px);
+  }
+  60% {
+    -webkit-transform: translate(0px, 6px);
+  }
+  70% {
+    -webkit-transform: translate(0px, 0px);
+  }
+  80% {
+    -webkit-transform: translate(0px, -6px);
+  }
+  90% {
+    -webkit-transform: translate(0px, 0px);
+  }
+  100% {
+    -webkit-transform: translate(0px, 10px);
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 320px) {
+  body {
+    font-size: 13px;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  body {
+    font-size: 18px;
+  }
+  header {
+    margin-top: 1em;
+    margin-bottom: 2em;
+  }
+  .box {
+    margin-bottom: 3em;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 920px) {
+  body {
+    font-size: 22px;
+  }
+  header {
+    margin-top: 1em;
+    margin-bottom: 2em;
+  }
+  .box {
+    margin-bottom: 3em;
+  }
+}
+@media only screen and (min-width: 921px) {
+  body {
+    font-size: 24px;
+  }
+  header {
+    margin-top: 1em;
+    margin-bottom: 2em;
+  }
+  .box {
+    margin-bottom: 3em;
+  }
+}

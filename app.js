@@ -1,6 +1,5 @@
 
 //= require_tree ./view
-//= require ./script/zepto1.0.0
-//= require ./script/notification
+//= require ./script/zepto
 //= require ./script/slider
-//= require init
+//= require init0.2
