@@ -1,0 +1,42 @@
+<% if(index == 1){ %>
+<dt class="help-tip">
+    <dl>这是一个大家坐在一起的文字游戏！首先要集齐至少<strong>7</strong>个人用浏览器打开<em>www.wenzisha.com</em>其中一人点击出题按钮，其余人进入游戏准备抓鬼。</dl>
+</dt>
+<% }else if(index == 2){ %>
+<dt class="help-tip">
+    <dl>法官进入出题界面,并将领卡密码告诉大家，其他人输入密码领取卡片。</dl>
+    <dl>法官出题需保证两个词<span>字数一致，强烈相关。</span></dl>
+</dt>
+<% }else if(index == 3){ %>
+<dt class="help-tip">
+    <dl>所有人确认好自己的身份卡</dl>
+</dt>
+<% }else if(index == 4){ %>
+<dt class="help-tip">
+    <dl>法官：天黑请闭眼，鬼请睁眼，鬼需要互相认识同伴，并指认开始阐述的起点。（通常以顺时针方向进行）</dl>
+</dt>
+<% }else if(index == 5){ %>
+<dt class="help-tip">
+    从鬼指认的人开始阐述，平民和傻子需要尽量阐述的让同伴理解你的词，但不要让鬼猜到你的词。
+</dt>
+<% }else if(index == 6){ %>
+<dt class="help-tip">
+    阐述一轮结束后，法官需要组织大家进行投票谁是鬼。票数最多的人被投死，如票数相同，则继续阐述再进行投票，直到投死一个人为止。
+</dt>
+<% }else if(index == 7){ %>
+<dt class="help-tip">
+    <dl>被投死的人，需要承认是否是鬼，如回答不是鬼，则没有遗言；</dl>
+    <dl>如回答是鬼，则可以向法官问一个可以用“是”或“否”作答的问题，法官将如实回答。</dl>
+</dt>
+<% }else if(index == 8){ %>
+<dt class="help-tip">
+    <dl>当鬼猜出词时，鬼胜；</dl>
+    <dl>当平民和傻子的人数少于鬼的人数时，鬼胜;</dl>
+    <dl>当平民和傻子将鬼全部投死，平民和傻子胜。</dl>
+</dt>
+<% }else{ %>
+<dt class="help-tip">
+    <dl>error</dl>
+</dt>
+<% } %>
+
