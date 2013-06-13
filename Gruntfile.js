@@ -15,7 +15,7 @@ module.exports = function(grunt) {
       },
       wzs: {
         files: {
-            'dest/wenzisha.min.js': ['script/view.jst.js', 'script/zepto.js', 'script/slider.js', 'init0.2.js']
+            'dest/wenzisha.0.3.js': ['script/view.jst.js', 'script/zepto.js', 'script/slider.js', 'init.0.3.js']
           }
       }
     }
