@@ -1,33 +1,33 @@
 module.exports = function(grunt) {
 
-  // Project configuration.
-  grunt.initConfig({
-    pkg:grunt.file.readJSON('package.json'),
-    banner:'/*<%= grunt.template.today("yyyy-mm-dd") %>-<%= pkg.author%>*/',
-    // tasks
-    ejs: {
-      'script/view.jst.js': 'view/**/*.ejs'
-    },
-    
-    uglify: {
-      options: {
-        banner: '<%= banner %>'
-      },
-      wzs: {
-        files: {
-            'dest/wenzisha.0.3.js': ['script/view.jst.js', 'script/zepto.js', 'script/slider.js', 'init.0.3.js']
-          }
-      }
-    }
-  });
+    // Project configuration.
+    grunt.initConfig({
+        pkg:grunt.file.readJSON('package.json'),
+        banner:'/*<%= grunt.template.today("yyyy-mm-dd") %>-<%= pkg.author%>*/',
+        // tasks
+        ejs: {
+        'script/view.jst.js': 'view/**/*.ejs'
+        },
+        
+        uglify: {
+            options: {
+                banner: '<%= banner %>'
+            },
+            wzs: {
+                files: {
+                    'dest/wenzisha.0.3.js': ['script/view.jst.js', 'script/zepto.js', 'script/slider.js', 'script/flipsnap.js', 'init.0.3.js']
+                }
+            }
+        }
+    });
   
   
 grunt.registerMultiTask('ejs', 'Compile EJS templates into JST.', function() {
 
     var options = {
-      client: true,
-      open: "<%",
-      close: "%>"
+        client: true,
+        open: "<%",
+        close: "%>"
     };
 
     grunt.verbose.writeflags(options, 'Options');
@@ -36,51 +36,43 @@ grunt.registerMultiTask('ejs', 'Compile EJS templates into JST.', function() {
     var taskOutput;
 
     this.files.forEach(function(file) {
-      srcFiles = grunt.file.expand(file.src);
+        srcFiles = grunt.file.expand(file.src);
+    
+        taskOutput = [];
 
-      taskOutput = [];
+        srcFiles.forEach(function(srcFile) {
+            taskOutput.push(compileEjs(srcFile, options));
+        });
 
-      srcFiles.forEach(function(srcFile) {
-        taskOutput.push(compileEjs(srcFile, options));
-      });
-
-      if (taskOutput.length > 0) {
-        grunt.file.write(file.dest, taskOutput.join('\n'));
-        grunt.log.writeln('File ' + file.dest.cyan + ' created.');
-      }
+        if (taskOutput.length > 0) {
+            grunt.file.write(file.dest, taskOutput.join('\n'));
+            grunt.log.writeln('File ' + file.dest.cyan + ' created.');
+        }
     });
-  });
+});
 
-  var compileEjs = function(srcFile, options) {
+function compileEjs (srcFile, options) {
     options = grunt.util._.extend({filename: srcFile}, options);
-
     var srcCode = grunt.file.read(srcFile);
-
     var jstName = srcFile.replace(/\.jst|\.ejs/ig, '');
     
-    var suffix =
-    "if(typeof module != 'undefined') {"+
-    "  module.exports = anonymous;"+
-    "} else {"+
-    "  window.JST = window.JST || {};"+
-    "  window.JST[\""+jstName+"\"] = anonymous;"+
-    "}";
-
+    var prefix = "window.JST = window.JST || {};" +
+        "window.JST[\""+jstName+"\"] = ";
+    
     try {
-      var fn = require('ejs').compile(srcCode, options);
-      return fn.toString()+suffix;
+        var fn = require('ejs').compile(srcCode, options);
+        return prefix + fn.toString().replace(/anonymous/, '') + ';';
     } catch (e) {
-      grunt.log.error(e);
-      grunt.fail.warn('EJS failed to compile.');
+        grunt.log.error(e);
+        grunt.fail.warn('EJS failed to compile.');
     }
-  };
+};
 
-  // Load the plugin that provides the "uglify" task.
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-concat');
- 
+    // Load the plugin that provides the "uglify" task.
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-concat');
 
-  // Default task(s).
-  grunt.registerTask('default', ['ejs', 'uglify:wzs']);
+    // Default task(s).
+    grunt.registerTask('default', ['ejs', 'uglify:wzs']);
 
 };

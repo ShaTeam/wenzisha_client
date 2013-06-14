@@ -1,4 +1,4 @@
-function anonymous(locals, filters, escape) {
+window.JST = window.JST || {};window.JST["view/help-main"] = function (locals, filters, escape) {
 escape = escape || function (html){
   return String(html)
     .replace(/&(?!\w+;)/g, '&amp;')
@@ -39,8 +39,8 @@ return buf.join('');
 } catch (err) {
   rethrow(err, __stack.input, __stack.filename, __stack.lineno);
 }
-}if(typeof module != 'undefined') {  module.exports = anonymous;} else {  window.JST = window.JST || {};  window.JST["view/help-main"] = anonymous;}
-function anonymous(locals, filters, escape) {
+};
+window.JST = window.JST || {};window.JST["view/help-switcher"] = function (locals, filters, escape) {
 escape = escape || function (html){
   return String(html)
     .replace(/&(?!\w+;)/g, '&amp;')
@@ -81,8 +81,50 @@ return buf.join('');
 } catch (err) {
   rethrow(err, __stack.input, __stack.filename, __stack.lineno);
 }
-}if(typeof module != 'undefined') {  module.exports = anonymous;} else {  window.JST = window.JST || {};  window.JST["view/help-switcher"] = anonymous;}
-function anonymous(locals, filters, escape) {
+};
+window.JST = window.JST || {};window.JST["view/helper-new"] = function (locals, filters, escape) {
+escape = escape || function (html){
+  return String(html)
+    .replace(/&(?!\w+;)/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+};
+var __stack = { lineno: 1, input: "\n<div class=\"sl-wrap\">\n    \n    <div class=\"sl\">\n        <div class=\"card one\">\n            <h2>如何开始</h2>\n            <p class=\"cd-img\"><img width=\"100\" alt=\"qr-code\" src=\"./image/qrcode.png\" /></p>\n            <p class=\"cd-text\">\n                这是大家坐在一起玩的桌游！首先，集齐至少 <em>7 个人</em>，大家用手机扫描二维码或用浏览器打开<em>www.wenzisha.com</em>进入游戏。\n            </p>\n        </div>\n        <div class=\"card two\">\n            <h2>进入游戏</h2>\n            <p class=\"cd-text\">\n            担当法官主持游戏的人点击“我是法官”按钮进入将得到一个房间密码，将其告诉其它游戏者；<br/><br/>\n\n所有游戏者点“加入游戏”并输入房间密码进入房间等候法官出题。\n\n            </p>\n        </div>\n        <div class=\"card three\">\n            <h2>确认身份</h2>\n            <p class=\"cd-text\">\n            等法官出题后，所有人查看自己的卡片确认自己的身份。<br/><br/>\n\n如果你得到一个<em>词语</em>，那你是平民或傻子；<br/>\n如果你得到一个<em>数字</em>，那你是鬼。\n            </p>\n        </div>\n        \n        <div class=\"card four\">\n            <h2>天黑闭眼</h2>\n            <p class=\"cd-text\">\n            所有人确认身份后，法官主持大家进入天黑闭眼的环节，并宣布鬼睁开双眼，来<em>确认同伴</em>，同时需要指出<em>阐述的起点</em>。（通常以顺时针方向进行阐述）\n            </p>\n        </div>\n        \n        <div class=\"card five\">\n            <h2>依次阐述</h2>\n            <p class=\"cd-text\">\n            法官宣布大家睁开双眼，由鬼指认的人开始进行词语的阐述。\n平民和傻子需要尽可能让同伴来知道自己不是鬼，但不能透露太多线索让鬼知道；<br/>\n鬼需要混淆视听，不让其它人发现自己是鬼，并积极地猜平民的词语。\n            </p>\n        </div>\n        \n        <div class=\"card six\">\n            <h2>投票</h2>\n            <p class=\"cd-text\">\n            进行完一轮的阐述后，法官需要组织大家进行对鬼的投票。<br/><br/>\n\n票数最多的人被投死，如果票数相同，可通过双方的再次阐述来进行投票，直到投死一人为止。\n            </p>\n        </div>\n        \n        <div class=\"card seven\">\n            <h2>遗言</h2>\n            <p class=\"cd-text\">\n                被投死的人需要承认是否是鬼，如回答不是鬼，则没有遗言；<br/><br/>\n\n如果回答是鬼，则可以向法官问一个可以用“是”或“否”回答的问题，法官将如实作答。\n            </p>\n        </div>\n        \n        <div class=\"card eight\">\n            <h2>游戏结束</h2>\n            <p class=\"cd-text\">\n                当鬼猜出词时，鬼胜；<br/><br/>\n\n当平民和傻子的人数少于鬼的人数时，鬼胜；<br/><br/>\n\n当鬼全部死亡时，平民和傻子胜。\n            </p>\n        </div>\n        \n    </div>\n</div>\n\n<a class=\"h-close\"></a>", filename: "view/helper-new.jst.ejs" };
+function rethrow(err, str, filename, lineno){
+  var lines = str.split('\n')
+    , start = Math.max(lineno - 3, 0)
+    , end = Math.min(lines.length, lineno + 3);
+
+  // Error context
+  var context = lines.slice(start, end).map(function(line, i){
+    var curr = i + start + 1;
+    return (curr == lineno ? ' >> ' : '    ')
+      + curr
+      + '| '
+      + line;
+  }).join('\n');
+
+  // Alter exception message
+  err.path = filename;
+  err.message = (filename || 'ejs') + ':'
+    + lineno + '\n'
+    + context + '\n\n'
+    + err.message;
+  
+  throw err;
+}
+try {
+var buf = [];
+with (locals || {}) { (function(){ 
+ buf.push('\n<div class="sl-wrap">\n    \n    <div class="sl">\n        <div class="card one">\n            <h2>如何开始</h2>\n            <p class="cd-img"><img width="100" alt="qr-code" src="./image/qrcode.png" /></p>\n            <p class="cd-text">\n                这是大家坐在一起玩的桌游！首先，集齐至少 <em>7 个人</em>，大家用手机扫描二维码或用浏览器打开<em>www.wenzisha.com</em>进入游戏。\n            </p>\n        </div>\n        <div class="card two">\n            <h2>进入游戏</h2>\n            <p class="cd-text">\n            担当法官主持游戏的人点击“我是法官”按钮进入将得到一个房间密码，将其告诉其它游戏者；<br/><br/>\n\n所有游戏者点“加入游戏”并输入房间密码进入房间等候法官出题。\n\n            </p>\n        </div>\n        <div class="card three">\n            <h2>确认身份</h2>\n            <p class="cd-text">\n            等法官出题后，所有人查看自己的卡片确认自己的身份。<br/><br/>\n\n如果你得到一个<em>词语</em>，那你是平民或傻子；<br/>\n如果你得到一个<em>数字</em>，那你是鬼。\n            </p>\n        </div>\n        \n        <div class="card four">\n            <h2>天黑闭眼</h2>\n            <p class="cd-text">\n            所有人确认身份后，法官主持大家进入天黑闭眼的环节，并宣布鬼睁开双眼，来<em>确认同伴</em>，同时需要指出<em>阐述的起点</em>。（通常以顺时针方向进行阐述）\n            </p>\n        </div>\n        \n        <div class="card five">\n            <h2>依次阐述</h2>\n            <p class="cd-text">\n            法官宣布大家睁开双眼，由鬼指认的人开始进行词语的阐述。\n平民和傻子需要尽可能让同伴来知道自己不是鬼，但不能透露太多线索让鬼知道；<br/>\n鬼需要混淆视听，不让其它人发现自己是鬼，并积极地猜平民的词语。\n            </p>\n        </div>\n        \n        <div class="card six">\n            <h2>投票</h2>\n            <p class="cd-text">\n            进行完一轮的阐述后，法官需要组织大家进行对鬼的投票。<br/><br/>\n\n票数最多的人被投死，如果票数相同，可通过双方的再次阐述来进行投票，直到投死一人为止。\n            </p>\n        </div>\n        \n        <div class="card seven">\n            <h2>遗言</h2>\n            <p class="cd-text">\n                被投死的人需要承认是否是鬼，如回答不是鬼，则没有遗言；<br/><br/>\n\n如果回答是鬼，则可以向法官问一个可以用“是”或“否”回答的问题，法官将如实作答。\n            </p>\n        </div>\n        \n        <div class="card eight">\n            <h2>游戏结束</h2>\n            <p class="cd-text">\n                当鬼猜出词时，鬼胜；<br/><br/>\n\n当平民和傻子的人数少于鬼的人数时，鬼胜；<br/><br/>\n\n当鬼全部死亡时，平民和傻子胜。\n            </p>\n        </div>\n        \n    </div>\n</div>\n\n<a class="h-close"></a>'); })();
+} 
+return buf.join('');
+} catch (err) {
+  rethrow(err, __stack.input, __stack.filename, __stack.lineno);
+}
+};
+window.JST = window.JST || {};window.JST["view/s-1"] = function (locals, filters, escape) {
 escape = escape || function (html){
   return String(html)
     .replace(/&(?!\w+;)/g, '&amp;')
@@ -123,8 +165,8 @@ return buf.join('');
 } catch (err) {
   rethrow(err, __stack.input, __stack.filename, __stack.lineno);
 }
-}if(typeof module != 'undefined') {  module.exports = anonymous;} else {  window.JST = window.JST || {};  window.JST["view/s-1"] = anonymous;}
-function anonymous(locals, filters, escape) {
+};
+window.JST = window.JST || {};window.JST["view/s-2"] = function (locals, filters, escape) {
 escape = escape || function (html){
   return String(html)
     .replace(/&(?!\w+;)/g, '&amp;')
@@ -165,8 +207,8 @@ return buf.join('');
 } catch (err) {
   rethrow(err, __stack.input, __stack.filename, __stack.lineno);
 }
-}if(typeof module != 'undefined') {  module.exports = anonymous;} else {  window.JST = window.JST || {};  window.JST["view/s-2"] = anonymous;}
-function anonymous(locals, filters, escape) {
+};
+window.JST = window.JST || {};window.JST["view/w-1"] = function (locals, filters, escape) {
 escape = escape || function (html){
   return String(html)
     .replace(/&(?!\w+;)/g, '&amp;')
@@ -207,8 +249,8 @@ return buf.join('');
 } catch (err) {
   rethrow(err, __stack.input, __stack.filename, __stack.lineno);
 }
-}if(typeof module != 'undefined') {  module.exports = anonymous;} else {  window.JST = window.JST || {};  window.JST["view/w-1"] = anonymous;}
-function anonymous(locals, filters, escape) {
+};
+window.JST = window.JST || {};window.JST["view/w-2"] = function (locals, filters, escape) {
 escape = escape || function (html){
   return String(html)
     .replace(/&(?!\w+;)/g, '&amp;')
@@ -249,4 +291,4 @@ return buf.join('');
 } catch (err) {
   rethrow(err, __stack.input, __stack.filename, __stack.lineno);
 }
-}if(typeof module != 'undefined') {  module.exports = anonymous;} else {  window.JST = window.JST || {};  window.JST["view/w-2"] = anonymous;}
+};

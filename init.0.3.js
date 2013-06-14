@@ -1,7 +1,6 @@
 (function ($, window) {
     var $wrapper = $('#wrapper'),
-        $helper = $('#helper')
-        ;
+        $helper = $('#helper');
 
 //    var HOST = 'http://localhost:88';
 //    var HOST = 'http://10.13.125.79:88';
@@ -577,6 +576,7 @@
         help: function(){
             $(document).on('tap','.f-l',function(e){
 
+            /*
                 $wrapper.hide();
 
                 //loading
@@ -597,6 +597,11 @@
 
                 //注册关闭事件.
                 stage.close();
+                
+                */
+                
+                stage._helper.show();
+                
             });
         },
 
@@ -608,8 +613,92 @@
                 $wrapper.show();
             });
         }
-    }
-
+    };
+    
+    
+    //helper from ~0.3
+    stage._helper = {
+        WIDTH_WITH_MARGIN: 256,
+        
+        init: function () {
+            stage._helper.getEl();
+            stage._helper.setSize();
+            stage._helper.bind();
+            
+            stage._helper.showOnce();
+        },
+        bind: function () {
+            var $el = stage._helper.$el;
+            $el.on('tap', '.h-close', function (e) {
+                stage._helper.close();
+            });
+        },
+        setSize: function () {
+            function _resize () {
+                stage._helper.$el.css('width', window.innerWidth);
+                stage._helper.$el.find('.sl').css('paddingLeft', ((window.innerWidth-stage._helper.WIDTH_WITH_MARGIN)/2));
+            }
+            $(window).resize(_resize);
+            _resize();
+        },
+        getEl: function () {
+            stage._helper.$el = $('#_helper');
+            stage._helper.$el.css({
+                '-webkit-transform': 'translateX('+window.innerWidth+'px)',
+                '-webkit-transition-duration': 0
+            }).hide();
+            
+        },
+        show: function (delay) {
+            var $el = stage._helper.$el;
+            
+            $helper.hide();
+            $el.show();
+            
+            if ($el.children().length > 0) {
+                $el.show();
+            } else {
+                $el.html(JST['view/helper-new']());
+                stage._helper.$el.find('.sl').css('paddingLeft', ((window.innerWidth-stage._helper.WIDTH_WITH_MARGIN)/2));
+                Flipsnap("#_helper .sl", { distance: stage._helper.WIDTH_WITH_MARGIN });
+            }
+            
+            delay = delay || 0;
+            setTimeout(function () {
+                $el.css({
+                    '-webkit-transform': 'translateX(0)',
+                    '-webkit-transition-duration': '300ms'
+                });
+                $('html,body').css('overflow', 'hidden');
+            }, delay)
+            
+            
+        },
+        close: function () {
+            stage._helper.$el.css({
+                '-webkit-transform': 'translateX('+window.innerWidth+'px)',
+            });
+            setTimeout(function () {
+                stage._helper.$el.hide();
+                $('html,body').css('overflow', 'auto');
+            }, 300);
+            
+            //记入本地
+            try {
+                localStorage.setItem('help_readed', 1);
+            }catch(e){}
+        },
+        showOnce: function () {
+            var isReaded = false;
+            try {
+                isReaded = !!localStorage.getItem('help_readed');
+            }catch(e){}
+            
+            !isReaded && stage._helper.show(500);
+        }
+    };
+    stage._helper.init(); 
+    
 
     //玩家
     var gamer = {
